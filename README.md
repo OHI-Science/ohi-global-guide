@@ -1,2 +1,2 @@
-# bookdown-tutorial
-Mini tutorial for bookdown 
+# OHI Global Assessment Guide
+Guide for conducting the OHI Global Assessment
