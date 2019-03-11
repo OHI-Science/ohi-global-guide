@@ -1,12 +1,8 @@
-# HI JULIE! 
-
-How are you doing?
-
-And now I'm asking about Niles and Pierce. How are they?
-
 # OHI Global Assessment Guide
 Guide for conducting the OHI Global Assessment
 
-Is Khora being a good dog?
+Here is a tip for writing comments in Markdown files that will be hidden when rendered to html: 
 
-Mel adding really cool stuff here.....
+`<!--- this is a comment --->`
+
+<!--- so I can write here and it will not be seen if this were knitted to html--->
