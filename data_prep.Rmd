@@ -22,7 +22,7 @@ These data are saved to Mazu: git-annex/globalprep/_raw_data in a folder that is
 
 Figure 1: Location of raw data saved to Mazu.
 
-![](images/_raw_data_org.png)
+![](https://docs.google.com/drawings/d/1gAxg5lXA1R1FwDs2tnwT5xR-XCGlxsgvR1SeAntFwkc/edit?usp=sharing)
 
 
 Every raw data folder should have a README.md (keep the caps so it is consistent and easy to see). *Note we are using .md rather than .txt even for READMEs on Mazu. 
