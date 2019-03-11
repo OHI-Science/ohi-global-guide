@@ -1,4 +1,10 @@
+# HI JULIE! 
+
+How are you doing?
+
+
 # OHI Global Assessment Guide
 Guide for conducting the OHI Global Assessment
 
-aflkjdald on line 4
+Is Khora being a good dog?
+
