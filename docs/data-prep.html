@@ -9,7 +9,7 @@
   <meta name="description" content="A guide for conducting the OHI Global Assessment">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 3 Data Prep | OHI Global Assessment Guide" />
+  <meta property="og:title" content="Chapter 3 Data Prep | OHI Global Assessment Guide />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Data Prep | OHI Global Assessment Guide" />
+  <meta name="twitter:title" content="Chapter 3 Data Prep | OHI Global Assessment Guide />
   
   <meta name="twitter:description" content="A guide for conducting the OHI Global Assessment" />
   
@@ -472,6 +472,8 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 ##  * rgn_syns() = function to load dataframe of region synonyms (used to convert country names to OHI regions)
 ##  * low_pop() = function to load dataframe of regions with low and no human population
 ##  * UNgeorgn = function to load dataframe of UN geopolitical designations used to gapfill missing data</code></pre>
+<pre><code>## Warning in eval(ei, envir): The Mazu directory dir_M set in src/R/common.R
+## does not exist. Do you need to mount Mazu: /Volumes/ohi?</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># call the function to load the data, the message describes the available data: </span>
 <span class="kw">region_data</span>()</code></pre></div>
 <pre><code>## loads 2 dataframes: rgns_all and rgns_eez 
@@ -507,7 +509,7 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## dir_M describes the path to our internal server based on your computer&#39;s operating system
 ## <span class="al">NOTE</span>: The following may be different on your operating system
 dir_M</code></pre></div>
-<pre><code>## [1] &quot;/home/shares/ohi&quot;</code></pre>
+<pre><code>## [1] &quot;/Volumes/ohi&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## mollCRS is the code for the Mollweide coordinate reference system
 mollCRS</code></pre></div>
 <pre><code>## CRS arguments:
