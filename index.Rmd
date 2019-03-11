@@ -7,7 +7,6 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: openscapes/series
 description: "A guide for conducting the OHI Global Assessment"
 ---
 
