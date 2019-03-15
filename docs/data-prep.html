@@ -25,7 +25,7 @@
 <meta name="author" content="OHI Team">
 
 
-<meta name="date" content="2019-03-11">
+<meta name="date" content="2019-03-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -176,20 +176,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>All data layers are prepared in the ohiprep_v20?? repository.</p>
 <p>Spend some time researching the data prior to launching into the coding in R. I look over the files in the dataprep folder on Github, as well as the Mazu folder that contains the raw data. I research the specific data layers I will be working on and the goals/pressures/resilience dimensions they are used to calculate. I typically start in the <a href="https://raw.githack.com/OHI-Science/ohi-global/published/global_supplement/Supplement.html">methods</a> document. I also research the source data, looking over websites, reports, and published papers.</p>
 <p>In regard to preparing the data, the best approach is to prepare the layer or layers within a single Rmd script and then update the OHI scores one layer at a time. This approach makes it much easier to identify and track potential errors.</p>
-<p>This section will discuss: 1. File organization 2. Starting a new data prep project 3. Anatomy of a typical data prep script 4. Notes on parallel processing</p>
+<p>This section will discuss:</p>
+<ol style="list-style-type: decimal">
+<li>File organization</li>
+<li>Starting a new data prep project</li>
+<li>Anatomy of a typical data prep script</li>
+<li>Notes on parallel processing</li>
+</ol>
 <hr />
 <div id="file-organization" class="section level2">
 <h2><span class="header-section-number">3.1</span> File organization</h2>
+<!--- TODO Ask Mel what "be responsible for serving other people's data" means. Unclear to me. --->
 <div id="saving-external-data" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Saving external data</h3>
 <p>In almost all cases, OHI data comes from other institutions. We save these data to<br />
 the NCEAS private server (Mazu) because we do not want to be responsible for serving other people’s data.</p>
 <p>These data are saved to Mazu: git-annex/globalprep/_raw_data in a folder that is labeled with an abbreviated version of the datasource (Figure 1). The data is saved to a folder describing the year the data was downloaded (e.g., d2015, d2016).</p>
 <p>Figure 1: Location of raw data saved to Mazu.</p>
-<div class="figure">
-<img src="https://docs.google.com/drawings/d/1gAxg5lXA1R1FwDs2tnwT5xR-XCGlxsgvR1SeAntFwkc/edit?usp=sharing" />
-
-</div>
+<p><img src="https://docs.google.com/drawings/d/1gAxg5lXA1R1FwDs2tnwT5xR-XCGlxsgvR1SeAntFwkc/edit?usp=sharing" /> <img src="images/_raw_data_org.png" /></p>
 <p>Every raw data folder should have a README.md (keep the caps so it is consistent and easy to see). *Note we are using .md rather than .txt even for READMEs on Mazu.</p>
 <p>Each README should include the following (<a href="https://github.com/OHI-Science/ohiprep/blob/master/src/templates/generic_raw_data_README.md">template</a>):</p>
 <ul>
@@ -212,7 +216,7 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 <h3><span class="header-section-number">3.1.2</span> globalprep files</h3>
 <p>All of the R scripts and metadata used to prepare the data, as well as the final data layers are saved in the Github ohiprep_v???? repository in the globalprep folder.</p>
 <p>The only data that will not be saved on Github are files that are too large or incompatible with Github (see below).</p>
-<p><strong>Primary goal/component folder</strong> The folder should be named according to the OHI target (the goal or dimension that the data is used to calculate). For example the folder for the tourism and recreation goal would be called: globalprep/tr (see table below). These recommendations are flexible and should be modified as needed, for example goals can be combined in a single folder (e.g., spp_ico) or, there may be several folders for different components of a single goal (e.g. tr_sustainability and tr_tourists).</p>
+<p><strong>Primary goal/component folder</strong> The folder should be named according to the OHI target (the goal or dimension that the data is used to calculate). For example the folder for the tourism and recreation goal would be called: globalprep/tr (see table below for all folder abbreviations). These recommendations are flexible and should be modified as needed, for example goals can be combined in a single folder (e.g., spp_ico) or, there may be several folders for different components of a single goal (e.g. tr_sustainability and tr_tourists).</p>
 <table>
 <thead>
 <tr class="header">
@@ -303,6 +307,7 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 </ul></li>
 </ul>
 <p>The final datasets (the ones stored in the <code>output</code> folder) will be preceeded by the target abbreviation followed by an underscore that provides a brief description of the data, e.g., tr_sustainability.csv).</p>
+<!--- TODO Slightly confused as to what this image is supposed to be showing us. Is this showing corrections that should be made to mistakes? --->
 <div class="figure">
 <img src="images/globalprepExample.png" />
 
@@ -333,12 +338,12 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 
 </div>
 <p>Next, delete all unnecessary files, particularly the files in the raw, intermediate, and output folders! New versions of these data will be created in the updated data_prep script, and you want to be sure that this is indeed what happens. If there are data already in the folder it can be easy to overlook a mistake, such as not using the correct file path to save the data, etc..</p>
-<p>Typically, you not delete the dataprep script/s and README. Youl will also want to preserve the folder structure. If in doubt, I delete the files and then copy them over as needed. For some goals, such as fisheries, there are lots and lots of files and it is very confusing. In these cases, I just copy the files as I need them.</p>
+<p>Typically, you will not delete the dataprep script/s and README. You will also want to preserve the folder structure. If in doubt, I delete the files and then copy them over as needed. For some goals, such as fisheries, there are lots and lots of files and it is very confusing. In these cases, I just copy the files as I need them.</p>
 <p>Once you have created and cleaned the new folder commit and push the updates!</p>
 </div>
 <div id="start-an-issue" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Start an issue</h3>
-<p>On Github create an issue for this dataprep project. Here you will document progress, report problems or concerns, pose questions, describe changes to code, and report on final results.</p>
+<p>On Github create an issue for this dataprep project. Here you will document progress, report problems or concerns, pose questions, describe changes to code, and report on final results. For example, if working on the artisanal opportunities dataprep, name the issue “Artisanal opportunities”.</p>
 <p>Once the relevant data layers are created and incorporated into the OHI scores this issue will be closed.</p>
 </div>
 <div id="update-the-files" class="section level3">
@@ -380,35 +385,65 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 <li>Results check: code used to check results</li>
 <li>Final run: a final run of all the code after restarting R</li>
 </ol>
-<p>A generic data prep Rmd file is located on Github: github.com/OHI-Science/ohiprep_v2019/workflow/templates/generic_data_prep.Rmd</p>
+<p>A generic data prep Rmd file is located on Github: <a href="https://raw.githubusercontent.com/OHI-Science/ohiprep/master/src/templates/generic_data_prep.Rmd" class="uri">https://raw.githubusercontent.com/OHI-Science/ohiprep/master/src/templates/generic_data_prep.Rmd</a></p>
 </div>
 <div id="prep-rmd-1.-summary" class="section level2">
 <h2><span class="header-section-number">3.4</span> prep Rmd: 1. Summary</h2>
 <p>This section describes the purpose of the script and the data layers that are generated.</p>
+<p>For example, the 2019 AO summary looks like this:</p>
+<ul>
+<li>“This script generates the”need&quot; layer for the artisanal opportunities goal. The “access” layer, which is not updated due to a lack of a data source, is located here: globalprep/res_mora_ao/v2013/data/r_mora_s4_2013a.csv.&quot;</li>
+</ul>
 </div>
 <div id="prep-rmd-2.-updates" class="section level2">
 <h2><span class="header-section-number">3.5</span> prep Rmd: 2. Updates</h2>
-<p>This sections describes all the updates to source data and/or methods since the previous year’s assessment.</p>
+<p>This section describes all the updates to source data and/or methods since the previous year’s assessment.</p>
+<p>For example, the 2019 AO updates look like this:</p>
+<ul>
+<li>“Uninhabited and low population regions now given an NA value (vs. a gapfilled value).”</li>
+</ul>
 </div>
 <div id="prep-rmd-3.-data-sources" class="section level2">
 <h2><span class="header-section-number">3.6</span> prep Rmd: 3. Data sources</h2>
-<p>This sections describes all data sources and may include:</p>
+<p>This section describes all data sources and may include:</p>
 <p><strong>Reference</strong>: [citation for source data; website, literature, contact information. Version of data (if relevant).]</p>
 <p><strong>Downloaded</strong>: [date downloaded or received]</p>
 <p><strong>Description</strong>: [e.g., surface aragonite state]</p>
 <p><strong>Native data resolution</strong>: [e.g., 1 degree, 30 m, country, etc.]</p>
 <p><strong>Time range</strong>: [e.g., 1880-1899, monthly data provided for each year]</p>
-<p><strong>Format</strong>: [e.g., NetCDF, Excel file]</p>
+<p><strong>Format</strong>: [e.g., NetCDF, Excel file] <br> <br></p>
+<p>For example, the 2019 AO data sources section looks like this:</p>
+<p><strong>Downloaded</strong>: 7/23/2018</p>
+<p><strong>Description</strong>:<br />
+GDP adjusted per capita by PPP (ppppcgdp) <a href="http://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD" class="uri">http://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD</a> Reported at country scale.</p>
+<p>GDP per capita based on purchasing power parity (PPP). PPP GDP is gross domestic product converted to international dollars using purchasing power parity rates. An international dollar has the same purchasing power over GDP as the U.S. dollar has in the United States. GDP at purchaser’s prices is the sum of gross value added by all resident producers in the economy plus any product taxes and minus any subsidies not included in the value of the products. It is calculated without making deductions for depreciation of fabricated assets or for depletion and degradation of natural resources. Data are in constant international dollars based on the 2011 ICP round.</p>
+<p>Data is available directly to R through the WDI package.</p>
+<p><strong>Time range</strong>: 1990-2017</p>
 </div>
 <div id="prep-rmd-4.-set-up" class="section level2">
 <h2><span class="header-section-number">3.7</span> prep Rmd: 4. Set up</h2>
 <p>This code chunk is used to load packages, source functions, and set variables used throughout the analyses.</p>
 <div id="packages" class="section level3">
 <h3><span class="header-section-number">3.7.1</span> Packages</h3>
-<p>The packages we load depend on the analyses, but we always use: * dplyr and tidyr: data wrangling tools (a cheatsheet: <a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" class="uri">https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf</a>) * here: controls file paths (<a href="https://github.com/jennybc/here_here" class="uri">https://github.com/jennybc/here_here</a>)</p>
-<p>We often use the following for spatial analyses: * rgdal: tools for dealing with coordinate reference systems * sp: classes and methods for spatial data * sf: a new version of sp, providing a standardized way to encode spatial vector data * raster: reading, writing, manipulating, analyzing and modeling of gridded spatial data * fasterize: a better way to convert a shapefile to a raster file</p>
+<p>The packages we load depend on the analyses, but we always use:</p>
+<ul>
+<li>dplyr and tidyr: data wrangling tools <a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">a cheatsheet</a></li>
+<li><a href="https://github.com/jennybc/here_here">here</a>: controls file paths</li>
+</ul>
+<p>We often use the following for spatial analyses:</p>
+<ul>
+<li>rgdal: tools for dealing with coordinate reference systems</li>
+<li>sp: classes and methods for spatial data</li>
+<li>sf: a new version of sp, providing a standardized way to encode spatial vector data</li>
+<li>raster: reading, writing, manipulating, analyzing and modeling of gridded spatial data</li>
+<li>fasterize: a better way to convert a shapefile to a raster file</li>
+</ul>
 <p>We often use the zoo package for time-series data.</p>
-<p>And, for parallel processing, typically used to perform spatial analyses, we use: * doParallel * foreach</p>
+<p>And, for parallel processing, typically used to perform spatial analyses, we use:</p>
+<ul>
+<li>doParallel</li>
+<li>foreach</li>
+</ul>
 </div>
 <div id="common.r" class="section level3">
 <h3><span class="header-section-number">3.7.2</span> common.R</h3>

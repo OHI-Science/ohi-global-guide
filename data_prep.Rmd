@@ -6,6 +6,7 @@ Spend some time researching the data prior to launching into the coding in R.  I
 In regard to preparing the data, the best approach is to prepare the layer or layers within a single Rmd script and then update the OHI scores one layer at a time.  This approach makes it much easier to identify and track potential errors.
 
 This section will discuss:
+
 1. File organization
 2. Starting a new data prep project
 3. Anatomy of a typical data prep script
@@ -13,7 +14,7 @@ This section will discuss:
 
 *** 
 ## File organization
-
+<!--- TODO Ask Mel what "be responsible for serving other people's data" means. Unclear to me. --->
 ### Saving external data
 In almost all cases, OHI data comes from other institutions. We save these data to   
 the NCEAS private server (Mazu) because we do not want to be responsible for serving other people's data.
@@ -23,7 +24,7 @@ These data are saved to Mazu: git-annex/globalprep/_raw_data in a folder that is
 Figure 1: Location of raw data saved to Mazu.
 
 ![](https://docs.google.com/drawings/d/1gAxg5lXA1R1FwDs2tnwT5xR-XCGlxsgvR1SeAntFwkc/edit?usp=sharing)
-
+![](images/_raw_data_org.png)
 
 Every raw data folder should have a README.md (keep the caps so it is consistent and easy to see). *Note we are using .md rather than .txt even for READMEs on Mazu. 
 
@@ -49,7 +50,7 @@ All of the R scripts and metadata used to prepare the data, as well as the final
 
 The only data that will not be saved on Github are files that are too large or incompatible with Github (see below).
 
-**Primary goal/component folder** The folder should be named according to the OHI target (the goal or dimension that the data is used to calculate). For example the folder for the tourism and recreation goal would be called: globalprep/tr (see table below). These recommendations are flexible and should be modified as needed, for example goals can be combined in a single folder (e.g., spp_ico) or, there may be several folders for different components of a single goal (e.g. tr_sustainability and tr_tourists).
+**Primary goal/component folder** The folder should be named according to the OHI target (the goal or dimension that the data is used to calculate). For example the folder for the tourism and recreation goal would be called: globalprep/tr (see table below for all folder abbreviations). These recommendations are flexible and should be modified as needed, for example goals can be combined in a single folder (e.g., spp_ico) or, there may be several folders for different components of a single goal (e.g. tr_sustainability and tr_tourists).
 
 target      |   suggested folder name
 ----------- | ------------------
@@ -85,6 +86,7 @@ This folder will contain:
 
 The final datasets (the ones stored in the `output` folder) will be preceeded by the target abbreviation followed by an underscore that provides a brief description of the data, e.g., tr_sustainability.csv).
 
+<!--- TODO Slightly confused as to what this image is supposed to be showing us. Is this showing corrections that should be made to mistakes? --->
 ![](images/globalprepExample.png)
 
 ***
@@ -115,12 +117,12 @@ For example, if we are preparing data layers for the 2019 assessment for the art
 
 Next, delete all unnecessary files, particularly the files in the raw, intermediate, and output folders!  New versions of these data will be created in the updated data_prep script, and you want to be sure that this is indeed what happens. If there are data already in the folder it can be easy to overlook a mistake, such as not using the correct file path to save the data, etc..
 
-Typically, you not delete the dataprep script/s and README.  Youl will also want to preserve the folder structure.  If in doubt, I delete the files and then copy them over as needed.  For some goals, such as fisheries, there are lots and lots of files and it is very confusing. In these cases, I just copy the files as I need them. 
+Typically, you will not delete the dataprep script/s and README.  You will also want to preserve the folder structure.  If in doubt, I delete the files and then copy them over as needed.  For some goals, such as fisheries, there are lots and lots of files and it is very confusing. In these cases, I just copy the files as I need them. 
 
 Once you have created and cleaned the new folder commit and push the updates!
 
 ### Start an issue
-On Github create an issue for this dataprep project.  Here you will document progress, report problems or concerns, pose questions, describe changes to code, and report on final results.  
+On Github create an issue for this dataprep project.  Here you will document progress, report problems or concerns, pose questions, describe changes to code, and report on final results. For example, if working on the artisanal opportunities dataprep, name the issue "Artisanal opportunities". 
 
 Once the relevant data layers are created and incorporated into the OHI scores this issue will be closed.
 
@@ -166,17 +168,25 @@ A typical data prep script (or series of scripts) will include the following sec
 8. Final run: a final run of all the code after restarting R
 
 
-A generic data prep Rmd file is located on Github: github.com/OHI-Science/ohiprep_v2019/workflow/templates/generic_data_prep.Rmd
+A generic data prep Rmd file is located on Github: [https://raw.githubusercontent.com/OHI-Science/ohiprep/master/src/templates/generic_data_prep.Rmd](https://raw.githubusercontent.com/OHI-Science/ohiprep/master/src/templates/generic_data_prep.Rmd)
 
 
 ## prep Rmd: 1. Summary
 This section describes the purpose of the script and the data layers that are generated.
 
+For example, the 2019 AO summary looks like this: 
+
+- "This script generates the "need" layer for the artisanal opportunities goal.  The "access" layer, which is not updated due to a lack of a data source, is located here: globalprep/res_mora_ao/v2013/data/r_mora_s4_2013a.csv."
+
 ## prep Rmd: 2. Updates
-This sections describes all the updates to source data and/or methods since the previous year's assessment.
+This section describes all the updates to source data and/or methods since the previous year's assessment.
+
+For example, the 2019 AO updates look like this: 
+
+- "Uninhabited and low population regions now given an NA value (vs. a gapfilled value)."
 
 ## prep Rmd: 3. Data sources
-This sections describes all data sources and may include:
+This section describes all data sources and may include:
 
 **Reference**: [citation for source data; website, literature, contact information. Version of data (if relevant).]
 
@@ -189,27 +199,46 @@ This sections describes all data sources and may include:
 **Time range**: [e.g., 1880-1899, monthly data provided for each year] 
 
 **Format**:  [e.g., NetCDF, Excel file]
+<br> <br>
+
+For example, the 2019 AO data sources section looks like this:
+
+**Downloaded**: 7/23/2018
+
+**Description**:  
+GDP adjusted per capita by PPP (ppppcgdp)
+http://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD
+Reported at country scale.
+
+GDP per capita based on purchasing power parity (PPP). PPP GDP is gross domestic product converted to international dollars using purchasing power parity rates. An international dollar has the same purchasing power over GDP as the U.S. dollar has in the United States. GDP at purchaser's prices is the sum of gross value added by all resident producers in the economy plus any product taxes and minus any subsidies not included in the value of the products. It is calculated without making deductions for depreciation of fabricated assets or for depletion and degradation of natural resources. Data are in constant international dollars based on the 2011 ICP round.
+
+Data is available directly to R through the WDI package.
+
+**Time range**: 1990-2017
 
 ## prep Rmd: 4. Set up 
 This code chunk is used to load packages, source functions, and set variables used throughout the analyses.  
 
 ### Packages
 The packages we load depend on the analyses, but we always use:
-* dplyr and tidyr: data wrangling tools (a cheatsheet: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
-* here: controls file paths (https://github.com/jennybc/here_here)
+
+- dplyr and tidyr: data wrangling tools [a cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) 
+- [here](https://github.com/jennybc/here_here): controls file paths
 
 We often use the following for spatial analyses:
-* rgdal: tools for dealing with coordinate reference systems
-* sp: classes and methods for spatial data
-* sf: a new version of sp, providing a standardized way to encode spatial vector data
-* raster: reading, writing, manipulating, analyzing and modeling of gridded spatial data
-* fasterize: a better way to convert a shapefile to a raster file
+
+- rgdal: tools for dealing with coordinate reference systems
+- sp: classes and methods for spatial data
+- sf: a new version of sp, providing a standardized way to encode spatial vector data
+- raster: reading, writing, manipulating, analyzing and modeling of gridded spatial data
+- fasterize: a better way to convert a shapefile to a raster file
 
 We often use the zoo package for time-series data. 
 
 And, for parallel processing, typically used to perform spatial analyses, we use:
-* doParallel
-* foreach
+
+- doParallel
+- foreach
 
 ### common.R
 Nearly all scripts will source a common.R file.  This file creates several objects that make it easier to conduct an OHI assessment.  This includes:
@@ -258,6 +287,7 @@ mollCRS
 
 
 *regions_shape*
+
 The regions_shape function returns a simple feature object called "regions". Regions is the master global shapefile that includes polygons for land, eez, high seas, and antarctica regions in the Mollweide coordinate reference system.
 
 Sometimes it is necessary to convert from a simple feature object to a shapefile object because some functions still do not work with simple feature objects, or, if the spatial file is modified, a saved shapefile may be desired.  This is accomplished like this:
@@ -268,6 +298,8 @@ Sometimes it is necessary to convert from a simple feature object to a shapefile
 
 library(sf)
 library(here)
+
+regions_shape <- as(regions, "Spatial")
 
 regions_shape()
 head(regions)
