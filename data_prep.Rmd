@@ -23,8 +23,7 @@ These data are saved to Mazu: git-annex/globalprep/_raw_data in a folder that is
 
 Figure 1: Location of raw data saved to Mazu.
 
-![](https://docs.google.com/drawings/d/1gAxg5lXA1R1FwDs2tnwT5xR-XCGlxsgvR1SeAntFwkc/edit?usp=sharing)
-![](images/_raw_data_org.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vT09zXxdCewmMAuDscXvS-pAoYM92AMd8Xxw_DhP93IFirHRtioAu19IsjEUN24091Cvm7vmCkB8piM/pub?w=960&h=720)
 
 Every raw data folder should have a README.md (keep the caps so it is consistent and easy to see). *Note we are using .md rather than .txt even for READMEs on Mazu. 
 
@@ -87,7 +86,7 @@ This folder will contain:
 The final datasets (the ones stored in the `output` folder) will be preceeded by the target abbreviation followed by an underscore that provides a brief description of the data, e.g., tr_sustainability.csv).
 
 <!--- TODO Slightly confused as to what this image is supposed to be showing us. Is this showing corrections that should be made to mistakes? --->
-![](images/globalprepExample.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vQL9FTF2lZ3yBCv9ZEI7OQ0sNCGdKpUrP0FfjtV_14vvzHAx3rxMQLJ-nFcfjRVT61sHTti4Husmrm-/pub?w=960&h=720)
 
 ***
 
@@ -97,7 +96,7 @@ These files will be saved on Mazu, the internal server's, globalprep folder.
 
 Our goal is to have everything (except for data obtained from other sources) stored on GitHub, but some files are too large or inappropriate for GitHub and must be stored on Mazu. Each of these files should be stored in a way that mirrors that on Github. If there is a need to make a duplicate folder on `git-annex`, it should have the same name as the folder used in GitHub.
 
-![](images/mazufolders.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vQjq4gTVyHmB-QKIAAWEin3YRPSsEqoq2yZZ0W5uP6D47vXAZUoNJl21BPKLumifz_UgbZ_ef1-U0lt/pub?w=960&h=720)
 
 Store any intermediate or final output files that are too large for github in these folders. Keep the same subfolder structure. If you are working in `spp_ico` and have temporary rasters to store on Mazu, save them in a folder named `int`. 
 
@@ -113,8 +112,7 @@ In ohiprep_v20??/globalprep navigate to the folder that contains the files you w
 
 For example, if we are preparing data layers for the 2019 assessment for the artisanal opportunities goal, ao, we would copy the v2018 folder and name it v2019.
 
-![](images/global_prep_new_assessment.png)
-
+![](https://docs.google.com/drawings/d/e/2PACX-1vTkXdx-bGQoOhzXn6Wz94yV9_S9BlKY0kPhAtp9nKaewr0lRD0Cr0B_H37aUoDANt0Ck6p4wSaFIJPz/pub?w=960&h=720)
 Next, delete all unnecessary files, particularly the files in the raw, intermediate, and output folders!  New versions of these data will be created in the updated data_prep script, and you want to be sure that this is indeed what happens. If there are data already in the folder it can be easy to overlook a mistake, such as not using the correct file path to save the data, etc..
 
 Typically, you will not delete the dataprep script/s and README.  You will also want to preserve the folder structure.  If in doubt, I delete the files and then copy them over as needed.  For some goals, such as fisheries, there are lots and lots of files and it is very confusing. In these cases, I just copy the files as I need them. 
@@ -294,6 +292,8 @@ Sometimes it is necessary to convert from a simple feature object to a shapefile
 
 `regions_shape <- as(regions, "Spatial")`
 
+<!--- TODO Can't get any of these code chunks to run. Are they necessary to run? Need to discuss with Mel--->
+
 ```{r, eval=FALSE, echo=FALSE}
 
 library(sf)
@@ -324,7 +324,7 @@ dev.off()
 
 The regions file with eez (dark blue), fao or high seas (light blue), and antarctica or CCAMLR (green) regions.
 
-![](images/regions.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vRpNcorAKw0Hzk--d1R_llBw4-qeCx1mcgDSpaUeIASO2YDBIhPcoEXMshIFHgo9nv8E6_o6h70fs-P/pub?w=960&h=720)
 
 The regions object is a simple feature multipolygon spatial object in the Mollweide coordinate reference system. There are 7 fields described in the table
 
@@ -339,6 +339,7 @@ rgn_key    | factor | 3 letter identification code  | e.g., AFG, BEL
 area_km2   | numeric | area of region, km2  | range of 1-30604795
 
 *ohi_rasters*
+
 The ohi_rasters function returns two rasters, "zones" and "ocean", both with ~1 km resolution and the mollweide coordinate reference system.
 
 The "zones" raster cell values are the OHI region ID.  The raster cell values can be linked to the region names using the region_data() function, and the rgn_ant_id variable from rgns_all.csv.  This raster is typically used to extract pressure data for the eez regions.
@@ -361,7 +362,7 @@ dev.off()
 
 ```
 
-![](images/regions_raster.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vQ7vOBar-Xr6QH8X36WsJidS0M_L4hhTQh6wgT4RTvIVJAgR04fWEqOP3oAbUcdg4JgWOu8sgzHhw0E/pub?w=960&h=720)
 
 The "ocean" raster identifies ocean cells with a value of 1, and other cells are NA [NOTE: There is something weird about this raster in that it lists the values as 0, 255 (min, max), when in fact there are only 1 and NA values! If you need to convince yourself of this, you can use the `freq(ocean)` function to identify all cell values.].  This raster file is typically used to mask the ocean regions for pressure data.  
 
@@ -383,14 +384,16 @@ freq(ocean)
      
 ```
 
-![](images/ocean_raster.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vTyex8lM_fxw6-23Z1mY59Ejf3PkcBUYOYtgVx7aqjNAqtPwEmIgG289EcY9B3wLlgvrp9tTA2iCRbO/pub?w=960&h=720)
 
 *region_data()*
+
 The region_data function returns two dataframes, "rgns_all" and "rgns_eez".
 
 The "rgns_all" dataframe includes data for the eez, fao, and ccamlr ocean regions.  The IDs in rgn_ant_id correspond to the IDs in the zones raster. Once raster data are extracted for each region, the output is often aligned with the data in this dataframe. 
 
 *Metadata for rgns_all dataframe*
+
 field    |  data type | description    | examples
 --------- | ---------------- | --------------- | ----------------------------
 rgn_type   | factor | similar to type_w_ant, but does not specify eez/ccamlr and types  | eez (n=239), fao (15)
@@ -402,6 +405,7 @@ rgn_name   |  character | country/territory name  | e.g., Afghanistan, Belize, P
 The "rgns_eez" dataframe includes data for the 220 OHI regions plus Antarctica (rgn_id 213).  This file is used to make sure that all regions are included in dataprep files.  It also includes data to indicate whether regions are territories.  This can also be used for gapfilling (in some cases, it makes sense to assign territories the same value as their administrative country).  
 
 *Metadata for rgns_eez dataframe*
+
 field    |  data type | description    | examples
 --------- | --------------- | --------------- | ----------------------------
 rgn_id   | numeric | official global regions (except Antarctica, 213) | 1-250
@@ -412,10 +416,12 @@ admin_rgn_id | numeric | administrative country rgn_id if a territory, otherwise
 admin_country_name | character | administrative country name if a territory, otherwise the country name | e.g., Afghanistan, Belize, Canada
 
 *region_syns()*
+
 Observed synonyms for each region, such that each region may have multiple synonyms.  These data are used to convert outside data to the OHI region name and ID.  This list is updated nearly everytime we run an assessment!
 
 
 *Metadata for region_syns dataframe*
+
 field    |  data type | description    | examples
 --------- | ---------------- | --------------- | ----------------------------
 rgn_id     | numeric | region ids               | 1-250 
@@ -425,9 +431,11 @@ eez_iso3   | factor | 3-letter code for countries | e.g., FSM
 rgn_typ    | factor | status of region            | disputed, landlocked, largescale (global, world); ohi_region
 
 *low_pop()*
+
 Includes data for 21 regions with 0 and low populations.  These data are used to identify regions that should have NA values because the goal does not apply to regions with no/low populations (e.g., livelihoods and economies).
 
 *Metadata for low_pop dataframe*
+
 field    |  data type | description    | examples
 --------- | --------------- | --------------- | ----------------------------
 rgn_id     | numeric | region ids               | 1-250 
@@ -437,9 +445,11 @@ Inhabited   | boolean | indicates if region is uninhabited | boolean, 1/0
 est_population    | numeric | number of established people in region  | 0-3000
 
 *UNgeorgn()*
+
 Each global regions UN georegion based on social and geopolitical considerations. 
 
 *Metadata for UNgeorgn dataframe*
+
 field    |  data type | description    | examples
 --------- | --------------- | --------------- | ----------------------------
 rgn_id     | numeric | region ids               | 1-250 
@@ -498,7 +508,7 @@ Gapfilling steps are often mixed with the dataprep code.  Once the gapfilling is
 
 The gapfilling record is saved with the same name as the corresponding output data, but with a "_gf" extension.
 
-![](images/gapfilling_file_naming.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vTGj33cUjqLbPw3sPkPBNGovaaradQASn3CzuTvLL8VgcFqcmlPGNskPksNjlqu1E8enu9zVSOklXJ8/pub?w=960&h=720)
 
 The gapfilling dataset should mirror the corresponding dataset in regard to the number of rows and identifying columns (e.g., rgn_id, commodity, year, etc.). The gapfilling datset should include three additional columns that indicate the following:
 
@@ -506,7 +516,7 @@ The gapfilling dataset should mirror the corresponding dataset in regard to the 
 * method: a short descriptor of the method that was used (this should be described more fully somewhere in the documentation).
 * error: a numeric value describing the error around the estimate.  This should be left blank if this was not determined (most of the time this will not be estimated).
 
-![](images/gapfilling_dataset_example.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vSFPuVZaRrO__JnOOSOl-AukPo3HN3rpBcIYDuC0pau2xHw3IVtnqOvTrdY5AfcVs7XybADvZD-tLtr/pub?w=691&h=690)
 
 ## prep Rmd: 7. Results check
 

@@ -193,7 +193,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 the NCEAS private server (Mazu) because we do not want to be responsible for serving other people’s data.</p>
 <p>These data are saved to Mazu: git-annex/globalprep/_raw_data in a folder that is labeled with an abbreviated version of the datasource (Figure 1). The data is saved to a folder describing the year the data was downloaded (e.g., d2015, d2016).</p>
 <p>Figure 1: Location of raw data saved to Mazu.</p>
-<p><img src="https://docs.google.com/drawings/d/1gAxg5lXA1R1FwDs2tnwT5xR-XCGlxsgvR1SeAntFwkc/edit?usp=sharing" /> <img src="images/_raw_data_org.png" /></p>
+<div class="figure">
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vT09zXxdCewmMAuDscXvS-pAoYM92AMd8Xxw_DhP93IFirHRtioAu19IsjEUN24091Cvm7vmCkB8piM/pub?w=960&amp;h=720" />
+
+</div>
 <p>Every raw data folder should have a README.md (keep the caps so it is consistent and easy to see). *Note we are using .md rather than .txt even for READMEs on Mazu.</p>
 <p>Each README should include the following (<a href="https://github.com/OHI-Science/ohiprep/blob/master/src/templates/generic_raw_data_README.md">template</a>):</p>
 <ul>
@@ -309,7 +312,7 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 <p>The final datasets (the ones stored in the <code>output</code> folder) will be preceeded by the target abbreviation followed by an underscore that provides a brief description of the data, e.g., tr_sustainability.csv).</p>
 <!--- TODO Slightly confused as to what this image is supposed to be showing us. Is this showing corrections that should be made to mistakes? --->
 <div class="figure">
-<img src="images/globalprepExample.png" />
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vQL9FTF2lZ3yBCv9ZEI7OQ0sNCGdKpUrP0FfjtV_14vvzHAx3rxMQLJ-nFcfjRVT61sHTti4Husmrm-/pub?w=960&amp;h=720" />
 
 </div>
 <hr />
@@ -319,7 +322,7 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 <p>These files will be saved on Mazu, the internal server’s, globalprep folder.</p>
 <p>Our goal is to have everything (except for data obtained from other sources) stored on GitHub, but some files are too large or inappropriate for GitHub and must be stored on Mazu. Each of these files should be stored in a way that mirrors that on Github. If there is a need to make a duplicate folder on <code>git-annex</code>, it should have the same name as the folder used in GitHub.</p>
 <div class="figure">
-<img src="images/mazufolders.png" />
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vQjq4gTVyHmB-QKIAAWEin3YRPSsEqoq2yZZ0W5uP6D47vXAZUoNJl21BPKLumifz_UgbZ_ef1-U0lt/pub?w=960&amp;h=720" />
 
 </div>
 <p>Store any intermediate or final output files that are too large for github in these folders. Keep the same subfolder structure. If you are working in <code>spp_ico</code> and have temporary rasters to store on Mazu, save them in a folder named <code>int</code>.</p>
@@ -333,11 +336,7 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 <h3><span class="header-section-number">3.2.1</span> Prepare the dataprep folder</h3>
 <p>In ohiprep_v20??/globalprep navigate to the folder that contains the files you will need to prepare the data. Select the most recent assessment year of data and copy/paste to create a new folder in the same location, changing the name to reflect the current assessment year.</p>
 <p>For example, if we are preparing data layers for the 2019 assessment for the artisanal opportunities goal, ao, we would copy the v2018 folder and name it v2019.</p>
-<div class="figure">
-<img src="images/global_prep_new_assessment.png" />
-
-</div>
-<p>Next, delete all unnecessary files, particularly the files in the raw, intermediate, and output folders! New versions of these data will be created in the updated data_prep script, and you want to be sure that this is indeed what happens. If there are data already in the folder it can be easy to overlook a mistake, such as not using the correct file path to save the data, etc..</p>
+<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vTkXdx-bGQoOhzXn6Wz94yV9_S9BlKY0kPhAtp9nKaewr0lRD0Cr0B_H37aUoDANt0Ck6p4wSaFIJPz/pub?w=960&amp;h=720" /> Next, delete all unnecessary files, particularly the files in the raw, intermediate, and output folders! New versions of these data will be created in the updated data_prep script, and you want to be sure that this is indeed what happens. If there are data already in the folder it can be easy to overlook a mistake, such as not using the correct file path to save the data, etc..</p>
 <p>Typically, you will not delete the dataprep script/s and README. You will also want to preserve the folder structure. If in doubt, I delete the files and then copy them over as needed. For some goals, such as fisheries, there are lots and lots of files and it is very confusing. In these cases, I just copy the files as I need them.</p>
 <p>Once you have created and cleaned the new folder commit and push the updates!</p>
 </div>
@@ -549,12 +548,13 @@ dir_M</code></pre></div>
 mollCRS</code></pre></div>
 <pre><code>## CRS arguments:
 ##  +proj=moll +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +units=m +no_defs</code></pre>
-<p><em>regions_shape</em> The regions_shape function returns a simple feature object called “regions”. Regions is the master global shapefile that includes polygons for land, eez, high seas, and antarctica regions in the Mollweide coordinate reference system.</p>
+<p><em>regions_shape</em></p>
+<p>The regions_shape function returns a simple feature object called “regions”. Regions is the master global shapefile that includes polygons for land, eez, high seas, and antarctica regions in the Mollweide coordinate reference system.</p>
 <p>Sometimes it is necessary to convert from a simple feature object to a shapefile object because some functions still do not work with simple feature objects, or, if the spatial file is modified, a saved shapefile may be desired. This is accomplished like this:</p>
 <p><code>regions_shape &lt;- as(regions, &quot;Spatial&quot;)</code></p>
 <p>The regions file with eez (dark blue), fao or high seas (light blue), and antarctica or CCAMLR (green) regions.</p>
 <div class="figure">
-<img src="images/regions.png" />
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vRpNcorAKw0Hzk--d1R_llBw4-qeCx1mcgDSpaUeIASO2YDBIhPcoEXMshIFHgo9nv8E6_o6h70fs-P/pub?w=960&amp;h=720" />
 
 </div>
 <p>The regions object is a simple feature multipolygon spatial object in the Mollweide coordinate reference system. There are 7 fields described in the table</p>
@@ -618,28 +618,291 @@ mollCRS</code></pre></div>
 </tr>
 </tbody>
 </table>
-<p><em>ohi_rasters</em> The ohi_rasters function returns two rasters, “zones” and “ocean”, both with ~1 km resolution and the mollweide coordinate reference system.</p>
+<p><em>ohi_rasters</em></p>
+<p>The ohi_rasters function returns two rasters, “zones” and “ocean”, both with ~1 km resolution and the mollweide coordinate reference system.</p>
 <p>The “zones” raster cell values are the OHI region ID. The raster cell values can be linked to the region names using the region_data() function, and the rgn_ant_id variable from rgns_all.csv. This raster is typically used to extract pressure data for the eez regions.</p>
 <div class="figure">
-<img src="images/regions_raster.png" />
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vQ7vOBar-Xr6QH8X36WsJidS0M_L4hhTQh6wgT4RTvIVJAgR04fWEqOP3oAbUcdg4JgWOu8sgzHhw0E/pub?w=960&amp;h=720" />
 
 </div>
 <p>The “ocean” raster identifies ocean cells with a value of 1, and other cells are NA [NOTE: There is something weird about this raster in that it lists the values as 0, 255 (min, max), when in fact there are only 1 and NA values! If you need to convince yourself of this, you can use the <code>freq(ocean)</code> function to identify all cell values.]. This raster file is typically used to mask the ocean regions for pressure data.</p>
 <div class="figure">
-<img src="images/ocean_raster.png" />
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vTyex8lM_fxw6-23Z1mY59Ejf3PkcBUYOYtgVx7aqjNAqtPwEmIgG289EcY9B3wLlgvrp9tTA2iCRbO/pub?w=960&amp;h=720" />
 
 </div>
-<p><em>region_data()</em> The region_data function returns two dataframes, “rgns_all” and “rgns_eez”.</p>
+<p><em>region_data()</em></p>
+<p>The region_data function returns two dataframes, “rgns_all” and “rgns_eez”.</p>
 <p>The “rgns_all” dataframe includes data for the eez, fao, and ccamlr ocean regions. The IDs in rgn_ant_id correspond to the IDs in the zones raster. Once raster data are extracted for each region, the output is often aligned with the data in this dataframe.</p>
-<p><em>Metadata for rgns_all dataframe</em> field | data type | description | examples ——— | —————- | ————— | —————————- rgn_type | factor | similar to type_w_ant, but does not specify eez/ccamlr and types | eez (n=239), fao (15) type_w_ant | factor | identifies all ocean polygons as eez, fao (high seas), ccamlr (antarctica) | eez (n=220), fao (15), eez-ccamlr (19) rgn_id | numeric | region ids; similar to rgn_ant_id, but Antartica/CCAMLR regions lumped as region 213 | 1-250 country eez (these are the official global regions; some numbers are skipped); 255 disputed eez; 260-277 fao high seas rgn_ant_id | numeric | region ids | 1-250 country eez (these are the official global regions; some numbers are skipped); 255 disputed eez; 260-277 fao high seas; 248100-288300 CCAMLR regions rgn_name | character | country/territory name | e.g., Afghanistan, Belize, Prince Edward Islands</p>
+<p><em>Metadata for rgns_all dataframe</em></p>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="23%" />
+<col width="22%" />
+<col width="40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>field</th>
+<th>data type</th>
+<th>description</th>
+<th>examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>rgn_type</td>
+<td>factor</td>
+<td>similar to type_w_ant, but does not specify eez/ccamlr and types</td>
+<td>eez (n=239), fao (15)</td>
+</tr>
+<tr class="even">
+<td>type_w_ant</td>
+<td>factor</td>
+<td>identifies all ocean polygons as eez, fao (high seas), ccamlr (antarctica)</td>
+<td>eez (n=220), fao (15), eez-ccamlr (19)</td>
+</tr>
+<tr class="odd">
+<td>rgn_id</td>
+<td>numeric</td>
+<td>region ids; similar to rgn_ant_id, but Antartica/CCAMLR regions lumped as region 213</td>
+<td>1-250 country eez (these are the official global regions; some numbers are skipped); 255 disputed eez; 260-277 fao high seas</td>
+</tr>
+<tr class="even">
+<td>rgn_ant_id</td>
+<td>numeric</td>
+<td>region ids</td>
+<td>1-250 country eez (these are the official global regions; some numbers are skipped); 255 disputed eez; 260-277 fao high seas; 248100-288300 CCAMLR regions</td>
+</tr>
+<tr class="odd">
+<td>rgn_name</td>
+<td>character</td>
+<td>country/territory name</td>
+<td>e.g., Afghanistan, Belize, Prince Edward Islands</td>
+</tr>
+</tbody>
+</table>
 <p>The “rgns_eez” dataframe includes data for the 220 OHI regions plus Antarctica (rgn_id 213). This file is used to make sure that all regions are included in dataprep files. It also includes data to indicate whether regions are territories. This can also be used for gapfilling (in some cases, it makes sense to assign territories the same value as their administrative country).</p>
-<p><em>Metadata for rgns_eez dataframe</em> field | data type | description | examples ——— | ————— | ————— | —————————- rgn_id | numeric | official global regions (except Antarctica, 213) | 1-250 rgn_name | character | country/territory name | e.g., Afghanistan, Belize, Prince Edward Islands eez_iso3 | factor | 3 letter identification code | e.g., AFG, BEL territory | boolean | identifies whether the region is a territory | yes/no admin_rgn_id | numeric | administrative country rgn_id if a territory, otherwise the rgn_id | 1-250 admin_country_name | character | administrative country name if a territory, otherwise the country name | e.g., Afghanistan, Belize, Canada</p>
-<p><em>region_syns()</em> Observed synonyms for each region, such that each region may have multiple synonyms. These data are used to convert outside data to the OHI region name and ID. This list is updated nearly everytime we run an assessment!</p>
-<p><em>Metadata for region_syns dataframe</em> field | data type | description | examples ——— | —————- | ————— | —————————- rgn_id | numeric | region ids | 1-250 rgn_name | character | country/territory name | e.g., Federated State of Micronesia; Micronesia, FS; Micronesia (Federated States of) rgn_key | factor | 2-letter code for countries | e.g., FM eez_iso3 | factor | 3-letter code for countries | e.g., FSM rgn_typ | factor | status of region | disputed, landlocked, largescale (global, world); ohi_region</p>
-<p><em>low_pop()</em> Includes data for 21 regions with 0 and low populations. These data are used to identify regions that should have NA values because the goal does not apply to regions with no/low populations (e.g., livelihoods and economies).</p>
-<p><em>Metadata for low_pop dataframe</em> field | data type | description | examples ——— | ————— | ————— | —————————- rgn_id | numeric | region ids | 1-250 rgn_nam | character| country/territory name | e.g., Macquarie Island, Wake Island Southern_Island | boolean | indicates if region is a southern island | 1/0 Inhabited | boolean | indicates if region is uninhabited | boolean, 1/0 est_population | numeric | number of established people in region | 0-3000</p>
-<p><em>UNgeorgn()</em> Each global regions UN georegion based on social and geopolitical considerations.</p>
-<p><em>Metadata for UNgeorgn dataframe</em> field | data type | description | examples ——— | ————— | ————— | —————————- rgn_id | numeric | region ids | 1-250 r0_label | factor | most inclusive category | World r1_label | factor | 7 classes | Africa (N=46), Americas (3), Asia (39), Europe (43), Latin America and the Caribbean (48), Oceana (34) Southern Islands (7) r2_label | factor | 22 classes | e.g., New Zealand, Melanesia rgn_label | character | global region name | e.g., Cocos Islands, Christmas Island Inhabited | boolean | indicates if region is uninhabited | boolean, 1/0 est_population | numeric | number of established people in region | 0-3000</p>
+<p><em>Metadata for rgns_eez dataframe</em></p>
+<table style="width:99%;">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="22%" />
+<col width="40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>field</th>
+<th>data type</th>
+<th>description</th>
+<th>examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>rgn_id</td>
+<td>numeric</td>
+<td>official global regions (except Antarctica, 213)</td>
+<td>1-250</td>
+</tr>
+<tr class="even">
+<td>rgn_name</td>
+<td>character</td>
+<td>country/territory name</td>
+<td>e.g., Afghanistan, Belize, Prince Edward Islands</td>
+</tr>
+<tr class="odd">
+<td>eez_iso3</td>
+<td>factor</td>
+<td>3 letter identification code</td>
+<td>e.g., AFG, BEL</td>
+</tr>
+<tr class="even">
+<td>territory</td>
+<td>boolean</td>
+<td>identifies whether the region is a territory</td>
+<td>yes/no</td>
+</tr>
+<tr class="odd">
+<td>admin_rgn_id</td>
+<td>numeric</td>
+<td>administrative country rgn_id if a territory, otherwise the rgn_id</td>
+<td>1-250</td>
+</tr>
+<tr class="even">
+<td>admin_country_name</td>
+<td>character</td>
+<td>administrative country name if a territory, otherwise the country name</td>
+<td>e.g., Afghanistan, Belize, Canada</td>
+</tr>
+</tbody>
+</table>
+<p><em>region_syns()</em></p>
+<p>Observed synonyms for each region, such that each region may have multiple synonyms. These data are used to convert outside data to the OHI region name and ID. This list is updated nearly everytime we run an assessment!</p>
+<p><em>Metadata for region_syns dataframe</em></p>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="23%" />
+<col width="22%" />
+<col width="40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>field</th>
+<th>data type</th>
+<th>description</th>
+<th>examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>rgn_id</td>
+<td>numeric</td>
+<td>region ids</td>
+<td>1-250</td>
+</tr>
+<tr class="even">
+<td>rgn_name</td>
+<td>character</td>
+<td>country/territory name</td>
+<td>e.g., Federated State of Micronesia; Micronesia, FS; Micronesia (Federated States of)</td>
+</tr>
+<tr class="odd">
+<td>rgn_key</td>
+<td>factor</td>
+<td>2-letter code for countries</td>
+<td>e.g., FM</td>
+</tr>
+<tr class="even">
+<td>eez_iso3</td>
+<td>factor</td>
+<td>3-letter code for countries</td>
+<td>e.g., FSM</td>
+</tr>
+<tr class="odd">
+<td>rgn_typ</td>
+<td>factor</td>
+<td>status of region</td>
+<td>disputed, landlocked, largescale (global, world); ohi_region</td>
+</tr>
+</tbody>
+</table>
+<p><em>low_pop()</em></p>
+<p>Includes data for 21 regions with 0 and low populations. These data are used to identify regions that should have NA values because the goal does not apply to regions with no/low populations (e.g., livelihoods and economies).</p>
+<p><em>Metadata for low_pop dataframe</em></p>
+<table style="width:99%;">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="22%" />
+<col width="40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>field</th>
+<th>data type</th>
+<th>description</th>
+<th>examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>rgn_id</td>
+<td>numeric</td>
+<td>region ids</td>
+<td>1-250</td>
+</tr>
+<tr class="even">
+<td>rgn_nam</td>
+<td>character</td>
+<td>country/territory name</td>
+<td>e.g., Macquarie Island, Wake Island</td>
+</tr>
+<tr class="odd">
+<td>Southern_Island</td>
+<td>boolean</td>
+<td>indicates if region is a southern island</td>
+<td>1/0</td>
+</tr>
+<tr class="even">
+<td>Inhabited</td>
+<td>boolean</td>
+<td>indicates if region is uninhabited</td>
+<td>boolean, 1/0</td>
+</tr>
+<tr class="odd">
+<td>est_population</td>
+<td>numeric</td>
+<td>number of established people in region</td>
+<td>0-3000</td>
+</tr>
+</tbody>
+</table>
+<p><em>UNgeorgn()</em></p>
+<p>Each global regions UN georegion based on social and geopolitical considerations.</p>
+<p><em>Metadata for UNgeorgn dataframe</em></p>
+<table style="width:99%;">
+<colgroup>
+<col width="13%" />
+<col width="22%" />
+<col width="22%" />
+<col width="40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>field</th>
+<th>data type</th>
+<th>description</th>
+<th>examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>rgn_id</td>
+<td>numeric</td>
+<td>region ids</td>
+<td>1-250</td>
+</tr>
+<tr class="even">
+<td>r0_label</td>
+<td>factor</td>
+<td>most inclusive category</td>
+<td>World</td>
+</tr>
+<tr class="odd">
+<td>r1_label</td>
+<td>factor</td>
+<td>7 classes</td>
+<td>Africa (N=46), Americas (3), Asia (39), Europe (43), Latin America and the Caribbean (48), Oceana (34) Southern Islands (7)</td>
+</tr>
+<tr class="even">
+<td>r2_label</td>
+<td>factor</td>
+<td>22 classes</td>
+<td>e.g., New Zealand, Melanesia</td>
+</tr>
+<tr class="odd">
+<td>rgn_label</td>
+<td>character</td>
+<td>global region name</td>
+<td>e.g., Cocos Islands, Christmas Island</td>
+</tr>
+<tr class="even">
+<td>Inhabited</td>
+<td>boolean</td>
+<td>indicates if region is uninhabited</td>
+<td>boolean, 1/0</td>
+</tr>
+<tr class="odd">
+<td>est_population</td>
+<td>numeric</td>
+<td>number of established people in region</td>
+<td>0-3000</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -679,7 +942,7 @@ mollCRS</code></pre></div>
 <p>Gapfilling steps are often mixed with the dataprep code. Once the gapfilling is done, we will save a dataset describing which data were gapfilled and the method. Every dataset should have a corresponding gapfilling dataset…<em>even if there was no gapfilling</em>.</p>
 <p>The gapfilling record is saved with the same name as the corresponding output data, but with a “_gf&quot; extension.</p>
 <div class="figure">
-<img src="images/gapfilling_file_naming.png" />
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vTGj33cUjqLbPw3sPkPBNGovaaradQASn3CzuTvLL8VgcFqcmlPGNskPksNjlqu1E8enu9zVSOklXJ8/pub?w=960&amp;h=720" />
 
 </div>
 <p>The gapfilling dataset should mirror the corresponding dataset in regard to the number of rows and identifying columns (e.g., rgn_id, commodity, year, etc.). The gapfilling datset should include three additional columns that indicate the following:</p>
@@ -689,7 +952,7 @@ mollCRS</code></pre></div>
 <li>error: a numeric value describing the error around the estimate. This should be left blank if this was not determined (most of the time this will not be estimated).</li>
 </ul>
 <div class="figure">
-<img src="images/gapfilling_dataset_example.png" />
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vSFPuVZaRrO__JnOOSOl-AukPo3HN3rpBcIYDuC0pau2xHw3IVtnqOvTrdY5AfcVs7XybADvZD-tLtr/pub?w=691&amp;h=690" />
 
 </div>
 </div>
