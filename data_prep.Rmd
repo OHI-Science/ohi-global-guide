@@ -23,7 +23,7 @@ These data are saved to Mazu: git-annex/globalprep/_raw_data in a folder that is
 
 Figure 1: Location of raw data saved to Mazu.
 
-![](https://docs.google.com/drawings/d/e/2PACX-1vT09zXxdCewmMAuDscXvS-pAoYM92AMd8Xxw_DhP93IFirHRtioAu19IsjEUN24091Cvm7vmCkB8piM/pub?w=960&h=720)
+![](https://docs.google.com/drawings/d/e/2PACX-1vT09zXxdCewmMAuDscXvS-pAoYM92AMd8Xxw_DhP93IFirHRtioAu19IsjEUN24091Cvm7vmCkB8piM/pub?w=712&h=531)
 
 Every raw data folder should have a README.md (keep the caps so it is consistent and easy to see). *Note we are using .md rather than .txt even for READMEs on Mazu. 
 
@@ -41,6 +41,66 @@ Each README should include the following ([template](https://github.com/OHI-Scie
 * Any other information that could possibly be useful to anyone
   
 
+***
+### VPN Setup to Access Mazu
+
+Here is why you will want to get your VPN accounts set up:
+
+1. You can access files on Mazu while you are offsite
+2. You can run intensive memory projects on the Mazu server while you are offsite
+3. You will functionally have two computers, so you can set up a long-running processes (on the Mazu server) and then you can work from your personal computer
+
+This is especially important when we start working with spatial files. It is impossible to run the spatial analyses on a personal computer due to speed and memory limitations.
+
+The VPN allows you to work from the Mazu server when you are not onsite. I almost exclusively work from Mazu. Basically, when I log in, my computer thinks I am working from NCEAS. I can access the Mazu drive. My IP address is through NCEAS and my clock displays the time in Santa Barbara.
+
+Here is some information on getting setup: http://www.ets.ucsb.edu/services/campus-vpn/what-vpn
+and: http://www.ets.ucsb.edu/services/campus-vpn/get-connected
+
+Once you have the VPN, here's how you map Mazu from a Mac: 
+
+Finder, then do command-K (Or go to the Menu > Go > Connect to Server)
+Paste:
+
+```
+smb://mazu.nceas.ucsb.edu/ohi
+```
+
+and then hit Connect!
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vRctPyg0LHmcWcvMRJzeBgDIuMZYjCJS2kBYzq8sWIDw98u6nW4cbKBe4h_gaH4QbgCdNdv3plxWTID/pub?w=960&h=720)
+***
+
+### Setting up Rstudio Mazu Server
+
+You will definitely want to get set up to run RStudio on Mazu! This is so great for so many reasons. 
+
+1. It makes it super easy to work remotely. 
+2. If you are running long R processes, Mazu is faster and it will not hog your computer's resources. 
+3. It is possible to run scripts on Mazu's multiple cores (which is necessary to run many of our scripts).
+
+You need to contact support@nceas.ucsb.edu to get this set up.
+
+This is what it looks like on my computer:
+![](https://docs.google.com/drawings/d/e/2PACX-1vQMt-gUz07-sdOmHiWQn2fKGb7lOPChXwsoExZ6NiCVu0ylHv65rV3e5H6pWwic4FDas1ajjZSj4v8I/pub?w=960&h=720)
+
+***
+
+### Using Cyberduck to Transfer Large Files 
+
+You should consider looking into Cyberduck (but I wouldn't bother with this until you find you need it).
+
+If you need to move really big files between Mazu and your computer, I find that the VPN typically fails. For this, I use [Cyberduck](https://download.cnet.com/Cyberduck-for-Windows/3000-18500_4-75623481.html).
+
+1. After you download Cyberduck, open it up and click Open Connection.
+![](https://docs.google.com/drawings/d/e/2PACX-1vRkVsbyCsv3LQYuSbAueUjv2KLyiJCWL9gvJd3jCIyX-xvCHnWzWJU0gO-izhaurjdM8S5yHOCQCR_r/pub?w=960&h=720)
+
+2. Type in the server address mazu.nceas.ucsb.edu, your sign-in credentials, select SFTP (SSH File Transfer Protocol) in the drop down at the top (supposed to be safer), AND type in /home/shares/ohi/git-annex under "Path:". Click Connect.
+![](https://docs.google.com/drawings/d/e/2PACX-1vSXABa8ABX-dHcOA3_--0k_y1rZCWrFuVgx2GIurOIqSRKoyZGZ7Ec0Ixt0NGlx7y6NcuB10rzfXm3A/pub?w=960&h=720)
+
+*Note:* You can modify the path if you want to be directed to another location in mazu.
+
+3. Now you can start dragging and dropping! Click Disconnect when you're done using Cyberduck.
 ***
 
 ### globalprep files 

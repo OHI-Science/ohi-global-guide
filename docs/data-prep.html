@@ -25,7 +25,7 @@
 <meta name="author" content="OHI Team">
 
 
-<meta name="date" content="2019-03-15">
+<meta name="date" content="2019-04-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -118,8 +118,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3" data-path="data-prep.html"><a href="data-prep.html"><i class="fa fa-check"></i><b>3</b> Data Prep</a><ul>
 <li class="chapter" data-level="3.1" data-path="data-prep.html"><a href="data-prep.html#file-organization"><i class="fa fa-check"></i><b>3.1</b> File organization</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="data-prep.html"><a href="data-prep.html#saving-external-data"><i class="fa fa-check"></i><b>3.1.1</b> Saving external data</a></li>
-<li class="chapter" data-level="3.1.2" data-path="data-prep.html"><a href="data-prep.html#globalprep-files"><i class="fa fa-check"></i><b>3.1.2</b> globalprep files</a></li>
-<li class="chapter" data-level="3.1.3" data-path="data-prep.html"><a href="data-prep.html#intermediate-files-that-are-too-large-for-github"><i class="fa fa-check"></i><b>3.1.3</b> Intermediate files that are too large for Github</a></li>
+<li class="chapter" data-level="3.1.2" data-path="data-prep.html"><a href="data-prep.html#vpn-setup-to-access-mazu"><i class="fa fa-check"></i><b>3.1.2</b> VPN Setup to Access Mazu</a></li>
+<li class="chapter" data-level="3.1.3" data-path="data-prep.html"><a href="data-prep.html#setting-up-rstudio-mazu-server"><i class="fa fa-check"></i><b>3.1.3</b> Setting up Rstudio Mazu Server</a></li>
+<li class="chapter" data-level="3.1.4" data-path="data-prep.html"><a href="data-prep.html#using-cyberduck-to-transfer-large-files"><i class="fa fa-check"></i><b>3.1.4</b> Using Cyberduck to Transfer Large Files</a></li>
+<li class="chapter" data-level="3.1.5" data-path="data-prep.html"><a href="data-prep.html#globalprep-files"><i class="fa fa-check"></i><b>3.1.5</b> globalprep files</a></li>
+<li class="chapter" data-level="3.1.6" data-path="data-prep.html"><a href="data-prep.html#intermediate-files-that-are-too-large-for-github"><i class="fa fa-check"></i><b>3.1.6</b> Intermediate files that are too large for Github</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="data-prep.html"><a href="data-prep.html#starting-a-new-data-prep-project"><i class="fa fa-check"></i><b>3.2</b> Starting a new data prep project</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="data-prep.html"><a href="data-prep.html#prepare-the-dataprep-folder"><i class="fa fa-check"></i><b>3.2.1</b> Prepare the dataprep folder</a></li>
@@ -194,7 +197,7 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 <p>These data are saved to Mazu: git-annex/globalprep/_raw_data in a folder that is labeled with an abbreviated version of the datasource (Figure 1). The data is saved to a folder describing the year the data was downloaded (e.g., d2015, d2016).</p>
 <p>Figure 1: Location of raw data saved to Mazu.</p>
 <div class="figure">
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vT09zXxdCewmMAuDscXvS-pAoYM92AMd8Xxw_DhP93IFirHRtioAu19IsjEUN24091Cvm7vmCkB8piM/pub?w=960&amp;h=720" />
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vT09zXxdCewmMAuDscXvS-pAoYM92AMd8Xxw_DhP93IFirHRtioAu19IsjEUN24091Cvm7vmCkB8piM/pub?w=712&amp;h=531" />
 
 </div>
 <p>Every raw data folder should have a README.md (keep the caps so it is consistent and easy to see). *Note we are using .md rather than .txt even for READMEs on Mazu.</p>
@@ -215,8 +218,50 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 </ul>
 <hr />
 </div>
+<div id="vpn-setup-to-access-mazu" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> VPN Setup to Access Mazu</h3>
+<p>Here is why you will want to get your VPN accounts set up:</p>
+<ol style="list-style-type: decimal">
+<li>You can access files on Mazu while you are offsite</li>
+<li>You can run intensive memory projects on the Mazu server while you are offsite</li>
+<li>You will functionally have two computers, so you can set up a long-running processes (on the Mazu server) and then you can work from your personal computer</li>
+</ol>
+<p>This is especially important when we start working with spatial files. It is impossible to run the spatial analyses on a personal computer due to speed and memory limitations.</p>
+<p>The VPN allows you to work from the Mazu server when you are not onsite. I almost exclusively work from Mazu. Basically, when I log in, my computer thinks I am working from NCEAS. I can access the Mazu drive. My IP address is through NCEAS and my clock displays the time in Santa Barbara.</p>
+<p>Here is some information on getting setup: <a href="http://www.ets.ucsb.edu/services/campus-vpn/what-vpn" class="uri">http://www.ets.ucsb.edu/services/campus-vpn/what-vpn</a> and: <a href="http://www.ets.ucsb.edu/services/campus-vpn/get-connected" class="uri">http://www.ets.ucsb.edu/services/campus-vpn/get-connected</a></p>
+<p>Once you have the VPN, here’s how you map Mazu from a Mac:</p>
+<p>Finder, then do command-K (Or go to the Menu &gt; Go &gt; Connect to Server) Paste:</p>
+<pre><code>smb://mazu.nceas.ucsb.edu/ohi</code></pre>
+<p>and then hit Connect!</p>
+<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vRctPyg0LHmcWcvMRJzeBgDIuMZYjCJS2kBYzq8sWIDw98u6nW4cbKBe4h_gaH4QbgCdNdv3plxWTID/pub?w=960&amp;h=720" /> ***</p>
+</div>
+<div id="setting-up-rstudio-mazu-server" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> Setting up Rstudio Mazu Server</h3>
+<p>You will definitely want to get set up to run RStudio on Mazu! This is so great for so many reasons.</p>
+<ol style="list-style-type: decimal">
+<li>It makes it super easy to work remotely.</li>
+<li>If you are running long R processes, Mazu is faster and it will not hog your computer’s resources.</li>
+<li>It is possible to run scripts on Mazu’s multiple cores (which is necessary to run many of our scripts).</li>
+</ol>
+<p>You need to contact <a href="mailto:support@nceas.ucsb.edu">support@nceas.ucsb.edu</a> to get this set up.</p>
+<p>This is what it looks like on my computer: <img src="https://docs.google.com/drawings/d/e/2PACX-1vQMt-gUz07-sdOmHiWQn2fKGb7lOPChXwsoExZ6NiCVu0ylHv65rV3e5H6pWwic4FDas1ajjZSj4v8I/pub?w=960&amp;h=720" /></p>
+<hr />
+</div>
+<div id="using-cyberduck-to-transfer-large-files" class="section level3">
+<h3><span class="header-section-number">3.1.4</span> Using Cyberduck to Transfer Large Files</h3>
+<p>You should consider looking into Cyberduck (but I wouldn’t bother with this until you find you need it).</p>
+<p>If you need to move really big files between Mazu and your computer, I find that the VPN typically fails. For this, I use <a href="https://download.cnet.com/Cyberduck-for-Windows/3000-18500_4-75623481.html">Cyberduck</a>.</p>
+<ol style="list-style-type: decimal">
+<li><p>After you download Cyberduck, open it up and click Open Connection. <img src="https://docs.google.com/drawings/d/e/2PACX-1vRkVsbyCsv3LQYuSbAueUjv2KLyiJCWL9gvJd3jCIyX-xvCHnWzWJU0gO-izhaurjdM8S5yHOCQCR_r/pub?w=960&amp;h=720" /></p></li>
+<li><p>Type in the server address mazu.nceas.ucsb.edu, your sign-in credentials, select SFTP (SSH File Transfer Protocol) in the drop down at the top (supposed to be safer), AND type in /home/shares/ohi/git-annex under “Path:”. Click Connect. <img src="https://docs.google.com/drawings/d/e/2PACX-1vSXABa8ABX-dHcOA3_--0k_y1rZCWrFuVgx2GIurOIqSRKoyZGZ7Ec0Ixt0NGlx7y6NcuB10rzfXm3A/pub?w=960&amp;h=720" /></p></li>
+</ol>
+<p><em>Note:</em> You can modify the path if you want to be directed to another location in mazu.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Now you can start dragging and dropping! Click Disconnect when you’re done using Cyberduck. ***</li>
+</ol>
+</div>
 <div id="globalprep-files" class="section level3">
-<h3><span class="header-section-number">3.1.2</span> globalprep files</h3>
+<h3><span class="header-section-number">3.1.5</span> globalprep files</h3>
 <p>All of the R scripts and metadata used to prepare the data, as well as the final data layers are saved in the Github ohiprep_v???? repository in the globalprep folder.</p>
 <p>The only data that will not be saved on Github are files that are too large or incompatible with Github (see below).</p>
 <p><strong>Primary goal/component folder</strong> The folder should be named according to the OHI target (the goal or dimension that the data is used to calculate). For example the folder for the tourism and recreation goal would be called: globalprep/tr (see table below for all folder abbreviations). These recommendations are flexible and should be modified as needed, for example goals can be combined in a single folder (e.g., spp_ico) or, there may be several folders for different components of a single goal (e.g. tr_sustainability and tr_tourists).</p>
@@ -318,7 +363,7 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 <hr />
 </div>
 <div id="intermediate-files-that-are-too-large-for-github" class="section level3">
-<h3><span class="header-section-number">3.1.3</span> Intermediate files that are too large for Github</h3>
+<h3><span class="header-section-number">3.1.6</span> Intermediate files that are too large for Github</h3>
 <p>These files will be saved on Mazu, the internal server’s, globalprep folder.</p>
 <p>Our goal is to have everything (except for data obtained from other sources) stored on GitHub, but some files are too large or inappropriate for GitHub and must be stored on Mazu. Each of these files should be stored in a way that mirrors that on Github. If there is a need to make a duplicate folder on <code>git-annex</code>, it should have the same name as the folder used in GitHub.</p>
 <div class="figure">
@@ -552,6 +597,7 @@ mollCRS</code></pre></div>
 <p>The regions_shape function returns a simple feature object called “regions”. Regions is the master global shapefile that includes polygons for land, eez, high seas, and antarctica regions in the Mollweide coordinate reference system.</p>
 <p>Sometimes it is necessary to convert from a simple feature object to a shapefile object because some functions still do not work with simple feature objects, or, if the spatial file is modified, a saved shapefile may be desired. This is accomplished like this:</p>
 <p><code>regions_shape &lt;- as(regions, &quot;Spatial&quot;)</code></p>
+<!--- TODO Can't get any of these code chunks to run. Are they necessary to run? Need to discuss with Mel--->
 <p>The regions file with eez (dark blue), fao or high seas (light blue), and antarctica or CCAMLR (green) regions.</p>
 <div class="figure">
 <img src="https://docs.google.com/drawings/d/e/2PACX-1vRpNcorAKw0Hzk--d1R_llBw4-qeCx1mcgDSpaUeIASO2YDBIhPcoEXMshIFHgo9nv8E6_o6h70fs-P/pub?w=960&amp;h=720" />
