@@ -41,35 +41,29 @@ Create a copy of the most recent ohiprep repository and rename with the new asse
 
 1. If you don't have the most recent year's repository, clone it to your local machine.  For example, if the last completed assessment was in 2018, you would clone the https://github.com/OHI-Science/ohiprep_v2018.  Here is one approach using RStudio:
 <br>
-![](images/clone_repo_1.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vSLa1d1hMX5K5GU5dLqHMpVMH5IBD6XWo1L64-FH2Ho8C7wHETIbM_du8bBSIVmVU1xnI_DHXRRPVYu/pub?w=960&h=720)
 <br>
 <br>
-![](images/clone_repo_2.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vRfbnzfJc6aFeh4RJUQyVGhFcYTxNMVHE2cViAx2tdAv5saDQxxLbcG_zrF26sIMRwpB9oL4gP6JjjP/pub?w=960&h=720)
 <br>
 <br>
-![](images/clone_repo_3.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vSwmCmYw36X-H4jTeCOkDExArQo4cP_jbwrn2Ca9lHQnEpN5gOScqiheZWg7W45bnvOZmGjKtxGDg_o/pub?w=960&h=720)
 <br>
 <br>
-![](images/clone_repo_4.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vReR9MGPVUYmK1GJ_ss0txuJPYi6wwZyj-IWmuYbu_WKhUG8mvJ9zr1uii8dB2OPe_WtQfl2X6xYEYx/pub?w=960&h=720)
 
 <br>
 <br>
-2. Navigate to https://github.com/OHI-Science and create a new repository: 
+2. Navigate to https://github.com/OHI-Science and create a new repository. Use the following parameters (but change the year in the repository name to match the current assessment year): 
 
-![](images/new_ohiprep_repo.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vTWRO0yujh6TuP-aPRvTmJ8vAlCJVmWTjgwV4yAzRH8kN9MV4e22E9o4tofcknHzUJduyt2EMQdDRFk/pub?w=960&h=720)
 
-<br>
-<br>
-Use the following parameters (but change the year in the repository name to match the current assessment year):
-<br>
-<br>
-![](images/new_ohiprep_repo.png)
 <br>
 <br>
 3. Copy the contents of the old ohiprep repository into the newly created repository.  Open the ohiprep_v20?? project in RStudio, and navigate to the Shell:
 <br>
 <br>
-![](images/shell.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vS_wf1TM2NaGbx8UQ74BZHeVwstloazzMqdY6x5m5PQ3oHQ-T8CZyPvgZTze-ixPSFiHUYn-CnODTkd/pub?w=960&h=720)
 <br>
 <br>
 Make sure that you are in the old ohiprep working directory. This is indicated by the:
@@ -77,7 +71,7 @@ Make sure that you are in the old ohiprep working directory. This is indicated b
 
 If you are not in the correct working directory use the `cd` command to navigate there.  Type in the mirror command:
 
-![](images/mirror_repo.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vSD4Oiac0U_RsH77UZ7Hzky-HkmWBLrDuPwaCwCxvBPASjKJx3LYGULDLrV2Ch1arYf4cgEde4SNnJU/pub?w=960&h=720)
 <br>
 <br>
 4. Navigate to the new repository on Github.com, https://github.com/OHI-Science/ohiprep_v20??.git and make sure the folders/files are there.  Check that the default branch is "gh-pages" (and not the "master" branch).
@@ -117,7 +111,7 @@ git push -f origin gh-pages
 7. Navigate to the new repository on Github.com, https://github.com/OHI-Science/ohiprep_v20??.git and check whether there is only one commit. 
 <br>
 
-![](images/new_repo.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vQa82FsLBZMVmnr6sELDHNDRSci-ZzDSrutngTbSS1AWFZNzMczrCURbxKvlABA3ZtF4Y13A-It02o2/pub?w=960&h=720)
 
 <br>
 <br>
