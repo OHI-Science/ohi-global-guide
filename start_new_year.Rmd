@@ -12,15 +12,15 @@ There are several steps to beginning a year's assessment.  This guide walks thro
 ## Review and organize relevant issues
 Review the github::issues and create a list linking to the particular issues that might be useful in the year to come.  This can include: 
 
-* references/discussion that may lead to improvements to goal models, pressures or resilience
+* references or discussions that may lead to improvements to goal models, pressures or resilience
 * new datasets that are worth exploring
-* potential newimprovements to ohicore
-* ideas for reorganizing/cleaning repos
+* potential new improvements to ohicore
+* ideas for reorganizing or cleaning repositories
 * etc.  
 
 Create a new issue that organizes and links to these issues.  This officially marks the start of the OHI assessment!
 
-(This is also a good time to close issues that are completed or no longer relevant)
+(This is also a good time to close issues that are completed or no longer relevant.)
 
 <br>
 <br>

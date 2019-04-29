@@ -189,7 +189,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ol>
 <div id="create-results-folder" class="section level2">
 <h2><span class="header-section-number">5.1</span> Create results folder</h2>
-<p>We summarize the results from each year’s assessment in the yearly_results/global20?? folder.</p>
+<p>We summarize the results from each year’s assessment in the yearly_results/global20?? folder, located in the ohi-global repository.</p>
 <p>After the OHI scores have been updated with the new data layers a global20?? folder should be created in the ohi-global/yearly_results folder, and populated with:</p>
 <ol style="list-style-type: decimal">
 <li>an empty “data_check” and “Results” folder</li>
@@ -201,13 +201,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>copies the scores.csv from the eez folder to this (yearly_results/global20??) folder and appends the current date to the filename. This allows us to version control our data so we can keep better track of it. This is especially handy during the final stages of an assessment when there are lots of versions of the data flying around email and such!<br />
 </li>
 <li>creates a user friendly version of the data called OHI_final_formattted_scores_date.csv. This is typically the version of data we provide to people.</li>
-<li>creates most of the data in the Results/data folder and figures in the Results/figures folder</li>
+<li>creates most of the data in the Results/data folder and figures in the Results/figures folder.</li>
 </ul>
 <p>It will be necessary to carefully walk through the previous year’s version of the Results_first_look.Rmd file and make relevant updates as needed, such as:</p>
 <ul>
 <li>on ~ line 88 change: <code>update_data = TRUE</code></li>
 <li>on ~ line 84 change the dateFile to the current date, e.g., <code>dateFile = '2018-10-03'</code></li>
-<li>correct links: <a href="https://raw.githubusercontent.com/OHI-Science/ohi-global/draft/global2018/OHI_final_formatted_scores_2018-10-03.csv">Data</a></li>
+<li>correct links: <a href="https://raw.githubusercontent.com/OHI-Science/ohi-global/draft/yearly_results/global2018/OHI_final_formatted_scores_2018-11-28.csv">Data</a></li>
 <li>read through to correct references to scores/regions</li>
 </ul>
 <p>If there are any changes to the scores the Results_first_look.Rmd must be updated and rerun.</p>

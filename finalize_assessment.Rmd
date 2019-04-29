@@ -12,7 +12,7 @@ There are several steps after getting the scores to finalizing an assessment.  T
 8. Upload to repository
 
 ## Create results folder
-We summarize the results from each year's assessment in the yearly_results/global20?? folder.  
+We summarize the results from each year's assessment in the yearly_results/global20?? folder, located in the ohi-global repository.  
 
 After the OHI scores have been updated with the new data layers a  global20?? folder should be created in the ohi-global/yearly_results folder, and populated with:
 
@@ -24,14 +24,14 @@ The Results_first_look.Rmd creates an internal html document that provides our f
 
 * copies the scores.csv from the eez folder to this (yearly_results/global20??) folder and appends the current date to the filename.  This allows us to version control our data so we can keep better track of it.  This is especially handy during the final stages of an assessment when there are lots of versions of the data flying around email and such!  
 * creates a user friendly version of the data called OHI_final_formattted_scores_date.csv.  This is typically the version of data we provide to people.
-* creates most of the data in the Results/data folder and figures in the Results/figures folder
+* creates most of the data in the Results/data folder and figures in the Results/figures folder.
 
 
 It will be necessary to carefully walk through the previous year's version of the Results_first_look.Rmd file and make relevant updates as needed, such as:
 
    - on ~ line 88 change: `update_data = TRUE`
    - on ~ line 84 change the dateFile to the current date, e.g., `dateFile = '2018-10-03'`
-   - correct links: [Data](https://raw.githubusercontent.com/OHI-Science/ohi-global/draft/global2018/OHI_final_formatted_scores_2018-10-03.csv)
+   - correct links: [Data](https://raw.githubusercontent.com/OHI-Science/ohi-global/draft/yearly_results/global2018/OHI_final_formatted_scores_2018-11-28.csv)
    - read through to correct references to scores/regions
 
 If there are any changes to the scores the Results_first_look.Rmd must be updated and rerun. 
