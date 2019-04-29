@@ -131,13 +131,13 @@ The main files that get updated are:
 #### scenario_data_years.csv
 For each data layer, the scenario_data_years.csv associates the year the source data was collected or reported  with the OHI assessment year.  The data looks like this:
 
-![](images/scenario_data_years.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vQxucSVU9go4CON5vIe1e6wE-MjjqP_GvKwJ07NmjqmKOhByEXV06hbQPBsPazDI_OfjJ4Bw_ocdUzh/pub?w=367&h=171)
 
 In this case, the data layer for ao_access (access to artisanal fishing opportunities data used to calculate the score for the artisanal opportunities goal) goes from 2008 to the most current assessment year (not shown).  The first OHI global assessment was in 2012 but the data goes to 2008 because five years of data are typically required to calculate trend.  In this case, the 2012 trend was calculated using data from 2008 to 2012.  The data year is 2013 for all assessment years because these particular data have never been updated.  
 
 There is a helper script (eez_layers_meta_data/new_year_prep.R) that updates this file when embarking on a new assessment year.  This script adds an additional assessment year to the eez/conf/scenario_data_years.csv.  The data year is the same as the previous assessment year.  As each data layer is added to update scores, the data year must be manually updated directly within the eez/conf/scenario_data_years.csv.
 
-![](images/update_script_scenario_data_years.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vTNWAvTE4anmRwBxs4nlkKQhQSnVceFLUXUvM6YeOs-B21Z-AI0msh6bfye3mAJ3UncLAhUZ8Cma90E/pub?w=784&h=219)
 
 
 #### calculate_all.R
@@ -147,21 +147,21 @@ This script needs to be updated for a new assessment year.  Specfically, links t
 
 Once this script is updated, it is critical to walk through the entire script to make sure all the steps are working and there are no changes to the previous year's scores.  The ```ohicore::CheckLayers``` function will likely generate some warnings.  The following warnings are expected and do not indicate a problem:
 
-![](images/CheckLayers_errors.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vQEhOhvblvIQZavRE6shUzOHt4nuZtk6aIyFPjDUqijgInrs3sXwQtO7BrCYBikCInr_eHUVLa6AasA/pub?w=727&h=206)
 
 Once the scores are generated, it is important to run the score_check function (step 10).  For the scenario_year argument, be sure to provide the year of the most recent completed assessment:
 
-![](images/data_check_code.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vTC4n6UhNio-X9LugEvzMKcm_VqzAygBW4hkKfV0o2sh673aybdhozH7GY0fGYm-1hJv-o27OehAHlQ/pub?w=794&h=316)
 
 Once, this is run, check the html file that is created.  This file will be in the eez/score_check folder with the name provided in the function (in the above example file_name = "check_2019_assess") with the date it was generated. Ideally, this will be a very boring plot comprised of a series of yellow bars, indicating that nothing changed.  Sadly, you may actually see something like this:
 
-![](images/data_check_plot.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vS0JQy_Iij56sj7ePtyreKMJvQ6Obc1-piJbDLhTzB0E0HxcNi-0628zOMoTdez-IgLNzSGWN89nzgj/pub?w=897&h=504)
 
 At first glance, the changes to mariculture (and the corresponding food provision goal) and natural products and tourism is worrisome.  If there have been no changes to models or data, these should be the same.  However, I am somewhat reassured that all the changes are fairly small (<1 point change in score).  Regardless, these changes must be explained to convince ourselves that nothing is wrong.
 
 In the Git window, I notice that there were some changes to some reference point files.  Further exploration reveals that adding an additional year changed the reference points of the mariculture and tourism and recreation goals.  This change is fine because the reference points are calculated using all years of data.  The small natural product goal changed for the similar reasons.
 
-![](images/change_in_ref_points.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vShSb4UsldRuktecvnJObR92Y9I2HANjc4DR0BZfUoZbsqB_trkHcuOUPNecmgPyTPw0pGNqmNf1uRp/pub?w=928&h=303)
 
 I have now convinced myself that all is well.
 
@@ -171,7 +171,7 @@ The final step of this process is to delete the eez/data_check folder.  This wil
 
 We use a Google Sheet to help us keep track of where we are in the process of preparing data for the OHI global.  The following is part of the 2019 global assessemnt layers checklist:
 
-![](images/layers_checklist.png)
+![](https://docs.google.com/drawings/d/e/2PACX-1vSnti_VB7Kq_tXQUNETWQ7Lw4nKuMISJx2awnnb8jbSKYzFY3sUB3zkC_1QZnwiCgkJrB3WETk8J8Qp/pub?w=929&h=468)
 
 The main part of the checklist is created using code in ohi-global/eez_layers_meta_data/new_year_prep.R.
 

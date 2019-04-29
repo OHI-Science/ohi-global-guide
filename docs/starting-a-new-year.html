@@ -25,7 +25,7 @@
 <meta name="author" content="OHI Team">
 
 
-<meta name="date" content="2019-04-08">
+<meta name="date" content="2019-04-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -269,13 +269,13 @@ git push -f origin gh-pages
 <h4><span class="header-section-number">2.2.2.1</span> scenario_data_years.csv</h4>
 <p>For each data layer, the scenario_data_years.csv associates the year the source data was collected or reported with the OHI assessment year. The data looks like this:</p>
 <div class="figure">
-<img src="images/scenario_data_years.png" />
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vQxucSVU9go4CON5vIe1e6wE-MjjqP_GvKwJ07NmjqmKOhByEXV06hbQPBsPazDI_OfjJ4Bw_ocdUzh/pub?w=367&amp;h=171" />
 
 </div>
 <p>In this case, the data layer for ao_access (access to artisanal fishing opportunities data used to calculate the score for the artisanal opportunities goal) goes from 2008 to the most current assessment year (not shown). The first OHI global assessment was in 2012 but the data goes to 2008 because five years of data are typically required to calculate trend. In this case, the 2012 trend was calculated using data from 2008 to 2012. The data year is 2013 for all assessment years because these particular data have never been updated.</p>
 <p>There is a helper script (eez_layers_meta_data/new_year_prep.R) that updates this file when embarking on a new assessment year. This script adds an additional assessment year to the eez/conf/scenario_data_years.csv. The data year is the same as the previous assessment year. As each data layer is added to update scores, the data year must be manually updated directly within the eez/conf/scenario_data_years.csv.</p>
 <div class="figure">
-<img src="images/update_script_scenario_data_years.png" />
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vTNWAvTE4anmRwBxs4nlkKQhQSnVceFLUXUvM6YeOs-B21Z-AI0msh6bfye3mAJ3UncLAhUZ8Cma90E/pub?w=784&amp;h=219" />
 
 </div>
 </div>
@@ -285,23 +285,23 @@ git push -f origin gh-pages
 <p>This script needs to be updated for a new assessment year. Specfically, links to the ohiprep repository (step 2) and the most recent assessment year (step 3) must be updated.</p>
 <p>Once this script is updated, it is critical to walk through the entire script to make sure all the steps are working and there are no changes to the previous year’s scores. The <code>ohicore::CheckLayers</code> function will likely generate some warnings. The following warnings are expected and do not indicate a problem:</p>
 <div class="figure">
-<img src="images/CheckLayers_errors.png" />
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vQEhOhvblvIQZavRE6shUzOHt4nuZtk6aIyFPjDUqijgInrs3sXwQtO7BrCYBikCInr_eHUVLa6AasA/pub?w=727&amp;h=206" />
 
 </div>
 <p>Once the scores are generated, it is important to run the score_check function (step 10). For the scenario_year argument, be sure to provide the year of the most recent completed assessment:</p>
 <div class="figure">
-<img src="images/data_check_code.png" />
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vTC4n6UhNio-X9LugEvzMKcm_VqzAygBW4hkKfV0o2sh673aybdhozH7GY0fGYm-1hJv-o27OehAHlQ/pub?w=794&amp;h=316" />
 
 </div>
 <p>Once, this is run, check the html file that is created. This file will be in the eez/score_check folder with the name provided in the function (in the above example file_name = “check_2019_assess”) with the date it was generated. Ideally, this will be a very boring plot comprised of a series of yellow bars, indicating that nothing changed. Sadly, you may actually see something like this:</p>
 <div class="figure">
-<img src="images/data_check_plot.png" />
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vS0JQy_Iij56sj7ePtyreKMJvQ6Obc1-piJbDLhTzB0E0HxcNi-0628zOMoTdez-IgLNzSGWN89nzgj/pub?w=897&amp;h=504" />
 
 </div>
 <p>At first glance, the changes to mariculture (and the corresponding food provision goal) and natural products and tourism is worrisome. If there have been no changes to models or data, these should be the same. However, I am somewhat reassured that all the changes are fairly small (&lt;1 point change in score). Regardless, these changes must be explained to convince ourselves that nothing is wrong.</p>
 <p>In the Git window, I notice that there were some changes to some reference point files. Further exploration reveals that adding an additional year changed the reference points of the mariculture and tourism and recreation goals. This change is fine because the reference points are calculated using all years of data. The small natural product goal changed for the similar reasons.</p>
 <div class="figure">
-<img src="images/change_in_ref_points.png" />
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vShSb4UsldRuktecvnJObR92Y9I2HANjc4DR0BZfUoZbsqB_trkHcuOUPNecmgPyTPw0pGNqmNf1uRp/pub?w=928&amp;h=303" />
 
 </div>
 <p>I have now convinced myself that all is well.</p>
@@ -313,7 +313,7 @@ git push -f origin gh-pages
 <h2><span class="header-section-number">2.3</span> Keeping track of layer progress</h2>
 <p>We use a Google Sheet to help us keep track of where we are in the process of preparing data for the OHI global. The following is part of the 2019 global assessemnt layers checklist:</p>
 <div class="figure">
-<img src="images/layers_checklist.png" />
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vSnti_VB7Kq_tXQUNETWQ7Lw4nKuMISJx2awnnb8jbSKYzFY3sUB3zkC_1QZnwiCgkJrB3WETk8J8Qp/pub?w=929&amp;h=468" />
 
 </div>
 <p>The main part of the checklist is created using code in ohi-global/eez_layers_meta_data/new_year_prep.R.</p>
