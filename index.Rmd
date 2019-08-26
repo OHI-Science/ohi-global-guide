@@ -1,13 +1,15 @@
 --- 
 title: "OHI Global Assessment Guide"
 author: "OHI Team"
-date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
+date: '`r Sys.Date()`'
+bibliography:
+- book.bib
+- packages.bib
+description: A guide for conducting the OHI Global Assessment
 documentclass: book
-bibliography: [book.bib, packages.bib]
-biblio-style: apalike
 link-citations: yes
-description: "A guide for conducting the OHI Global Assessment"
+site: bookdown::bookdown_site
+biblio-style: apalike
 ---
 
 # Overview {#Overview}
@@ -16,14 +18,14 @@ The repositories used to calculate the global assessment are:
 
 <!--- TODO Gage add important fig here (just kidding this is just an example)  --->
 
-*ohiprep_v20??* Scripts and intermediate files used to prepare the data layers used by the OHI model.
+* *ohiprep_v20??* Scripts and intermediate files used to prepare the data layers used by the OHI model.
 
-*ohi-global* Data layers, supplementary information, models, and scripts used to calculate the global scores.
+* *ohi-global* Data layers, supplementary information, models, and scripts used to calculate the global scores.
 
-*ohicore* An R package that includes the core functions used in all assessments. See [package description](http://ohi-science.org/ohicore/) for more information.
+* *ohicore* An R package that includes the core functions used in all assessments. See [package description](http://ohi-science.org/ohicore/) for more information.
 
 
-*Table describing ohiprep_vYEAR contents*
+*Table describing ohiprep_v20?? contents*
 (NOTE: suffix of repo name is the year of the assessment)
 
 folder      |      description

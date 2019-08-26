@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>OHI Global Assessment Guide</title>
-  <meta name="description" content="A guide for conducting the OHI Global Assessment">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="A guide for conducting the OHI Global Assessment" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
   <meta property="og:title" content="OHI Global Assessment Guide" />
   <meta property="og:type" content="book" />
@@ -22,14 +21,14 @@
   <meta name="twitter:description" content="A guide for conducting the OHI Global Assessment" />
   
 
-<meta name="author" content="OHI Team">
+<meta name="author" content="OHI Team" />
 
 
-<meta name="date" content="2019-04-29">
+<meta name="date" content="2019-08-26" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 
@@ -51,41 +50,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="lib/css/bootstrap.min.css" type="text/css" />
@@ -138,21 +163,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.7.2" data-path="data-prep.html"><a href="data-prep.html#common.r"><i class="fa fa-check"></i><b>3.7.2</b> common.R</a></li>
 </ul></li>
 <li class="chapter" data-level="3.8" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-5.-data-prep"><i class="fa fa-check"></i><b>3.8</b> prep Rmd: 5. Data prep</a></li>
-<li class="chapter" data-level="3.9" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-6.-gapfilling"><i class="fa fa-check"></i><b>3.9</b> prep Rmd: 6. Gapfilling</a></li>
+<li class="chapter" data-level="3.9" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-6.-gapfilling"><i class="fa fa-check"></i><b>3.9</b> prep Rmd: 6. Gapfilling</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="data-prep.html"><a href="data-prep.html#training-linear-models-for-gapfilling"><i class="fa fa-check"></i><b>3.9.1</b> Training linear models for gapfilling</a></li>
+<li class="chapter" data-level="3.9.2" data-path="data-prep.html"><a href="data-prep.html#saving-gapfilling-report-files"><i class="fa fa-check"></i><b>3.9.2</b> Saving gapfilling report files</a></li>
+</ul></li>
 <li class="chapter" data-level="3.10" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-7.-results-check"><i class="fa fa-check"></i><b>3.10</b> prep Rmd: 7. Results check</a></li>
 <li class="chapter" data-level="3.11" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-8.-final-run"><i class="fa fa-check"></i><b>3.11</b> prep Rmd: 8. Final run</a></li>
 <li class="chapter" data-level="3.12" data-path="data-prep.html"><a href="data-prep.html#notes-on-parallel-processing"><i class="fa fa-check"></i><b>3.12</b> Notes on parallel processing</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="updating-scores.html"><a href="updating-scores.html"><i class="fa fa-check"></i><b>4</b> Updating scores</a></li>
-<li class="chapter" data-level="5" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html"><i class="fa fa-check"></i><b>5</b> Finalizing the global assessment</a><ul>
-<li class="chapter" data-level="5.1" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#create-results-folder"><i class="fa fa-check"></i><b>5.1</b> Create results folder</a></li>
-<li class="chapter" data-level="5.2" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#final-score-review"><i class="fa fa-check"></i><b>5.2</b> Final score review</a></li>
-<li class="chapter" data-level="5.3" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#methods-document"><i class="fa fa-check"></i><b>5.3</b> Methods document</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#steps-to-updating-methods-document"><i class="fa fa-check"></i><b>5.3.1</b> Steps to updating methods document</a></li>
+<li class="chapter" data-level="4" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html"><i class="fa fa-check"></i><b>4</b> Finalizing the global assessment</a><ul>
+<li class="chapter" data-level="4.1" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#create-results-folder"><i class="fa fa-check"></i><b>4.1</b> Create results folder</a></li>
+<li class="chapter" data-level="4.2" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#final-score-review"><i class="fa fa-check"></i><b>4.2</b> Final score review</a></li>
+<li class="chapter" data-level="4.3" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#methods-document"><i class="fa fa-check"></i><b>4.3</b> Methods document</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#steps-to-updating-methods-document"><i class="fa fa-check"></i><b>4.3.1</b> Steps to updating methods document</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#results-document"><i class="fa fa-check"></i><b>5.4</b> Results document</a></li>
-<li class="chapter" data-level="5.5" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#updates-document"><i class="fa fa-check"></i><b>5.5</b> Updates document</a></li>
-<li class="chapter" data-level="5.6" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#upload-to-a-repository"><i class="fa fa-check"></i><b>5.6</b> Upload to a repository</a></li>
+<li class="chapter" data-level="4.4" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#results-document"><i class="fa fa-check"></i><b>4.4</b> Results document</a></li>
+<li class="chapter" data-level="4.5" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#updates-document"><i class="fa fa-check"></i><b>4.5</b> Updates document</a></li>
+<li class="chapter" data-level="4.6" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#upload-to-a-repository"><i class="fa fa-check"></i><b>4.6</b> Upload to a repository</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
@@ -177,20 +204,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">OHI Global Assessment Guide</h1>
 <p class="author"><em>OHI Team</em></p>
-<p class="date"><em>2019-04-29</em></p>
+<p class="date"><em>2019-08-26</em></p>
 </div>
 <div id="Overview" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Overview</h1>
 <p>The repositories used to calculate the global assessment are:</p>
 <!--- TODO Gage add important fig here (just kidding this is just an example)  --->
-<p><em>ohiprep_v20??</em> Scripts and intermediate files used to prepare the data layers used by the OHI model.</p>
-<p><em>ohi-global</em> Data layers, supplementary information, models, and scripts used to calculate the global scores.</p>
-<p><em>ohicore</em> An R package that includes the core functions used in all assessments. See <a href="http://ohi-science.org/ohicore/">package description</a> for more information.</p>
-<p><em>Table describing ohiprep_vYEAR contents</em> (NOTE: suffix of repo name is the year of the assessment)</p>
-<table style="width:61%;">
+<ul>
+<li><p><em>ohiprep_v20??</em> Scripts and intermediate files used to prepare the data layers used by the OHI model.</p></li>
+<li><p><em>ohi-global</em> Data layers, supplementary information, models, and scripts used to calculate the global scores.</p></li>
+<li><p><em>ohicore</em> An R package that includes the core functions used in all assessments. See <a href="http://ohi-science.org/ohicore/">package description</a> for more information.</p></li>
+</ul>
+<p><em>Table describing ohiprep_v20?? contents</em>
+(NOTE: suffix of repo name is the year of the assessment)</p>
+<table>
 <colgroup>
-<col width="18%" />
-<col width="43%" />
+<col width="28%" />
+<col width="71%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -213,11 +243,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<p><em>Table describing ohi-global contents</em> (NOTE: this describes only the most relevant folders/files)</p>
-<table style="width:61%;">
+<p><em>Table describing ohi-global contents</em>
+(NOTE: this describes only the most relevant folders/files)</p>
+<table>
 <colgroup>
-<col width="18%" />
-<col width="43%" />
+<col width="28%" />
+<col width="71%" />
 </colgroup>
 <thead>
 <tr class="header">

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Data Prep | OHI Global Assessment Guide</title>
-  <meta name="description" content="A guide for conducting the OHI Global Assessment">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="A guide for conducting the OHI Global Assessment" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Data Prep | OHI Global Assessment Guide" />
   <meta property="og:type" content="book" />
@@ -22,18 +21,18 @@
   <meta name="twitter:description" content="A guide for conducting the OHI Global Assessment" />
   
 
-<meta name="author" content="OHI Team">
+<meta name="author" content="OHI Team" />
 
 
-<meta name="date" content="2019-04-29">
+<meta name="date" content="2019-08-26" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="starting-a-new-year.html">
-<link rel="next" href="updating-scores.html">
+<link rel="next" href="finalizing-the-global-assessment.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,41 +50,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="lib/css/bootstrap.min.css" type="text/css" />
@@ -138,21 +163,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.7.2" data-path="data-prep.html"><a href="data-prep.html#common.r"><i class="fa fa-check"></i><b>3.7.2</b> common.R</a></li>
 </ul></li>
 <li class="chapter" data-level="3.8" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-5.-data-prep"><i class="fa fa-check"></i><b>3.8</b> prep Rmd: 5. Data prep</a></li>
-<li class="chapter" data-level="3.9" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-6.-gapfilling"><i class="fa fa-check"></i><b>3.9</b> prep Rmd: 6. Gapfilling</a></li>
+<li class="chapter" data-level="3.9" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-6.-gapfilling"><i class="fa fa-check"></i><b>3.9</b> prep Rmd: 6. Gapfilling</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="data-prep.html"><a href="data-prep.html#training-linear-models-for-gapfilling"><i class="fa fa-check"></i><b>3.9.1</b> Training linear models for gapfilling</a></li>
+<li class="chapter" data-level="3.9.2" data-path="data-prep.html"><a href="data-prep.html#saving-gapfilling-report-files"><i class="fa fa-check"></i><b>3.9.2</b> Saving gapfilling report files</a></li>
+</ul></li>
 <li class="chapter" data-level="3.10" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-7.-results-check"><i class="fa fa-check"></i><b>3.10</b> prep Rmd: 7. Results check</a></li>
 <li class="chapter" data-level="3.11" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-8.-final-run"><i class="fa fa-check"></i><b>3.11</b> prep Rmd: 8. Final run</a></li>
 <li class="chapter" data-level="3.12" data-path="data-prep.html"><a href="data-prep.html#notes-on-parallel-processing"><i class="fa fa-check"></i><b>3.12</b> Notes on parallel processing</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="updating-scores.html"><a href="updating-scores.html"><i class="fa fa-check"></i><b>4</b> Updating scores</a></li>
-<li class="chapter" data-level="5" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html"><i class="fa fa-check"></i><b>5</b> Finalizing the global assessment</a><ul>
-<li class="chapter" data-level="5.1" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#create-results-folder"><i class="fa fa-check"></i><b>5.1</b> Create results folder</a></li>
-<li class="chapter" data-level="5.2" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#final-score-review"><i class="fa fa-check"></i><b>5.2</b> Final score review</a></li>
-<li class="chapter" data-level="5.3" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#methods-document"><i class="fa fa-check"></i><b>5.3</b> Methods document</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#steps-to-updating-methods-document"><i class="fa fa-check"></i><b>5.3.1</b> Steps to updating methods document</a></li>
+<li class="chapter" data-level="4" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html"><i class="fa fa-check"></i><b>4</b> Finalizing the global assessment</a><ul>
+<li class="chapter" data-level="4.1" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#create-results-folder"><i class="fa fa-check"></i><b>4.1</b> Create results folder</a></li>
+<li class="chapter" data-level="4.2" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#final-score-review"><i class="fa fa-check"></i><b>4.2</b> Final score review</a></li>
+<li class="chapter" data-level="4.3" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#methods-document"><i class="fa fa-check"></i><b>4.3</b> Methods document</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#steps-to-updating-methods-document"><i class="fa fa-check"></i><b>4.3.1</b> Steps to updating methods document</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#results-document"><i class="fa fa-check"></i><b>5.4</b> Results document</a></li>
-<li class="chapter" data-level="5.5" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#updates-document"><i class="fa fa-check"></i><b>5.5</b> Updates document</a></li>
-<li class="chapter" data-level="5.6" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#upload-to-a-repository"><i class="fa fa-check"></i><b>5.6</b> Upload to a repository</a></li>
+<li class="chapter" data-level="4.4" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#results-document"><i class="fa fa-check"></i><b>4.4</b> Results document</a></li>
+<li class="chapter" data-level="4.5" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#updates-document"><i class="fa fa-check"></i><b>4.5</b> Updates document</a></li>
+<li class="chapter" data-level="4.6" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#upload-to-a-repository"><i class="fa fa-check"></i><b>4.6</b> Upload to a repository</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
@@ -196,10 +223,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 the NCEAS private server (Mazu) because we do not want to be responsible for serving other people’s data.</p>
 <p>These data are saved to Mazu: git-annex/globalprep/_raw_data in a folder that is labeled with an abbreviated version of the datasource (Figure 1). The data is saved to a folder describing the year the data was downloaded (e.g., d2015, d2016).</p>
 <p>Figure 1: Location of raw data saved to Mazu.</p>
-<div class="figure">
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vT09zXxdCewmMAuDscXvS-pAoYM92AMd8Xxw_DhP93IFirHRtioAu19IsjEUN24091Cvm7vmCkB8piM/pub?w=712&amp;h=531" />
-
-</div>
+<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vT09zXxdCewmMAuDscXvS-pAoYM92AMd8Xxw_DhP93IFirHRtioAu19IsjEUN24091Cvm7vmCkB8piM/pub?w=712&amp;h=531" /></p>
 <p>Every raw data folder should have a README.md (keep the caps so it is consistent and easy to see). *Note we are using .md rather than .txt even for READMEs on Mazu.</p>
 <p>Each README should include the following (<a href="https://github.com/OHI-Science/ohiprep/blob/master/src/templates/generic_raw_data_README.md">template</a>):</p>
 <ul>
@@ -228,12 +252,15 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 </ol>
 <p>This is especially important when we start working with spatial files. It is impossible to run the spatial analyses on a personal computer due to speed and memory limitations.</p>
 <p>The VPN allows you to work from the Mazu server when you are not onsite. I almost exclusively work from Mazu. Basically, when I log in, my computer thinks I am working from NCEAS. I can access the Mazu drive. My IP address is through NCEAS and my clock displays the time in Santa Barbara.</p>
-<p>Here is some information on getting setup: <a href="http://www.ets.ucsb.edu/services/campus-vpn/what-vpn" class="uri">http://www.ets.ucsb.edu/services/campus-vpn/what-vpn</a> and: <a href="http://www.ets.ucsb.edu/services/campus-vpn/get-connected" class="uri">http://www.ets.ucsb.edu/services/campus-vpn/get-connected</a></p>
+<p>Here is some information on getting setup: <a href="http://www.ets.ucsb.edu/services/campus-vpn/what-vpn" class="uri">http://www.ets.ucsb.edu/services/campus-vpn/what-vpn</a>
+and: <a href="http://www.ets.ucsb.edu/services/campus-vpn/get-connected" class="uri">http://www.ets.ucsb.edu/services/campus-vpn/get-connected</a></p>
 <p>Once you have the VPN, here’s how you map Mazu from a Mac:</p>
-<p>Finder, then do command-K (Or go to the Menu &gt; Go &gt; Connect to Server) Paste:</p>
+<p>Finder, then do command-K (Or go to the Menu &gt; Go &gt; Connect to Server)
+Paste:</p>
 <pre><code>smb://mazu.nceas.ucsb.edu/ohi</code></pre>
 <p>and then hit Connect!</p>
-<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vRctPyg0LHmcWcvMRJzeBgDIuMZYjCJS2kBYzq8sWIDw98u6nW4cbKBe4h_gaH4QbgCdNdv3plxWTID/pub?w=960&amp;h=720" /> ***</p>
+<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vRctPyg0LHmcWcvMRJzeBgDIuMZYjCJS2kBYzq8sWIDw98u6nW4cbKBe4h_gaH4QbgCdNdv3plxWTID/pub?w=960&amp;h=720" />
+***</p>
 </div>
 <div id="setting-up-rstudio-mazu-server" class="section level3">
 <h3><span class="header-section-number">3.1.3</span> Setting up Rstudio Mazu Server</h3>
@@ -243,8 +270,9 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 <li>If you are running long R processes, Mazu is faster and it will not hog your computer’s resources.</li>
 <li>It is possible to run scripts on Mazu’s multiple cores (which is necessary to run many of our scripts).</li>
 </ol>
-<p>You need to contact <a href="mailto:support@nceas.ucsb.edu">support@nceas.ucsb.edu</a> to get this set up.</p>
-<p>This is what it looks like on my computer: <img src="https://docs.google.com/drawings/d/e/2PACX-1vQMt-gUz07-sdOmHiWQn2fKGb7lOPChXwsoExZ6NiCVu0ylHv65rV3e5H6pWwic4FDas1ajjZSj4v8I/pub?w=960&amp;h=720" /></p>
+<p>You need to contact <a href="mailto:support@nceas.ucsb.edu" class="email">support@nceas.ucsb.edu</a> to get this set up.</p>
+<p>This is what it looks like on my computer:
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vQMt-gUz07-sdOmHiWQn2fKGb7lOPChXwsoExZ6NiCVu0ylHv65rV3e5H6pWwic4FDas1ajjZSj4v8I/pub?w=960&amp;h=720" /></p>
 <hr />
 </div>
 <div id="using-cyberduck-to-transfer-large-files" class="section level3">
@@ -252,12 +280,15 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 <p>You should consider looking into Cyberduck (but I wouldn’t bother with this until you find you need it).</p>
 <p>If you need to move really big files between Mazu and your computer, I find that the VPN typically fails. For this, I use <a href="https://download.cnet.com/Cyberduck-for-Windows/3000-18500_4-75623481.html">Cyberduck</a>.</p>
 <ol style="list-style-type: decimal">
-<li><p>After you download Cyberduck, open it up and click Open Connection. <img src="https://docs.google.com/drawings/d/e/2PACX-1vRkVsbyCsv3LQYuSbAueUjv2KLyiJCWL9gvJd3jCIyX-xvCHnWzWJU0gO-izhaurjdM8S5yHOCQCR_r/pub?w=960&amp;h=720" /></p></li>
-<li><p>Type in the server address mazu.nceas.ucsb.edu, your sign-in credentials, select SFTP (SSH File Transfer Protocol) in the drop down at the top (supposed to be safer), AND type in /home/shares/ohi/git-annex under “Path:”. Click Connect. <img src="https://docs.google.com/drawings/d/e/2PACX-1vSXABa8ABX-dHcOA3_--0k_y1rZCWrFuVgx2GIurOIqSRKoyZGZ7Ec0Ixt0NGlx7y6NcuB10rzfXm3A/pub?w=960&amp;h=720" /></p></li>
+<li><p>After you download Cyberduck, open it up and click Open Connection.
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vRkVsbyCsv3LQYuSbAueUjv2KLyiJCWL9gvJd3jCIyX-xvCHnWzWJU0gO-izhaurjdM8S5yHOCQCR_r/pub?w=960&amp;h=720" /></p></li>
+<li><p>Type in the server address mazu.nceas.ucsb.edu, your sign-in credentials, select SFTP (SSH File Transfer Protocol) in the drop down at the top (supposed to be safer), AND type in /home/shares/ohi/git-annex under “Path:”. Click Connect.
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vSXABa8ABX-dHcOA3_--0k_y1rZCWrFuVgx2GIurOIqSRKoyZGZ7Ec0Ixt0NGlx7y6NcuB10rzfXm3A/pub?w=960&amp;h=720" /></p></li>
 </ol>
 <p><em>Note:</em> You can modify the path if you want to be directed to another location in mazu.</p>
 <ol start="3" style="list-style-type: decimal">
-<li>Now you can start dragging and dropping! Click Disconnect when you’re done using Cyberduck. ***</li>
+<li>Now you can start dragging and dropping! Click Disconnect when you’re done using Cyberduck.
+***</li>
 </ol>
 </div>
 <div id="globalprep-files" class="section level3">
@@ -342,34 +373,24 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 <p>This folder will contain:</p>
 <ul>
 <li><p>a <em>README.md</em> that will link to the appropriate information pages on ohi-science.org The README.md should follow this <a href="https://github.com/OHI-Science/ohiprep/blob/master/src/templates/generic_readme.md">template</a>.</p></li>
-<li><strong>Year-specific folders</strong> within the goal/component folder organize output by assessment year (v2015, v2016). Each of the assessment year folders should have:
-<ul>
-<li>a README.md (see <a href="https://github.com/OHI-Science/ohiprep/blob/master/src/templates/generic_readme_year.md">this template</a>)</li>
-<li>a data_prep.R, or .Rmd that is well-documented. <a href="https://github.com/OHI-Science/ohiprep/blob/master/src/templates/generic_data_prep.Rmd">Here is the dataprep template</a>.</li>
-<li>a series of folders to organize data that include:
-<ul>
-<li><code>raw</code> for ‘raw-ish’ type files that would not be on the server. This is typically for piecemeal raw data that we compile (e.g., U.S. State Department travel warnings), and not data we have downloaded from a single source (which would go on Mazu). In most cases, this folder will not be used.</li>
-<li><code>int</code> for intermediate files (previously we’ve used tmp, working, or other naming conventions so this might not be entirely consistent).</li>
-<li><code>output</code> for the final data layer that is used in the OHI toolbox.</li>
-</ul></li>
-</ul></li>
+<li><p><strong>Year-specific folders</strong> within the goal/component folder organize output by assessment year (v2015, v2016). Each of the assessment year folders should have:
+* a README.md (see <a href="https://github.com/OHI-Science/ohiprep/blob/master/src/templates/generic_readme_year.md">this template</a>)
+* a data_prep.R, or .Rmd that is well-documented. <a href="https://github.com/OHI-Science/ohiprep/blob/master/src/templates/generic_data_prep.Rmd">Here is the dataprep template</a>.
+* a series of folders to organize data that include:
++ <code>raw</code> for ‘raw-ish’ type files that would not be on the server. This is typically for piecemeal raw data that we compile (e.g., U.S. State Department travel warnings), and not data we have downloaded from a single source (which would go on Mazu). In most cases, this folder will not be used.
++ <code>int</code> for intermediate files (previously we’ve used tmp, working, or other naming conventions so this might not be entirely consistent).
++ <code>output</code> for the final data layer that is used in the OHI toolbox.</p></li>
 </ul>
 <p>The final datasets (the ones stored in the <code>output</code> folder) will be preceeded by the target abbreviation followed by an underscore that provides a brief description of the data, e.g., tr_sustainability.csv).</p>
 <!--- TODO Slightly confused as to what this image is supposed to be showing us. Is this showing corrections that should be made to mistakes? --->
-<div class="figure">
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vQL9FTF2lZ3yBCv9ZEI7OQ0sNCGdKpUrP0FfjtV_14vvzHAx3rxMQLJ-nFcfjRVT61sHTti4Husmrm-/pub?w=960&amp;h=720" />
-
-</div>
+<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vQL9FTF2lZ3yBCv9ZEI7OQ0sNCGdKpUrP0FfjtV_14vvzHAx3rxMQLJ-nFcfjRVT61sHTti4Husmrm-/pub?w=960&amp;h=720" /></p>
 <hr />
 </div>
 <div id="intermediate-files-that-are-too-large-for-github" class="section level3">
 <h3><span class="header-section-number">3.1.6</span> Intermediate files that are too large for Github</h3>
 <p>These files will be saved on Mazu, the internal server’s, globalprep folder.</p>
 <p>Our goal is to have everything (except for data obtained from other sources) stored on GitHub, but some files are too large or inappropriate for GitHub and must be stored on Mazu. Each of these files should be stored in a way that mirrors that on Github. If there is a need to make a duplicate folder on <code>git-annex</code>, it should have the same name as the folder used in GitHub.</p>
-<div class="figure">
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vQjq4gTVyHmB-QKIAAWEin3YRPSsEqoq2yZZ0W5uP6D47vXAZUoNJl21BPKLumifz_UgbZ_ef1-U0lt/pub?w=960&amp;h=720" />
-
-</div>
+<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vQjq4gTVyHmB-QKIAAWEin3YRPSsEqoq2yZZ0W5uP6D47vXAZUoNJl21BPKLumifz_UgbZ_ef1-U0lt/pub?w=960&amp;h=720" /></p>
 <p>Store any intermediate or final output files that are too large for github in these folders. Keep the same subfolder structure. If you are working in <code>spp_ico</code> and have temporary rasters to store on Mazu, save them in a folder named <code>int</code>.</p>
 <p><strong>Raw data should not be stored here. This should be stored in Mazu’s <code>_raw_data</code> folder</strong></p>
 <hr />
@@ -381,7 +402,8 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 <h3><span class="header-section-number">3.2.1</span> Prepare the dataprep folder</h3>
 <p>In ohiprep_v20??/globalprep navigate to the folder that contains the files you will need to prepare the data. Select the most recent assessment year of data and copy/paste to create a new folder in the same location, changing the name to reflect the current assessment year.</p>
 <p>For example, if we are preparing data layers for the 2019 assessment for the artisanal opportunities goal, ao, we would copy the v2018 folder and name it v2019.</p>
-<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vTkXdx-bGQoOhzXn6Wz94yV9_S9BlKY0kPhAtp9nKaewr0lRD0Cr0B_H37aUoDANt0Ck6p4wSaFIJPz/pub?w=960&amp;h=720" /> Next, delete all unnecessary files, particularly the files in the raw, intermediate, and output folders! New versions of these data will be created in the updated data_prep script, and you want to be sure that this is indeed what happens. If there are data already in the folder it can be easy to overlook a mistake, such as not using the correct file path to save the data, etc..</p>
+<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vTkXdx-bGQoOhzXn6Wz94yV9_S9BlKY0kPhAtp9nKaewr0lRD0Cr0B_H37aUoDANt0Ck6p4wSaFIJPz/pub?w=960&amp;h=720" />
+Next, delete all unnecessary files, particularly the files in the raw, intermediate, and output folders! New versions of these data will be created in the updated data_prep script, and you want to be sure that this is indeed what happens. If there are data already in the folder it can be easy to overlook a mistake, such as not using the correct file path to save the data, etc..</p>
 <p>Typically, you will not delete the dataprep script/s and README. You will also want to preserve the folder structure. If in doubt, I delete the files and then copy them over as needed. For some goals, such as fisheries, there are lots and lots of files and it is very confusing. In these cases, I just copy the files as I need them.</p>
 <p>Once you have created and cleaned the new folder commit and push the updates!</p>
 </div>
@@ -429,14 +451,14 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 <li>Results check: code used to check results</li>
 <li>Final run: a final run of all the code after restarting R</li>
 </ol>
-<p>A generic data prep Rmd file is located on Github: <a href="https://raw.githubusercontent.com/OHI-Science/ohiprep/master/src/templates/generic_data_prep.Rmd" class="uri">https://raw.githubusercontent.com/OHI-Science/ohiprep/master/src/templates/generic_data_prep.Rmd</a></p>
+<p>A generic data prep Rmd file is located on Github: <a href="https://raw.githubusercontent.com/OHI-Science/ohiprep/master/src/templates/generic_data_prep.Rmd">https://raw.githubusercontent.com/OHI-Science/ohiprep/master/src/templates/generic_data_prep.Rmd</a></p>
 </div>
 <div id="prep-rmd-1.-summary" class="section level2">
 <h2><span class="header-section-number">3.4</span> prep Rmd: 1. Summary</h2>
 <p>This section describes the purpose of the script and the data layers that are generated.</p>
 <p>For example, the 2019 AO summary looks like this:</p>
 <ul>
-<li>“This script generates the”need&quot; layer for the artisanal opportunities goal. The “access” layer, which is not updated due to a lack of a data source, is located here: globalprep/res_mora_ao/v2013/data/r_mora_s4_2013a.csv.&quot;</li>
+<li>“This script generates the”need" layer for the artisanal opportunities goal. The “access” layer, which is not updated due to a lack of a data source, is located here: globalprep/res_mora_ao/v2013/data/r_mora_s4_2013a.csv."</li>
 </ul>
 </div>
 <div id="prep-rmd-2.-updates" class="section level2">
@@ -445,6 +467,7 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 <p>For example, the 2019 AO updates look like this:</p>
 <ul>
 <li>“Uninhabited and low population regions now given an NA value (vs. a gapfilled value).”</li>
+<li>“Added an additional year of GDP data from the World Bank”</li>
 </ul>
 </div>
 <div id="prep-rmd-3.-data-sources" class="section level2">
@@ -455,11 +478,14 @@ the NCEAS private server (Mazu) because we do not want to be responsible for ser
 <p><strong>Description</strong>: [e.g., surface aragonite state]</p>
 <p><strong>Native data resolution</strong>: [e.g., 1 degree, 30 m, country, etc.]</p>
 <p><strong>Time range</strong>: [e.g., 1880-1899, monthly data provided for each year]</p>
-<p><strong>Format</strong>: [e.g., NetCDF, Excel file] <br> <br></p>
+<p><strong>Format</strong>: [e.g., NetCDF, Excel file]
+<br> <br></p>
 <p>For example, the 2019 AO data sources section looks like this:</p>
 <p><strong>Downloaded</strong>: 7/23/2018</p>
 <p><strong>Description</strong>:<br />
-GDP adjusted per capita by PPP (ppppcgdp) <a href="http://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD" class="uri">http://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD</a> Reported at country scale.</p>
+GDP adjusted per capita by PPP (ppppcgdp)
+<a href="http://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD" class="uri">http://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD</a>
+Reported at country scale.</p>
 <p>GDP per capita based on purchasing power parity (PPP). PPP GDP is gross domestic product converted to international dollars using purchasing power parity rates. An international dollar has the same purchasing power over GDP as the U.S. dollar has in the United States. GDP at purchaser’s prices is the sum of gross value added by all resident producers in the economy plus any product taxes and minus any subsidies not included in the value of the products. It is calculated without making deductions for depreciation of fabricated assets or for depletion and degradation of natural resources. Data are in constant international dollars based on the 2011 ICP round.</p>
 <p>Data is available directly to R through the WDI package.</p>
 <p><strong>Time range</strong>: 1990-2017</p>
@@ -492,10 +518,10 @@ GDP adjusted per capita by PPP (ppppcgdp) <a href="http://data.worldbank.org/ind
 <div id="common.r" class="section level3">
 <h3><span class="header-section-number">3.7.2</span> common.R</h3>
 <p>Nearly all scripts will source a common.R file. This file creates several objects that make it easier to conduct an OHI assessment. This includes:</p>
-<table style="width:61%;">
+<table>
 <colgroup>
-<col width="13%" />
-<col width="47%" />
+<col width="21%" />
+<col width="78%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -539,7 +565,7 @@ GDP adjusted per capita by PPP (ppppcgdp) <a href="http://data.worldbank.org/ind
 </tbody>
 </table>
 <p>To load the data in a data function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="st">&#39;http://ohi-science.org/ohiprep_v2019/workflow/R/common.R&#39;</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="st">&#39;http://ohi-science.org/ohiprep_v2019/workflow/R/common.R&#39;</span>)</code></pre>
 <pre><code>## This file makes it easier to process data for the OHI global assessment
 ##  by creating the following objects:
 ## 
@@ -551,14 +577,12 @@ GDP adjusted per capita by PPP (ppppcgdp) <a href="http://data.worldbank.org/ind
 ##  * rgn_syns() = function to load dataframe of region synonyms (used to convert country names to OHI regions)
 ##  * low_pop() = function to load dataframe of regions with low and no human population
 ##  * UNgeorgn = function to load dataframe of UN geopolitical designations used to gapfill missing data</code></pre>
-<pre><code>## Warning in eval(ei, envir): The Mazu directory dir_M set in src/R/common.R
-## does not exist. Do you need to mount Mazu: /Volumes/ohi?</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># call the function to load the data, the message describes the available data: </span>
-<span class="kw">region_data</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># call the function to load the data, the message describes the available data: </span>
+<span class="kw">region_data</span>()</code></pre>
 <pre><code>## loads 2 dataframes: rgns_all and rgns_eez 
 ##  rgns_all = includes eez/high seas/antarctica regions, IDs correspond with region shapefile and raster
 ##  rgns_eez = includes only eez regions</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(rgns_all)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(rgns_all)</code></pre>
 <pre><code>##   rgn_type type_w_ant rgn_id rgn_ant_id              rgn_name
 ## 1      eez        eez      1          1         Cocos Islands
 ## 2      eez        eez     10         10                 Nauru
@@ -566,7 +590,7 @@ GDP adjusted per capita by PPP (ppppcgdp) <a href="http://data.worldbank.org/ind
 ## 4      eez        eez    101        101               Namibia
 ## 5      eez        eez    102        102          South Africa
 ## 6      eez        eez    103        103 Sao Tome and Principe</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(rgns_eez)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(rgns_eez)</code></pre>
 <pre><code>##   rgn_id         rgn_name eez_iso3 territory admin_rgn_id
 ## 1      1    Cocos Islands      CCK       yes           16
 ## 2      2 Christmas Island      CXR       yes           16
@@ -585,31 +609,28 @@ GDP adjusted per capita by PPP (ppppcgdp) <a href="http://data.worldbank.org/ind
 <h4><span class="header-section-number">3.7.2.1</span> metadata for common.R</h4>
 <p><em>dir_M and mollCRS</em></p>
 <p>The following are the dir_M and mollCRS objects:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## dir_M describes the path to our internal server based on your computer&#39;s operating system
-## <span class="al">NOTE</span>: The following may be different on your operating system
-dir_M</code></pre></div>
-<pre><code>## [1] &quot;/Volumes/ohi&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## mollCRS is the code for the Mollweide coordinate reference system
-mollCRS</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## dir_M describes the path to our internal server based on your computer&#39;s operating system</span>
+<span class="co">## </span><span class="al">NOTE</span><span class="co">: The following may be different on your operating system</span>
+dir_M</code></pre>
+<pre><code>## [1] &quot;/home/shares/ohi&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## mollCRS is the code for the Mollweide coordinate reference system</span>
+mollCRS</code></pre>
 <pre><code>## CRS arguments:
 ##  +proj=moll +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +units=m +no_defs</code></pre>
 <p><em>regions_shape</em></p>
 <p>The regions_shape function returns a simple feature object called “regions”. Regions is the master global shapefile that includes polygons for land, eez, high seas, and antarctica regions in the Mollweide coordinate reference system.</p>
 <p>Sometimes it is necessary to convert from a simple feature object to a shapefile object because some functions still do not work with simple feature objects, or, if the spatial file is modified, a saved shapefile may be desired. This is accomplished like this:</p>
-<p><code>regions_shape &lt;- as(regions, &quot;Spatial&quot;)</code></p>
+<p><code>regions_shape &lt;- as(regions, "Spatial")</code></p>
 <!--- TODO Can't get any of these code chunks to run. Are they necessary to run? Need to discuss with Mel--->
 <p>The regions file with eez (dark blue), fao or high seas (light blue), and antarctica or CCAMLR (green) regions.</p>
-<div class="figure">
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vRpNcorAKw0Hzk--d1R_llBw4-qeCx1mcgDSpaUeIASO2YDBIhPcoEXMshIFHgo9nv8E6_o6h70fs-P/pub?w=960&amp;h=720" />
-
-</div>
+<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vRpNcorAKw0Hzk--d1R_llBw4-qeCx1mcgDSpaUeIASO2YDBIhPcoEXMshIFHgo9nv8E6_o6h70fs-P/pub?w=960&amp;h=720" /></p>
 <p>The regions object is a simple feature multipolygon spatial object in the Mollweide coordinate reference system. There are 7 fields described in the table</p>
 <table>
 <colgroup>
 <col width="13%" />
 <col width="23%" />
 <col width="22%" />
-<col width="40%" />
+<col width="41%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -667,15 +688,9 @@ mollCRS</code></pre></div>
 <p><em>ohi_rasters</em></p>
 <p>The ohi_rasters function returns two rasters, “zones” and “ocean”, both with ~1 km resolution and the mollweide coordinate reference system.</p>
 <p>The “zones” raster cell values are the OHI region ID. The raster cell values can be linked to the region names using the region_data() function, and the rgn_ant_id variable from rgns_all.csv. This raster is typically used to extract pressure data for the eez regions.</p>
-<div class="figure">
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vQ7vOBar-Xr6QH8X36WsJidS0M_L4hhTQh6wgT4RTvIVJAgR04fWEqOP3oAbUcdg4JgWOu8sgzHhw0E/pub?w=960&amp;h=720" />
-
-</div>
+<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vQ7vOBar-Xr6QH8X36WsJidS0M_L4hhTQh6wgT4RTvIVJAgR04fWEqOP3oAbUcdg4JgWOu8sgzHhw0E/pub?w=960&amp;h=720" /></p>
 <p>The “ocean” raster identifies ocean cells with a value of 1, and other cells are NA [NOTE: There is something weird about this raster in that it lists the values as 0, 255 (min, max), when in fact there are only 1 and NA values! If you need to convince yourself of this, you can use the <code>freq(ocean)</code> function to identify all cell values.]. This raster file is typically used to mask the ocean regions for pressure data.</p>
-<div class="figure">
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vTyex8lM_fxw6-23Z1mY59Ejf3PkcBUYOYtgVx7aqjNAqtPwEmIgG289EcY9B3wLlgvrp9tTA2iCRbO/pub?w=960&amp;h=720" />
-
-</div>
+<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vTyex8lM_fxw6-23Z1mY59Ejf3PkcBUYOYtgVx7aqjNAqtPwEmIgG289EcY9B3wLlgvrp9tTA2iCRbO/pub?w=960&amp;h=720" /></p>
 <p><em>region_data()</em></p>
 <p>The region_data function returns two dataframes, “rgns_all” and “rgns_eez”.</p>
 <p>The “rgns_all” dataframe includes data for the eez, fao, and ccamlr ocean regions. The IDs in rgn_ant_id correspond to the IDs in the zones raster. Once raster data are extracted for each region, the output is often aligned with the data in this dataframe.</p>
@@ -685,7 +700,7 @@ mollCRS</code></pre></div>
 <col width="13%" />
 <col width="23%" />
 <col width="22%" />
-<col width="40%" />
+<col width="41%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -730,12 +745,12 @@ mollCRS</code></pre></div>
 </table>
 <p>The “rgns_eez” dataframe includes data for the 220 OHI regions plus Antarctica (rgn_id 213). This file is used to make sure that all regions are included in dataprep files. It also includes data to indicate whether regions are territories. This can also be used for gapfilling (in some cases, it makes sense to assign territories the same value as their administrative country).</p>
 <p><em>Metadata for rgns_eez dataframe</em></p>
-<table style="width:99%;">
+<table>
 <colgroup>
 <col width="13%" />
 <col width="22%" />
 <col width="22%" />
-<col width="40%" />
+<col width="41%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -792,7 +807,7 @@ mollCRS</code></pre></div>
 <col width="13%" />
 <col width="23%" />
 <col width="22%" />
-<col width="40%" />
+<col width="41%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -838,12 +853,12 @@ mollCRS</code></pre></div>
 <p><em>low_pop()</em></p>
 <p>Includes data for 21 regions with 0 and low populations. These data are used to identify regions that should have NA values because the goal does not apply to regions with no/low populations (e.g., livelihoods and economies).</p>
 <p><em>Metadata for low_pop dataframe</em></p>
-<table style="width:99%;">
+<table>
 <colgroup>
 <col width="13%" />
 <col width="22%" />
 <col width="22%" />
-<col width="40%" />
+<col width="41%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -889,12 +904,12 @@ mollCRS</code></pre></div>
 <p><em>UNgeorgn()</em></p>
 <p>Each global regions UN georegion based on social and geopolitical considerations.</p>
 <p><em>Metadata for UNgeorgn dataframe</em></p>
-<table style="width:99%;">
+<table>
 <colgroup>
 <col width="13%" />
 <col width="22%" />
 <col width="22%" />
-<col width="40%" />
+<col width="41%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -980,26 +995,69 @@ mollCRS</code></pre></div>
 <ul>
 <li>Some mising data can be estimated from the original source. For example, if there are some missing years within a dataset, we can often estimate these values using a linear model of available data. For spatial raster data, we often estimate missing values using nearby raster cells.<br />
 </li>
-<li>Secondary datasets can also be used to estimate mising values. For example, we gapfill some missing Social Progress Index values using World Governance Index data as a predictor. And, in many cases we use <a href="https://github.com/OHI-Science/ohiprep_v2019/blob/gh-pages/globalprep/spatial/v2017/output/georegion_labels.csv">UN geopolitical data</a> that classifies countries based on geopolitical and social variables to predict missing data.</li>
+<li>Secondary datasets can also be used to estimate missing values. For example, we gapfill some missing Social Progress Index values using World Governance Index data as a predictor. And, in many cases we use <a href="https://github.com/OHI-Science/ohiprep_v2019/blob/gh-pages/globalprep/spatial/v2017/output/georegion_labels.csv">UN geopolitical data</a> that classifies countries based on geopolitical and social variables to predict missing data.</li>
 <li>And, we often use multiple approaches to estimate missing values within a dataset.</li>
 </ul>
 <p>Our goal is to estimate missing data using the simplest model that best predicts the data. Given this, it is necessary to determine whether datasets and model terms actually predict missing data and to compare the performance of multiple models. Ideally cross-validation methods are used to evaluate how well the models predict missing data, otherwise models will appear to perform much better than they actually do.</p>
 <p><em>There is no point in having a model with many predictive variables and complex non-linear fits if it performs no better than using a simple mean of the existing data!</em></p>
-<p>Gapfilling steps are often mixed with the dataprep code. Once the gapfilling is done, we will save a dataset describing which data were gapfilled and the method. Every dataset should have a corresponding gapfilling dataset…<em>even if there was no gapfilling</em>.</p>
-<p>The gapfilling record is saved with the same name as the corresponding output data, but with a “_gf&quot; extension.</p>
-<div class="figure">
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vTGj33cUjqLbPw3sPkPBNGovaaradQASn3CzuTvLL8VgcFqcmlPGNskPksNjlqu1E8enu9zVSOklXJ8/pub?w=960&amp;h=720" />
-
+<div id="training-linear-models-for-gapfilling" class="section level3">
+<h3><span class="header-section-number">3.9.1</span> Training linear models for gapfilling</h3>
+<p><strong>Basic gist:</strong>
+Use alternative datasets to predict data points for a dataset you have limited data points for. In this instance, we had FMI data points for 40 regions included in the OHI, and needed to gapfill the remaining 180 regions. We checked for correlation between the FMI data and several other datasets, including AO need (rescaled GDP per capita per person purchasing power), GDP per capita, social progress index (SPI), world governance indicator (WGI), and UN georegions.</p>
+<p>A detailed example can be found <a href="https://github.com/OHI-Science/ohiprep_v2019/blob/gh-pages/globalprep/res_fmi/v2019/fmi_model_compare.Rmd">here</a></p>
+<p><strong>Steps:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Collect data that you’ll use to predict values, and merge with existing data (only use the values that correspond to data you already have to create this df)</li>
+<li>Look at correlation between alternative data sets cor.test() and pairs.panels()</li>
+<li>Create initial model:</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r">mod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(dep_variable <span class="op">~</span><span class="st"> </span>ind_variable, <span class="dt">data=</span>df_name)</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Look at <code>summary(mod1)</code> to check for R-squared and p-value</li>
+<li>Create an array of predicted values:</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r">df_predicted &lt;-<span class="st"> </span>df_name <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(rgn_id) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">do</span>({
+    pred &lt;-<span class="st"> </span><span class="kw">predict</span>(mod1, <span class="dt">newdata =</span>.[<span class="kw">c</span>(<span class="st">&#39;ind_variable&#39;</span>)]) <span class="co"># creates a new column for predicted values</span>
+    <span class="kw">data.frame</span>(., fmi_pred) <span class="co"># do loop applies the model fitting and prediction to each country group</span>
+    }) <span class="op">%&gt;%</span>
+dplyr<span class="op">::</span><span class="kw">ungroup</span>()</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Plot predicted vs actual values:</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplotly</span>(<span class="kw">ggplot</span>(df_predicted, <span class="kw">aes</span>(<span class="dt">x =</span> dep_variable, <span class="dt">y =</span> pred, <span class="dt">labels =</span> rgn_id)) <span class="op">+</span>
+<span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="kw">geom_abline</span>(<span class="dt">slope =</span> <span class="dv">1</span>, <span class="dt">intercept =</span> <span class="dv">0</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>))</code></pre>
+<p><em>Note: “rgn_id” is just an example of a column in the dataset with a unique value for each observation.</em></p>
+<p>lm() can also include multiple independent variables (must be merged into one data frame with one row for each observation):
+mod2 &lt;- lm(dep_variable ~ ind_variable + ind_variable2, data=df_name)</p>
+<ol start="7" style="list-style-type: decimal">
+<li><p>Compare models for fit and degrees of freedom: <code>AIC(mod1, mod2)</code></p></li>
+<li><p>Use best-fit model to gapfill areas without data using do loop as shown in step 4.</p></li>
+</ol>
+<p>If using UN georegions to gapfill, you’ll want to use the most specific/granular label possible. Use separate models for regional and continental levels (r2_label vs r1_label as described in metadata above), and write code to tell R to grab the data from the most granular data available. Example from <a href="https://github.com/OHI-Science/ohiprep_v2019/blob/gh-pages/globalprep/res_fmi/v2019/fmi_model_compare.Rmd">FMI model comparison .Rmd</a>:</p>
+<pre class="sourceCode r"><code class="sourceCode r">fmi_gf_all &lt;-<span class="st"> </span>fmi_gf1 <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">left_join</span>(fmi_gf2, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;rgn_id&quot;</span>, <span class="st">&quot;r1_label&quot;</span>, <span class="st">&quot;r2_label&quot;</span>, <span class="st">&quot;rgn_label&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;spi&quot;</span>, <span class="st">&quot;fmi&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">gapfilled =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(fmi) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(fmi_pred_r2), <span class="st">&quot;1&quot;</span>, <span class="dv">0</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">method =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(fmi) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(fmi_pred_r2), <span class="st">&quot;SPI + UN_geopolitical region r2&quot;</span>, <span class="ot">NA</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fmi =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(fmi), fmi_pred_r2, fmi)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">gapfilled =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(fmi) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(fmi_pred_r1), <span class="st">&quot;1&quot;</span>, gapfilled)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">method =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(fmi) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(fmi_pred_r1), <span class="st">&quot;SPI + UN_geopolitical region r1&quot;</span>, method)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fmi =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(fmi), fmi_pred_r1, fmi))</code></pre>
 </div>
+<div id="saving-gapfilling-report-files" class="section level3">
+<h3><span class="header-section-number">3.9.2</span> Saving gapfilling report files</h3>
+<p>Gapfilling steps are often mixed with the dataprep code. Once the gapfilling is done, we will save a dataset describing which data were gapfilled and the method. Every dataset should have a corresponding gapfilling dataset…<em>even if there was no gapfilling</em>.</p>
+<p>The gapfilling record is saved with the same name as the corresponding output data, but with a "_gf" extension.</p>
+<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vTGj33cUjqLbPw3sPkPBNGovaaradQASn3CzuTvLL8VgcFqcmlPGNskPksNjlqu1E8enu9zVSOklXJ8/pub?w=960&amp;h=720" /></p>
 <p>The gapfilling dataset should mirror the corresponding dataset in regard to the number of rows and identifying columns (e.g., rgn_id, commodity, year, etc.). The gapfilling datset should include three additional columns that indicate the following:</p>
 <ul>
 <li>gapfilled: a zero or one value (or, NA if the value in the original data is NA) indicating whether the data was gapfilled or not.</li>
 <li>method: a short descriptor of the method that was used (this should be described more fully somewhere in the documentation).</li>
 <li>error: a numeric value describing the error around the estimate. This should be left blank if this was not determined (most of the time this will not be estimated).</li>
 </ul>
-<div class="figure">
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vSFPuVZaRrO__JnOOSOl-AukPo3HN3rpBcIYDuC0pau2xHw3IVtnqOvTrdY5AfcVs7XybADvZD-tLtr/pub?w=691&amp;h=690" />
-
+<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vSFPuVZaRrO__JnOOSOl-AukPo3HN3rpBcIYDuC0pau2xHw3IVtnqOvTrdY5AfcVs7XybADvZD-tLtr/pub?w=691&amp;h=690" /></p>
 </div>
 </div>
 <div id="prep-rmd-7.-results-check" class="section level2">
@@ -1013,7 +1071,8 @@ mollCRS</code></pre></div>
 <li>Do the number of NA values seem reasonable (ideally there will be none, unless the goal does not apply to that region)</li>
 <li>Does the range/distribution of values seem reasonable, for example, some outputs should range from 0-1.</li>
 </ul>
-<p>The functions I use most commonly to check data are: <code>hist()</code>, <code>summary()</code>, <code>dim()</code>, <code>table()</code></p>
+<p>The functions I use most commonly to check data are:
+<code>hist()</code>, <code>summary()</code>, <code>dim()</code>, <code>table()</code></p>
 <p>Because we calculate the global index every year, the most powerful way of checking our data is to compare the current data with last year’s data. In most cases, source data will remain the same from year to year (although some agencies will update previous data). Consequently, any changes will often reflect changes to the model and/or mistakes.</p>
 <p>For this comparison we typically compare the most recent shared year of data between the two assessments. The following code walks through this process using data calculated for the lasting special places goal. In this case, we will pretend we have just completed preparing the data for the 2018 assessment and we want to compare the results to the 2017 assessment. Here we focus on the data for the 3nm offshore region.</p>
 <pre><code>
@@ -1060,10 +1119,7 @@ ggplotly(compare_plot)
 <div id="prep-rmd-8.-final-run" class="section level2">
 <h2><span class="header-section-number">3.11</span> prep Rmd: 8. Final run</h2>
 <p>The final step is to commit and push all files. Then, close R and do NOT save the workspace image. The purpose of closing everything is to clear the memory of all data objects to make sure that the code still runs. This may be a problem if we change object names but fail to make necessary corresponding throughout the code.</p>
-<div class="figure">
-<img src="images/Workspace.jpg" />
-
-</div>
+<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vRf6bzIscOnKcqrxUNn9q4IOkPbElNbCJbcXpb3oC6jADbeVQ-e4pAA17fUBYa3GiJENILw48xgBSA4/pub?w=531&amp;h=243" /></p>
 <p>I typically close everything by opening another repository.</p>
 <p>Restart R and return to the ohiprep repo and rerun everything (except any really long processes).</p>
 <p>Check the following:</p>
@@ -1079,6 +1135,9 @@ ggplotly(compare_plot)
 <h2><span class="header-section-number">3.12</span> Notes on parallel processing</h2>
 <p>Coming soon!</p>
 
+<p>#Updating scores
+Need to add something here!</p>
+
 </div>
 </div>
             </section>
@@ -1087,7 +1146,7 @@ ggplotly(compare_plot)
         </div>
       </div>
 <a href="starting-a-new-year.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="updating-scores.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="finalizing-the-global-assessment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
