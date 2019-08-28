@@ -276,7 +276,51 @@ Data is available directly to R through the WDI package.
 **Time range**: 1990-2017
 
 ## prep Rmd: 4. Set up 
-This code chunk is used to load packages, source functions, and set variables used throughout the analyses.  
+This code chunk is used to load packages, source functions, and set variables used throughout the analyses. Packages used in almost every layer include:
+```{r eval=F}
+# Load ohicore package which contains all the proprietary OHI functions
+library(ohicore) # devtools::install_github('ohi-science/ohicore@dev') OR
+if (!("ohicore" %in% installed.packages())){devtools::install_github("ohi-science/ohicore")}
+
+# For general data analysis:
+library(here)
+library(tidyverse) # includes ggplot2, readr, stringr, tidyr, and dplyr
+library(plotly)
+
+# For spatial files: 
+library(raster)
+library(fasterize)
+library(sf)
+library(sp)
+library(rgdal)
+        
+## Parallel processing libraries (usually used for data prep involving large spatial files)
+library(parallel)
+library(foreach)
+library(doParallel)
+```
+
+
+Here, you can also initialize programatic creation of raw, intermediate and output file folders within the specific layer directory:
+
+```{r create_folders, eval=F}
+
+
+# check if 'raw', 'intermediate', and 'final' folders exist in the current assessment folder, if not, then create the folder in the working directory
+if (!file.exists(here("globalprep/layer_name/v20??/raw"))){
+  dir.create(here("globalprep/layer_name/v20??/raw"))
+} 
+
+if (!file.exists(here("globalprep/layer_name/v20??/intermediate"))){
+  dir.create(here("globalprep/layer_name/v20??/intermediate"))
+}
+
+if (!file.exists(here("globalprep/layer_name/v20??/output"))){
+  dir.create(here("globalprep/layer_name/v20??/output"))
+}
+
+```
+
 
 ### Packages
 The packages we load depend on the analyses, but we always use:
@@ -548,7 +592,45 @@ This file should be saved as a .csv file in an "output" folder. In general, the 
 
 https://github.com/OHI-Science/ohi-global/blob/draft/eez_layers_meta_data/layers_eez_base.csv
 
- 
+### OHI data idiosyncracies: Low population/uninhabited regions and grouped regions
+Recently we have standardized how we identify low population regions, using the low_pop() function in the common.R file. These regions are assigned NAs for some goals (e.g. GDP values used in AO) and perfect scores for others (e.g. sanitation access). Use the following code to establish a vector of low pop regions that can be compared against the final dataset.
+```{r eval=F}
+
+# After sourcing common.R and gapfilling data: 
+low_pop()
+
+# Filter out regions that have populations > 3000 and keep NA values 
+low_pop <- low_pop %>%
+  filter(est_population < 3000 | is.na(est_population)) 
+
+# Make a vector of low population region IDs:
+low_pop_vector <- c(low_pop$rgn_id)  
+
+# Assign NA values in score column for low popuation areas:
+gapfilled_dataset$score[gapfilled_dataset$rgn_id %in% low_pop_vector] <- NA
+
+```
+
+Several of the datasets we use also report OHI regions as a group, and we want to report them all at the same scale/resolution used in OHI. For instance, Bonaire, Sint Eustatius and Saba are often reported together as "Caribbean Netherlands" or combined as "Bonaire, Sint Eustatius and Saba". Use the following code to apply the data to all three regions:
+```{r eval=F}
+# Assuming "tidy_dataset" has been wrangled, cleaned, and has column "country"
+CN <- filter(tidy_dataset, country=="Caribbean Netherlands") %>%
+   rename(country_old = country) # country could also be rgn_name 
+
+CN_subregions <- data.frame(country_old = "Caribbean Netherlands",
+                            country = c("Bonaire", "Sint Eustatius", "Saba")) %>%
+  left_join(CN) %>%
+  select(-country_old)
+
+# Remove lines of data for Caribbean Netherlands and replace with individual region-level data for the three subregions:
+tidy_dataset <- tidy_dataset %>%
+   filter(country != "Caribbean Netherlands") %>%
+   rbind(CN_subregions)  
+
+```
+
+
+
 ## prep Rmd: 6.  Gapfilling
 
 We make every effort to gapfill missing data.  The only legitimate reason for a region to have an NA value is if the goal is not relevant to the region.  For example, the livelihoods and economies goal is not relevant for an uninhabited island.

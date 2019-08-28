@@ -84,7 +84,62 @@ The data tables in ohi-global/eez_layers_meta_data are used to create the method
 
 Currently, the layers_eez_gapfill.csv is not used to create the methods document, but it is still a good idea to update this as well.
 
-For information about updating these datatables, see: Coming Soon!
+<br>
+
+**layers_eez_base.csv**
+
+This file includes the directory and file name for each of the updated layers. Updates to this file should be completed when you are updating each layer to global (see Chapter 4, Updating Scores).
+
+<br>
+
+**layers_eez_data_sources.csv**
+
+In the OHI group Zotero library (invite required), you will create a new reference for each of the data sources that have been update for the current assessment year. This can be done easily by downloading Zotero to your computer and installing the extension in your browser. You will not be overwriting old citations in the Zotero library, but rather adding a new citation, even if all of the information about the data source is the same. 
+
+Create citations in Zotero and update the information, including title, author, abstract, date, URL, and accessed date. "Date" should indicate the year listed in the data citation, OR the most recent year in the dataset if no citation exists. "Accessed" should align with the date indicated in the data prep .Rmd file, OR the timestamp on the saved raw data files if a download date is not obvious. Example of completed citation information in Zotero: 
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vQT5N_fbalcK5GY_cTYQ7nQYaGS6MPQY-8ogqoFZlGH7yqzON49l2kQ7yfMyU6_LzoQ0ylLhZ5-3yhN/pub?w=458&h=680)
+
+One you have completed filling in citation information, right click the item in Zotero and choose "Export Item...". Export as a BibLaTeX file and save as a .bib to your computer.
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vRwsusCeQVmbycYSitRdBY7bGwld10OY9ALbH6UwM30tdNtgWeUPU9Gw9jwgfp8eX0GB8yr6f8SaaXy/pub?w=604&h=492)
+
+Open this file in a text editing app and copy the tag at the beginning: 
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vR6GLfvNBnThxCKPZyhzoU5pyjpm3oLskwMaKclbfLWdW_YZmMfn-PibfZKdkGrubJW1mCqPFvJthBj/pub?w=907&h=355)
+
+Paste this tag into layers_eez_data_sources.csv in the ds_reference column. If it is an update to an existing data source, copy over it and update the ds_years column for the time range of the data (also found in the Rmd, or within the data source itself). Check to make sure the other information is still accurate, and add a new column "ds_updated_20??" to indicate which references have been updated. Fill in "y" if you are updating an existing data source.
+
+If it is a new data source, paste the tag into a new line and fill in the other information (name, description, years, and native resolution).
+
+For all references that were not updated, fill in the ds_updated_20?? with "n" or "NA".
+
+<br>
+
+**layers_eez_methods.csv**
+
+This file contains information for three different aspects of every layer - the dataprep url, data source reference, and methods updates. Information should be filled in for all three of these sections for each layer that has been updated.
+
+- *dataprep_url*: File path to the knitted html file . Note: finalized data prep files should all be knitted BEFORE attempting to update this document, as this can take some time! 
+- *ds_reference*: Alias tag created BibLaTeX file as described above. This tag should match exactly with the tag in layers_eez_data_sources.csv. Always double check this! 
+- *methods_update*: Short description of updates to the data; usually is additional year of data and/or changes to gapfilling methods or other calculations.
+
+*Example of complete updated data for the ao_need layer:*
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vT0tkXA9_xuLpwHvf-qrbfr0NmyP8S6HpopTeMisdGXJzayxIOKoYqlzUhmLNgZ-fJPi-0d2sSKKusJ/pub?w=915&h=147)
+
+<br>
+
+**layers_eez_gapfill.csv**
+
+Add file path location of gapfilling report for each layer. 
+
+<br>
+
+**layers_eez_targets.csv**
+
+Coming soon!
+
 
 #### Step 2: Update OHI.bib
 Make sure all references are included in the OHI Zotero library (see for more information: Coming Soon!).   Then export the OHI library as a BibLaTeX file and replace the OHI.bib file in ohi-global/global_supplement with the updated file.
