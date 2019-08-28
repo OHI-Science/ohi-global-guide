@@ -1,2 +1,23 @@
-#Updating scores
-Need to add something here!
+# Updating scores
+
+After we have completed the data prep for a single layer, we update the information to the [OHI-global repository](https://github.com/OHI-Science/ohi-global) to calculate global EEZ scores. Follow these steps to upload the data to OHI-global: 
+
+1. Make sure that all ohiprep_v20?? files are saved, committed and pushed to Github.
+2. Ensure that OHI-global is cloned to your workspace and switch to that project in RStudio.
+3. Pull most recent draft of ohi-global from Github. 
+4. Open eez_layers_metadata/layers_eez_base.csv and update the directory and filenames. (Other data may also need to be updated) You will need to export the csv file to your computer, edit it in Excel, then upload back into RStudio. 
+5. Update eez/conf/scenario_data_years.csv (this can be done in RStudio, as you will just be updating the data years in this file.)
+6. Walk through eez/calculate_scores.R line by line.
+7. As you go through, check output in Git window:
+ - are the correct files being updated? 
+ - Do changes in score.csv seem reasonable?
+8. In the score_check() function at Step 10 in calculate_scores.R, check the scenario_year and change file_name to an alias representing the layer name (e.g. "np" for natural products)
+9. Explore data in eez/score_check/layer_alias_score_check.html to see how this year's data compare to last year's. 
+10. If everything looks good (you might want to write down any outliers and take a screenshot of the commit comparison scatter to explore later), save, commit and push all of the changes to Github. 
+11. Post screenshot to Github issues for review. 
+12. Update the layers_checklist (Google spreadsheet) with the status of each layers and close Github issues as appropriate.
+
+
+**Downloadable checklist:**
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vTC1jdR_xIFkOlw1_xndWfhjYbkV7Mox_2MMplLjrdlwf8-N3whMG-4JPuMmngR-ZA0_3o4RADTyA91/pub?w=905&h=546)
