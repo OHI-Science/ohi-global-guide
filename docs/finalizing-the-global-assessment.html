@@ -308,8 +308,8 @@ csl<span class="op">:</span><span class="st"> </span>ecology<span class="op">-</
 <li>I just put the .csl into the same subfolder as the .bib, so my YAML header looked like:</li>
 </ul></li>
 </ul>
-<p><code>bibliography: refs/ohi.bib</code>
-<code>csl: refs/ecology-letters.csl</code></p>
+<pre class="sourceCode r"><code class="sourceCode r">bibliography<span class="op">:</span><span class="st"> </span>refs<span class="op">/</span>ohi.bib
+csl<span class="op">:</span><span class="st"> </span>refs<span class="op">/</span>ecology<span class="op">-</span>letters.csl</code></pre>
 <p><br></p>
 <p><strong>Citing in the text of your R markdown</strong></p>
 <p>In the R Markdown document, the citations look like this: <code>[@articleidentifier]</code> where “articleidentifier” is the author/title fragment/year in the reference listed in the .bib file. So for the reference to Ready et al. 2010 from the .bib above, the citation would look like: <code>[@ready_predicting_2010]</code>.</p>

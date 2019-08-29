@@ -296,7 +296,7 @@ Review the Supplement.Rmd document to update the assessment year (i.e., title at
 ## Results document
 After producing the final scores, we create a document that describes the results of the assessment: https://raw.githack.com/OHI-Science/ohi-global/published/global2018/Results/Supplement_Results.html. This file can be accessed from our OHI-science global webpage.
 
-The file is created using this Rmd: ohi-global/yearly_results/global20??/Results/Supplment_Results.Rmd.  
+The file is created using this Rmd: ohi-global/yearly_results/global20??/Results/Supplement_Results.Rmd.  
 
 It is critical to carefully step through this script and modify as needed; for example, the date of the radicalFile object must match the date appended to the csv file of scores created by Results_first_look.rmd (e.g.,  radicalFile = '2018-10-10', ~line 92).  
 
