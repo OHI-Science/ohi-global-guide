@@ -162,7 +162,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7.1" data-path="data-prep.html"><a href="data-prep.html#packages"><i class="fa fa-check"></i><b>3.7.1</b> Packages</a></li>
 <li class="chapter" data-level="3.7.2" data-path="data-prep.html"><a href="data-prep.html#common.r"><i class="fa fa-check"></i><b>3.7.2</b> common.R</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-5.-data-prep"><i class="fa fa-check"></i><b>3.8</b> prep Rmd: 5. Data prep</a></li>
+<li class="chapter" data-level="3.8" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-5.-data-prep"><i class="fa fa-check"></i><b>3.8</b> prep Rmd: 5. Data prep</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="data-prep.html"><a href="data-prep.html#ohi-data-idiosyncracies-low-populationuninhabited-regions-and-grouped-regions"><i class="fa fa-check"></i><b>3.8.1</b> OHI data idiosyncracies: Low population/uninhabited regions and grouped regions</a></li>
+</ul></li>
 <li class="chapter" data-level="3.9" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-6.-gapfilling"><i class="fa fa-check"></i><b>3.9</b> prep Rmd: 6. Gapfilling</a><ul>
 <li class="chapter" data-level="3.9.1" data-path="data-prep.html"><a href="data-prep.html#training-linear-models-for-gapfilling"><i class="fa fa-check"></i><b>3.9.1</b> Training linear models for gapfilling</a></li>
 <li class="chapter" data-level="3.9.2" data-path="data-prep.html"><a href="data-prep.html#saving-gapfilling-report-files"><i class="fa fa-check"></i><b>3.9.2</b> Saving gapfilling report files</a></li>
@@ -493,7 +495,40 @@ Reported at country scale.</p>
 </div>
 <div id="prep-rmd-4.-set-up" class="section level2">
 <h2><span class="header-section-number">3.7</span> prep Rmd: 4. Set up</h2>
-<p>This code chunk is used to load packages, source functions, and set variables used throughout the analyses.</p>
+<p>This code chunk is used to load packages, source functions, and set variables used throughout the analyses. Packages used in almost every layer include:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load ohicore package which contains all the proprietary OHI functions</span>
+<span class="kw">library</span>(ohicore) <span class="co"># devtools::install_github(&#39;ohi-science/ohicore@dev&#39;) OR</span>
+<span class="cf">if</span> (<span class="op">!</span>(<span class="st">&quot;ohicore&quot;</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">installed.packages</span>())){devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;ohi-science/ohicore&quot;</span>)}
+
+<span class="co"># For general data analysis:</span>
+<span class="kw">library</span>(here)
+<span class="kw">library</span>(tidyverse) <span class="co"># includes ggplot2, readr, stringr, tidyr, and dplyr</span>
+<span class="kw">library</span>(plotly)
+
+<span class="co"># For spatial files: </span>
+<span class="kw">library</span>(raster)
+<span class="kw">library</span>(fasterize)
+<span class="kw">library</span>(sf)
+<span class="kw">library</span>(sp)
+<span class="kw">library</span>(rgdal)
+        
+<span class="co">## Parallel processing libraries (usually used for data prep involving large spatial files)</span>
+<span class="kw">library</span>(parallel)
+<span class="kw">library</span>(foreach)
+<span class="kw">library</span>(doParallel)</code></pre>
+<p>Here, you can also initialize programatic creation of raw, intermediate and output file folders within the specific layer directory:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># check if &#39;raw&#39;, &#39;intermediate&#39;, and &#39;final&#39; folders exist in the current assessment folder, if not, then create the folder in the working directory</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(<span class="kw">here</span>(<span class="st">&quot;globalprep/layer_name/v20??/raw&quot;</span>))){
+  <span class="kw">dir.create</span>(<span class="kw">here</span>(<span class="st">&quot;globalprep/layer_name/v20??/raw&quot;</span>))
+} 
+
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(<span class="kw">here</span>(<span class="st">&quot;globalprep/layer_name/v20??/intermediate&quot;</span>))){
+  <span class="kw">dir.create</span>(<span class="kw">here</span>(<span class="st">&quot;globalprep/layer_name/v20??/intermediate&quot;</span>))
+}
+
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(<span class="kw">here</span>(<span class="st">&quot;globalprep/layer_name/v20??/output&quot;</span>))){
+  <span class="kw">dir.create</span>(<span class="kw">here</span>(<span class="st">&quot;globalprep/layer_name/v20??/output&quot;</span>))
+}</code></pre>
 <div id="packages" class="section level3">
 <h3><span class="header-section-number">3.7.1</span> Packages</h3>
 <p>The packages we load depend on the analyses, but we always use:</p>
@@ -987,6 +1022,36 @@ mollCRS</code></pre>
 </ul>
 <p>This file should be saved as a .csv file in an “output” folder. In general, the name of the file should be the same as the previous year. However, if you feel the file name can be improved, you will need to update the fn variable in this data file:</p>
 <p><a href="https://github.com/OHI-Science/ohi-global/blob/draft/eez_layers_meta_data/layers_eez_base.csv" class="uri">https://github.com/OHI-Science/ohi-global/blob/draft/eez_layers_meta_data/layers_eez_base.csv</a></p>
+<div id="ohi-data-idiosyncracies-low-populationuninhabited-regions-and-grouped-regions" class="section level3">
+<h3><span class="header-section-number">3.8.1</span> OHI data idiosyncracies: Low population/uninhabited regions and grouped regions</h3>
+<p>Recently we have standardized how we identify low population regions, using the low_pop() function in the common.R file. These regions are assigned NAs for some goals (e.g. GDP values used in AO) and perfect scores for others (e.g. sanitation access). Use the following code to establish a vector of low pop regions that can be compared against the final dataset.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># After sourcing common.R and gapfilling data: </span>
+<span class="kw">low_pop</span>()
+
+<span class="co"># Filter out regions that have populations &gt; 3000 and keep NA values </span>
+low_pop &lt;-<span class="st"> </span>low_pop <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(est_population <span class="op">&lt;</span><span class="st"> </span><span class="dv">3000</span> <span class="op">|</span><span class="st"> </span><span class="kw">is.na</span>(est_population)) 
+
+<span class="co"># Make a vector of low population region IDs:</span>
+low_pop_vector &lt;-<span class="st"> </span><span class="kw">c</span>(low_pop<span class="op">$</span>rgn_id)  
+
+<span class="co"># Assign NA values in score column for low popuation areas:</span>
+gapfilled_dataset<span class="op">$</span>score[gapfilled_dataset<span class="op">$</span>rgn_id <span class="op">%in%</span><span class="st"> </span>low_pop_vector] &lt;-<span class="st"> </span><span class="ot">NA</span></code></pre>
+<p>Several of the datasets we use also report OHI regions as a group, and we want to report them all at the same scale/resolution used in OHI. For instance, Bonaire, Sint Eustatius and Saba are often reported together as “Caribbean Netherlands” or combined as “Bonaire, Sint Eustatius and Saba”. Use the following code to apply the data to all three regions:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Assuming &quot;tidy_dataset&quot; has been wrangled, cleaned, and has column &quot;country&quot;</span>
+CN &lt;-<span class="st"> </span><span class="kw">filter</span>(tidy_dataset, country<span class="op">==</span><span class="st">&quot;Caribbean Netherlands&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">   </span><span class="kw">rename</span>(<span class="dt">country_old =</span> country) <span class="co"># country could also be rgn_name </span>
+
+CN_subregions &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">country_old =</span> <span class="st">&quot;Caribbean Netherlands&quot;</span>,
+                            <span class="dt">country =</span> <span class="kw">c</span>(<span class="st">&quot;Bonaire&quot;</span>, <span class="st">&quot;Sint Eustatius&quot;</span>, <span class="st">&quot;Saba&quot;</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">left_join</span>(CN) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>country_old)
+
+<span class="co"># Remove lines of data for Caribbean Netherlands and replace with individual region-level data for the three subregions:</span>
+tidy_dataset &lt;-<span class="st"> </span>tidy_dataset <span class="op">%&gt;%</span>
+<span class="st">   </span><span class="kw">filter</span>(country <span class="op">!=</span><span class="st"> &quot;Caribbean Netherlands&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">   </span><span class="kw">rbind</span>(CN_subregions)  </code></pre>
+</div>
 </div>
 <div id="prep-rmd-6.-gapfilling" class="section level2">
 <h2><span class="header-section-number">3.9</span> prep Rmd: 6. Gapfilling</h2>
