@@ -46,6 +46,129 @@ Once all the data layers have been updated we conduct a final review of the scor
 4. Update and rerun the Results_first_look.Rmd as needed
 5. If necessary, we have a second meeting to discuss the updated scores (usually this isn't necessary).
 
+## Citation management 
+
+[Here is a great reference](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html) from the fine folks at RStudio.
+
+
+### Getting Zotero and RStudio to work well together
+
+#### The process: short version
+
+* Create a Zotero library or collection, export it as .bib (or other formats - seems flexible)
+* Call the bibliography file and a citation style (optional) in your R Markdown YAML header
+* Create your citations in the body of the R Markdown text using [@name_shorttitle_2016] format
+* Hit "knit" - done!
+
+***
+
+#### The process: long version
+
+
+**Exporting a bibliography file from Zotero**
+
+Once you've created your library (or collection/folder/whatever) in Zotero, you can export it in BibLaTex format (the whole library from the File menu, or the collection by right-clicking and choosing "Export Collection", then selecting "BibLaTex" as the format:
+
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vRX8j7Nri1Y6MbTEf5h_xgcU5OHVhuCJ6TNqRAF-oERlz8evGuPL1L3o4PBZv3ZUqzTBP03QeMdwNMA/pub?w=844&h=334)
+
+This creates a .bib file, which contains a list of references each formatted like this (I deleted many of the fields just for the sake of space):
+
+```{r eval=F}
+
+@article{ready_predicting_2010,
+    title = {Predicting the distributions of marine organisms at the global scale},
+    volume = {221},
+    issn = {03043800},
+    url = {http://linkinghub.elsevier.com/retrieve/pii/S030438000900711X},
+    journaltitle = {Ecological Modelling},
+    author = {Ready, Jonathan and Kaschner, Kristin and South, Andy B. and Eastwood, Paul D. and Rees, Tony and Rius, Josephine and Agbayani, Eli and Kullander, Sven and Froese, Rainer},
+    file = {Ready_etal2010.pdf:/Users/ohara/Library/Application Support/Zotero/Profiles/th8m611h.default/zotero/storage/297AD2JJ/Ready_etal2010.pdf:application/pdf}
+}
+```
+
+**Calling the bibliography in R Markdown**
+
+In your R Markdown document, you call the bibliography file in the YAML header like so:
+
+```{r eval=F}
+---
+output:
+ html_document:
+   toc: true
+   number_sections: true
+bibliography: ohi.bib
+csl: ecology-letters.csl
+
+---
+```
+
+
+*Notes:*
+
+* You can easily include the bibliography file in a subfolder: bibliography: refs/ohi.bib (if you like to keep your repository folders organized)
+* the csl: allows you to include different "citation style language" formats for different journals; here is a link to Zotero's style library.
+  * I found a github repo with many .csl files too, but they didn't seem to work - something missing or corrupted. The Zotero ones seemed to work fine.
+  * I just put the .csl into the same subfolder as the .bib, so my YAML header looked like:
+
+```{r eval=F}
+bibliography: refs/ohi.bib
+csl: refs/ecology-letters.csl
+```
+
+
+<br>
+
+**Citing in the text of your R markdown**
+
+In the R Markdown document, the citations look like this: `[@articleidentifier]` where "articleidentifier" is the author/title fragment/year in the reference listed in the .bib file. So for the reference to Ready et al. 2010 from the .bib above, the citation would look like: `[@ready_predicting_2010]`.
+
+* Multiple citations are separated by semicolons within the same set of square brackets: `[@ready_predicting_2010; @selig_assessing_2013]`
+* For in-line citations where you've already mentioned the author's name and want to exclude it, e.g. Halpern et al (2012) are awesomesauce", just put a '-' sign in front of the @ sign: "Halpern et al `[-@halpern_index_2012]` are awesomesauce"
+* You can also put in other text inside the square brackets: `[To experience more awesomeness, see also @halpern_spatial_2015]`
+
+*NOTE:* One challenge I ran into is figuring out the articleidentifier (aka bibtexkey):
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vR6loZKXTB0jkLACfVma5eOS-m3MOSpiSqfVMTpZXoURiRLzd-dsE9t9rOQXSIJr_LKMTSxWrDi_RuG/pub?w=864&h=221)
+
+This key doesn't seem to be displayed anywhere in Zotero's gui, instead you have to search through the .bib document in a text editor.
+
+For me, a better option has been to use JabRef, which allows you to search the .bib document more easily:
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vRe127Wvzk9SLnqz3CO42PKWV2jgj9pN7Bw1a3-PeRnXNIKwnxSrZi0dYM65roL7hs6RSyrX4m32JAZ/pub?w=927&h=194)
+
+<br>
+
+**Knitting it all together**
+
+The knitr package will turn those citation calls into the proper format for the particular journal (e.g. superscripts or parentheses, name or initials or just year, etc) based on the specifications in the .csl. Call a different .csl when submitting to a different journal to change the citation format.
+
+The bibliography will be attached at the very end of the document; no need to do anything special at all. But: you probably want to include a heading title - that is not automatic. So for example, the last line of the .Rmd should be `# References` or the like.
+
+The references will be in order according to the citation format, e.g. alphabetical by author, or in order of appearance in the body of the text, with an ID number or without, and formatted to the idiosyncrasies of the given journal.
+
+If you use knit child options to attach separate .Rmd files, it still seems to work fine - only the parent gets the header, and as it knits each child .Rmd it annotates the citations and includes them in the final bibliography.
+
+**Other notes**
+
+If you have blank items in your Zotero library/collection, those will show up in the .bib file as empty records, but will crash the knitting. So don't do it.
+
+You can edit the .bib manually if you like (e.g. delete empty records that are crashing everything) but if you re-export the library you'll overwrite your changes, so probably best to get your Zotero set up properly.
+
+### Working with Zotero
+
+[Getting started with zotero (OHIprep_v2019)](http://ohi-science.org/ohiprep_v2019/Reference/Zotero/Zotero.html)
+
+#### Zotero group library
+
+We have a group OHI Zotero library. This is handy because we can save and organize our OHI references so they are available to everyone (including screenshots, pdfs, and notes). In regard to writing, Zotero offers a very intuitive method of inserting citations into Word documents and @oharac describes how to use Zotero with markdown.
+
+To use the Zotero group library for OHI, you will first need to be invited to the group. You will then need to download the standalone Zotero program and the web-browser plugin from [here](https://www.zotero.org/download/). Hopefully everything will sync up automatically. If it works, you should see this:
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vRuPxplxo381emzpaMHeQ6a4ihhDiP5SD_fi-GPc55ziJZ_Y1QYifo36nuYwNCCCW9FfJROfOR73HnX/pub?w=929&h=567)
+
+
+
 ## Methods document
 Every year we update a document describing the methods used to calculate the assessment (example methods document: https://raw.githack.com/OHI-Science/ohi-global/published/global_supplement/Supplement.htmlhttps://raw.githack.com/OHI-Science/ohi-global/published/global_supplement/Supplement.html). 
 
@@ -76,6 +199,8 @@ layers_info folder | individual Rmd files with descriptions of each data layer, 
 figures folder | figures displayed in the Supplement.html | No changes likely necessary
 methods-in-ecology-and-evolution.csl | instructions for displaying references | no need to change unless a different way of displaying references is desired
 
+
+
 ### Steps to updating methods document
 The methods document is created by knitting ohi-global/global_supplement/Supplement.Rmd.  However, many preparations need to be made prior to knitting.
 
@@ -94,7 +219,7 @@ This file includes the directory and file name for each of the updated layers. U
 
 **layers_eez_data_sources.csv**
 
-In the OHI group Zotero library (invite required), you will create a new reference for each of the data sources that have been update for the current assessment year. This can be done easily by downloading Zotero to your computer and installing the extension in your browser. You will not be overwriting old citations in the Zotero library, but rather adding a new citation, even if all of the information about the data source is the same. 
+In the OHI group Zotero library (invite required), you will create a new reference for each of the data sources that have been update for the current assessment year. This can be done easily by downloading Zotero to your computer and installing the extension in your browser to save the data source directly to the library, where the information can then be edited. (See section 5.3: Citation Management for more information) You will not be overwriting old citations in the Zotero library, but rather adding a new citation, even if all of the information about the data source is the same. This can also be done by duplicating old citations (right click on an item in zotero and select duplicate item) and editing the date information. 
 
 Create citations in Zotero and update the information, including title, author, abstract, date, URL, and accessed date. "Date" should indicate the year listed in the data citation, OR the most recent year in the dataset if no citation exists. "Accessed" should align with the date indicated in the data prep .Rmd file, OR the timestamp on the saved raw data files if a download date is not obvious. Example of completed citation information in Zotero: 
 
@@ -142,7 +267,7 @@ Coming soon!
 
 
 #### Step 2: Update OHI.bib
-Make sure all references are included in the OHI Zotero library (see for more information: Coming Soon!).   Then export the OHI library as a BibLaTeX file and replace the OHI.bib file in ohi-global/global_supplement with the updated file.
+Make sure all references are included in the OHI Zotero library (see Section 5.3: Citation Management for more). Then export the OHI library as a BibLaTeX file and replace the OHI.bib file in ohi-global/global_supplement with the updated file.
 
 We have noticed that some of the OHI.bib entries need to be modified to report correctly. For example, when the author of a report is an agency, such as the US State Depart, it will be reported as "Depart, US".  For this reason, we use the BIBcorrect.R file to correct and then overwrite the OHI.bib file.  
 
