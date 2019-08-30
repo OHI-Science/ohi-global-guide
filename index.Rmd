@@ -14,7 +14,32 @@ biblio-style: apalike
 
 # Overview {#Overview}
 
-The repositories used to calculate the global assessment are:
+This guide is a resource for calculating the annual Ocean Health Index global assessments. It is intended for use by OHI fellows and anyone interested in the process of how scores are calculated, but only those with access to the internal server (Mazu) are able to actually perform the assessment. 
+
+By conducting a yearly assessment, the OHI delivers information about a suite of goals important to humans and our use of the oceans. The OHI methods are reproducible and ever-evolving, so updates to this guide are welcomed as improvements and upgrades are incorporated.
+
+
+*Content covered in the following chapters includes:*
+
+* How to initialize a new assessment
+* Thorough instructions for data prep, including how to:
+  * Access and organize files
+  * Structure data prep scripts
+  * Gapfill data
+  * Check results
+* Update data layers to OHI global and recalculate scores
+* Finalize the assessment, including how to:
+  * Review scores
+  * Create bibliography
+  * Update metadata
+  * Create methods and results documents
+  * Upload to repository
+
+
+
+
+
+## Repositories used to calculate the global assessment
 
 <!--- TODO Gage add important fig here (just kidding this is just an example)  --->
 

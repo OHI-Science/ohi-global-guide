@@ -805,5 +805,57 @@ Check the following:
 ***
 
 ## Notes on parallel processing
+In OHI, we often use parallel processing packages to process data-intensive spatial layers. Parallel processing allows multiple computations to take place at the same time. For more information, check out this [introductory resource from NCEAS.](https://nceas.github.io/oss-lessons/parallel-computing-in-r/parallel-computing-in-r.html)
 
-Coming soon!
+*Note: below is essentially copy and pasted from [this reference issue](https://github.com/OHI-Science/globalfellows-issues/issues/43) and might need more context to be helpful*
+
+[Vignette on getting started with doParallel and foreach packages](https://cran.r-project.org/web/packages/doParallel/vignettes/gettingstartedParallel.pdf) refers to two ways to use parallel processing in the `doParallel` package. 
+
+*Method 1:* `registerDoParallel(4)`
+
+OR 
+
+*Method 2:*
+```{r eval=F}
+cl <- makeCluster(4)
+registerDoParallel(cl)
+foreach(i in 1:10) %dopar%{}
+stopCluster(cl)
+```
+
+### stopCluster & makeCluster
+
+**Stopping your cluster:**
+
+If you are using snow-like functionality, you will want to stop your cluster when you are done using it. The doParallel package’s .onUnload function will do this automatically if the cluster was created automatically by registerDoParallel, but if you created the cluster manually you should stop it using the stopCluster function: `stopCluster(cl)`
+
+[Stack overflow discussion](https://stackoverflow.com/questions/45894635/why-does-doparallelgetdoparworkers-return-14-but-after-i-have-completed-the) on whether cores stop being registered after `foreach` finishes 
+
+
+**Tip:** Limit to 5 or fewer cores for any data prep
+
+
+### Using htop to check on processes running
+Sometimes a process will be running that slows down the whole system, and htop can help identify and stop the source of this issue.
+
+[Useful resource here](https://www.deonsworld.co.za/2012/12/20/understanding-and-using-htop-monitor-system-resources/)
+
+1. When you are logged into the Mazu RStudio server window, open the terminal shell. 
+2. type `htop` and hit enter
+![](https://docs.google.com/drawings/d/e/2PACX-1vTTRgierwPuguYyuVRQIepMIKtUq1HWYzju-vtW2BjUOtuYD24PMx3Y6s6CsZNmbwu27rtqrQa6y5Tw/pub?w=300&h=100)
+
+3. When you press enter, a matrix will appear showing how many cores are being used, and the processes running underneath
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vSXapuGRUlSxvW32xW74lU-Iv9p5eikiQixj93hfIeM0ivozG6hwsIjZO6q2f_l7NkHt5AM-73jMFO6/pub?w=910&h=463)
+
+4. Kill processes by scrolling with arrow keys or by clicking on them. Click 'kill' or hit k on the keyboard
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vTw7iG5UPirTfqJkqSn96FdO-3hzcrJhJN5xmi1RilGW4EysFnBC4ADi7B_NlaeuIGDNlwMEKKxV_F9/pub?w=212&h=100)
+
+5. 'Send signal' bar will open with 15 SIGTERM highlighted - hit enter, or esc to cancel 
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vQbUM7vh3GTXqgOduYhFWdrbJ2ATZXtkxpyTo2dr1j8RF82t76_WHPxcBdaIceHmcYLnzvatEVg_XiW/pub?w=337&h=641)
+
+Note: some users have problems with RStudio crashing when trying to kill processes in the terminal window. Using the terminal on your computer should work with no problem. To do this, open the terminal and login using `ssh username@mazu.nceas.ucsb.edu` and hit enter. Enter your password (letters will not appear) and hit enter to login, then follow the steps above. 
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vT3gCYjGdUl3SEh03V7UasbtqBin5TKyPVKdssJDA8ybz4J6ZYitDuMof70F50yaCjyDa8t50J4kYlp/pub?w=596&h=120)
