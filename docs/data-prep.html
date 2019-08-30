@@ -131,12 +131,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">OHI Global Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#repositories-used-to-calculate-the-global-assessment"><i class="fa fa-check"></i><b>1.1</b> Repositories used to calculate the global assessment</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#ohiprep_v20"><i class="fa fa-check"></i><b>1.1.1</b> ohiprep_v20??</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#ohi-global"><i class="fa fa-check"></i><b>1.1.2</b> ohi-global</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#ohicore"><i class="fa fa-check"></i><b>1.1.3</b> ohicore</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#globalfellows-issues"><i class="fa fa-check"></i><b>1.1.4</b> globalfellows-issues</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html"><i class="fa fa-check"></i><b>2</b> Starting a new year</a><ul>
 <li class="chapter" data-level="2.1" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#review-and-organize-relevant-issues"><i class="fa fa-check"></i><b>2.1</b> Review and organize relevant issues</a></li>
 <li class="chapter" data-level="2.2" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#prepare-the-repositories"><i class="fa fa-check"></i><b>2.2</b> Prepare the repositories!</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#ohiprep-repository"><i class="fa fa-check"></i><b>2.2.1</b> ohiprep repository</a></li>
-<li class="chapter" data-level="2.2.2" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#ohi-global"><i class="fa fa-check"></i><b>2.2.2</b> ohi-global</a></li>
+<li class="chapter" data-level="2.2.2" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#ohi-global-1"><i class="fa fa-check"></i><b>2.2.2</b> ohi-global</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#keeping-track-of-layer-progress"><i class="fa fa-check"></i><b>2.3</b> Keeping track of layer progress</a></li>
 </ul></li>
@@ -173,7 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.11" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-8.-final-run"><i class="fa fa-check"></i><b>3.11</b> prep Rmd: 8. Final run</a></li>
 <li class="chapter" data-level="3.12" data-path="data-prep.html"><a href="data-prep.html#notes-on-parallel-processing"><i class="fa fa-check"></i><b>3.12</b> Notes on parallel processing</a><ul>
 <li class="chapter" data-level="3.12.1" data-path="data-prep.html"><a href="data-prep.html#stopcluster-makecluster"><i class="fa fa-check"></i><b>3.12.1</b> stopCluster &amp; makeCluster</a></li>
-<li class="chapter" data-level="3.12.2" data-path="data-prep.html"><a href="data-prep.html#using-htop-to-check-on-processes-running"><i class="fa fa-check"></i><b>3.12.2</b> Using htop to check on processes running:</a></li>
+<li class="chapter" data-level="3.12.2" data-path="data-prep.html"><a href="data-prep.html#using-htop-to-check-on-processes-running"><i class="fa fa-check"></i><b>3.12.2</b> Using htop to check on processes running</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="updating-scores.html"><a href="updating-scores.html"><i class="fa fa-check"></i><b>4</b> Updating scores</a></li>
@@ -1197,6 +1204,7 @@ compare_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(compar
 <div id="notes-on-parallel-processing" class="section level2">
 <h2><span class="header-section-number">3.12</span> Notes on parallel processing</h2>
 <p>In OHI, we often use parallel processing packages to process data-intensive spatial layers. Parallel processing allows multiple computations to take place at the same time. For more information, check out this <a href="https://nceas.github.io/oss-lessons/parallel-computing-in-r/parallel-computing-in-r.html">introductory resource from NCEAS.</a></p>
+<p><em>Note: below is essentially copy and pasted from <a href="https://github.com/OHI-Science/globalfellows-issues/issues/43">this reference issue</a> and might need more context to be helpful</em></p>
 <p><a href="https://cran.r-project.org/web/packages/doParallel/vignettes/gettingstartedParallel.pdf">Vignette on getting started with doParallel and foreach packages</a> refers to two ways to use parallel processing in the <code>doParallel</code> package.</p>
 <p><em>Method 1:</em> <code>registerDoParallel(4)</code></p>
 <p>OR</p>
@@ -1213,7 +1221,8 @@ compare_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(compar
 <p><strong>Tip:</strong> Limit to 5 or fewer cores for any data prep</p>
 </div>
 <div id="using-htop-to-check-on-processes-running" class="section level3">
-<h3><span class="header-section-number">3.12.2</span> Using htop to check on processes running:</h3>
+<h3><span class="header-section-number">3.12.2</span> Using htop to check on processes running</h3>
+<p>Sometimes a process will be running that slows down the whole system, and htop can help identify and stop the source of this issue.</p>
 <p><a href="https://www.deonsworld.co.za/2012/12/20/understanding-and-using-htop-monitor-system-resources/">Useful resource here</a></p>
 <ol style="list-style-type: decimal">
 <li><p>When you are logged into the Mazu RStudio server window, open the terminal shell.</p></li>

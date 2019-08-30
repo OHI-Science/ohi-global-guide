@@ -4,7 +4,7 @@ There are several steps to beginning a year's assessment.  This guide walks thro
 
 1. Review and organize relevant github issues
 2. Prepare the repositories
-    - ohiprep
+    - ohiprep_v20??
     - ohi-global
 3. Keeping track of layer progress
 
@@ -84,28 +84,18 @@ If you are not in the correct working directory use the `cd` command to navigate
 <br>
 6. Delete the commit history of the new repository.  This gives us a clean slate to work from and keeps the repository from getting quite as big. I follow the general instructions from [here](https://gist.github.com/heiswayi/350e2afda8cece810c0f6116dadbe651).  Make sure you are in the working directory of the new repository, and in the shell type the following:
 
+Check out to a temporary branch: `git checkout --orphan TEMP_BRANCH`
 
-```
+Add all the files: `git add -A`
 
-# Check out to a temporary branch:
-git checkout --orphan TEMP_BRANCH
+Commit the changes: `git commit -am "Initial commit"`
 
-# Add all the files:
-git add -A
+Delete the old branch: `git branch -D gh-pages`
 
-# Commit the changes:
-git commit -am "Initial commit"
+Rename the temporary branch to master: `git branch -m gh-pages`
 
-# Delete the old branch:
-git branch -D gh-pages
+Finally, force update to our repository: `git push -f origin gh-pages`
 
-# Rename the temporary branch to master:
-git branch -m gh-pages
-
-# Finally, force update to our repository:
-git push -f origin gh-pages
-
-```
 <br>
 
 7. Navigate to the new repository on Github.com, https://github.com/OHI-Science/ohiprep_v20??.git and check whether there is only one commit. 

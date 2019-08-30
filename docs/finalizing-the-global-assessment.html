@@ -24,7 +24,7 @@
 <meta name="author" content="OHI Team" />
 
 
-<meta name="date" content="2019-08-29" />
+<meta name="date" content="2019-08-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -131,12 +131,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">OHI Global Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#repositories-used-to-calculate-the-global-assessment"><i class="fa fa-check"></i><b>1.1</b> Repositories used to calculate the global assessment</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#ohiprep_v20"><i class="fa fa-check"></i><b>1.1.1</b> ohiprep_v20??</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#ohi-global"><i class="fa fa-check"></i><b>1.1.2</b> ohi-global</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#ohicore"><i class="fa fa-check"></i><b>1.1.3</b> ohicore</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#globalfellows-issues"><i class="fa fa-check"></i><b>1.1.4</b> globalfellows-issues</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html"><i class="fa fa-check"></i><b>2</b> Starting a new year</a><ul>
 <li class="chapter" data-level="2.1" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#review-and-organize-relevant-issues"><i class="fa fa-check"></i><b>2.1</b> Review and organize relevant issues</a></li>
 <li class="chapter" data-level="2.2" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#prepare-the-repositories"><i class="fa fa-check"></i><b>2.2</b> Prepare the repositories!</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#ohiprep-repository"><i class="fa fa-check"></i><b>2.2.1</b> ohiprep repository</a></li>
-<li class="chapter" data-level="2.2.2" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#ohi-global"><i class="fa fa-check"></i><b>2.2.2</b> ohi-global</a></li>
+<li class="chapter" data-level="2.2.2" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#ohi-global-1"><i class="fa fa-check"></i><b>2.2.2</b> ohi-global</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#keeping-track-of-layer-progress"><i class="fa fa-check"></i><b>2.3</b> Keeping track of layer progress</a></li>
 </ul></li>
@@ -171,7 +178,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.10" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-7.-results-check"><i class="fa fa-check"></i><b>3.10</b> prep Rmd: 7. Results check</a></li>
 <li class="chapter" data-level="3.11" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-8.-final-run"><i class="fa fa-check"></i><b>3.11</b> prep Rmd: 8. Final run</a></li>
-<li class="chapter" data-level="3.12" data-path="data-prep.html"><a href="data-prep.html#notes-on-parallel-processing"><i class="fa fa-check"></i><b>3.12</b> Notes on parallel processing</a></li>
+<li class="chapter" data-level="3.12" data-path="data-prep.html"><a href="data-prep.html#notes-on-parallel-processing"><i class="fa fa-check"></i><b>3.12</b> Notes on parallel processing</a><ul>
+<li class="chapter" data-level="3.12.1" data-path="data-prep.html"><a href="data-prep.html#stopcluster-makecluster"><i class="fa fa-check"></i><b>3.12.1</b> stopCluster &amp; makeCluster</a></li>
+<li class="chapter" data-level="3.12.2" data-path="data-prep.html"><a href="data-prep.html#using-htop-to-check-on-processes-running"><i class="fa fa-check"></i><b>3.12.2</b> Using htop to check on processes running</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="updating-scores.html"><a href="updating-scores.html"><i class="fa fa-check"></i><b>4</b> Updating scores</a></li>
 <li class="chapter" data-level="5" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html"><i class="fa fa-check"></i><b>5</b> Finalizing the global assessment</a><ul>
@@ -515,7 +525,7 @@ csl<span class="op">:</span><span class="st"> </span>refs<span class="op">/</spa
 <div id="results-document" class="section level2">
 <h2><span class="header-section-number">5.5</span> Results document</h2>
 <p>After producing the final scores, we create a document that describes the results of the assessment: <a href="https://raw.githack.com/OHI-Science/ohi-global/published/global2018/Results/Supplement_Results.html" class="uri">https://raw.githack.com/OHI-Science/ohi-global/published/global2018/Results/Supplement_Results.html</a>. This file can be accessed from our OHI-science global webpage.</p>
-<p>The file is created using this Rmd: ohi-global/yearly_results/global20??/Results/Supplment_Results.Rmd.</p>
+<p>The file is created using this Rmd: ohi-global/yearly_results/global20??/Results/Supplement_Results.Rmd.</p>
 <p>It is critical to carefully step through this script and modify as needed; for example, the date of the radicalFile object must match the date appended to the csv file of scores created by Results_first_look.rmd (e.g., radicalFile = ‘2018-10-10’, ~line 92).</p>
 <p>And, of course, freely modify this script to reflect the data/figures you believe will be most useful to people. This could involve editing text, removing particular figures, adding figures, etc.</p>
 <p>NOTE: If there are any changes to the scores, it is important to run the Results_first_look.Rmd file prior to running this script. Many of the figures in the Supplement_Results document are actually generated by the Results_first_look.Rmd script.</p>
