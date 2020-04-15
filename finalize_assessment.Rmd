@@ -195,7 +195,7 @@ pressure.Rmd | description of OHI model for calculating pressure scores | No cha
 resilience. Rmd | description of OHI model for calculating resilience scores | No changes likely necessary
 goal_descriptions folder | individual Rmd files describing each goal/subgoal | Minimal changes to some files may be necessary if the model or data used in a goal changes
 goal_descriptions_short folder | individual Rmd files with a *short* description of each goal/subgoal | Minimal changes to some files may be necessary if the model or data used in a goal changes
-layers_info folder | individual Rmd files with descriptions of each data layer, filenames must match layer names in eez_layers_meta_data datatables | Changes to some layers will probably be necessary, but most layers will require no changes
+layers_info folder | individual Rmd files with descriptions of each data layer, filenames must match layer names in metadata_documentation datatables | Changes to some layers will probably be necessary, but most layers will require no changes
 figures folder | figures displayed in the Supplement.html | No changes likely necessary
 methods-in-ecology-and-evolution.csl | instructions for displaying references | no need to change unless a different way of displaying references is desired
 
@@ -204,8 +204,8 @@ methods-in-ecology-and-evolution.csl | instructions for displaying references | 
 ### Steps to updating methods document
 The methods document is created by knitting ohi-global/global_supplement/Supplement.Rmd.  However, many preparations need to be made prior to knitting.
 
-#### Step 1: Update eez_layers_meta_data
-The data tables in ohi-global/eez_layers_meta_data are used to create the methods document, and consequently must be fully up-to-date and accurate!  This includes: layers_eez_base.csv, layers_eez_data_sources.csv, layers_eez_methods.csv, and layers_eez_targets.csv.  
+#### Step 1: Update metadata_documentation
+The data tables in ohi-global/metadata_documentation are used to create the methods document, and consequently must be fully up-to-date and accurate!  This includes: layers_eez_base.csv, layers_eez_data_sources.csv, layers_eez_methods.csv, and layers_eez_targets.csv.  
 
 Currently, the layers_eez_gapfill.csv is not used to create the methods document, but it is still a good idea to update this as well.
 
@@ -273,7 +273,7 @@ We have noticed that some of the OHI.bib entries need to be modified to report c
 
 
 #### Step 3: Update layers_info
-The layers_info folder includes an Rmd file for every data layer used to calculate the global OHI assessment.  The files describe the general methods and data used to generate the layer. Ideally, these Rmd files do not include information that changes each year (e.g., final year of data used in analysis, links to data preparation files on Github, etc), so they can be used each year with minimal changes.   Components that change every year should be included in tables, such as those in _ohi-global/eez_layers_meta_data. 
+The layers_info folder includes an Rmd file for every data layer used to calculate the global OHI assessment.  The files describe the general methods and data used to generate the layer. Ideally, these Rmd files do not include information that changes each year (e.g., final year of data used in analysis, links to data preparation files on Github, etc), so they can be used each year with minimal changes.   Components that change every year should be included in tables, such as those in _ohi-global/metadata_documentation.
 
 However, if there have been changes to the model or data used to generate a layer it will be necessary to update the corresponding Rmd file.
 

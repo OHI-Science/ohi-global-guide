@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>OHI Global Assessment Guide</title>
   <meta name="description" content="A guide for conducting the OHI Global Assessment" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="OHI Global Assessment Guide" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="OHI Team" />
 
 
-<meta name="date" content="2019-08-30" />
+<meta name="date" content="2020-04-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,7 +55,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -221,7 +220,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">OHI Global Assessment Guide</h1>
 <p class="author"><em>OHI Team</em></p>
-<p class="date"><em>2019-08-30</em></p>
+<p class="date"><em>2020-04-15</em></p>
 </div>
 <div id="Overview" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Overview</h1>
@@ -305,32 +304,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td>global models and data</td>
 </tr>
 <tr class="even">
-<td>layers</td>
-<td>data layers used in the models (data are copied from ohiprep using paths from eez_layers_meta_data/layers_eez_base.csv)</td>
+<td>eez/layers</td>
+<td>data layers used in the models (data are copied from ohiprep using paths from metadata_documentation/layers_eez_base.csv)</td>
 </tr>
 <tr class="odd">
-<td>conf</td>
+<td>eez/conf</td>
 <td>models and supplementary data used to calculate scores</td>
 </tr>
 <tr class="even">
-<td>calculate_scores.R</td>
+<td>eez/calculate_scores.R</td>
 <td>master script used to calculate scores</td>
 </tr>
 <tr class="odd">
-<td>scores.csv</td>
+<td>eez/scores.csv</td>
 <td>score output from calculate_scores.R (includes all score dimensions for each goal and country)</td>
 </tr>
 <tr class="even">
-<td>eez_layers_meta_data</td>
+<td>metadata_documentation</td>
 <td>csv files describing data layers</td>
 </tr>
 <tr class="odd">
-<td>global_supplement</td>
-<td>files used to create OHI methods document</td>
-</tr>
-<tr class="even">
 <td>yearly_results</td>
 <td>reporting on results of each year’s OHI assessment</td>
+</tr>
+<tr class="even">
+<td>documents</td>
+<td>files used to create OHI methods document</td>
 </tr>
 </tbody>
 </table>

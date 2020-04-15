@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Finalizing the global assessment | OHI Global Assessment Guide</title>
   <meta name="description" content="A guide for conducting the OHI Global Assessment" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Finalizing the global assessment | OHI Global Assessment Guide" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="OHI Team" />
 
 
-<meta name="date" content="2019-08-30" />
+<meta name="date" content="2020-04-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,7 +55,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -289,26 +288,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Once you’ve created your library (or collection/folder/whatever) in Zotero, you can export it in BibLaTex format (the whole library from the File menu, or the collection by right-clicking and choosing “Export Collection”, then selecting “BibLaTex” as the format:</p>
 <p><img src="https://docs.google.com/drawings/d/e/2PACX-1vRX8j7Nri1Y6MbTEf5h_xgcU5OHVhuCJ6TNqRAF-oERlz8evGuPL1L3o4PBZv3ZUqzTBP03QeMdwNMA/pub?w=844&amp;h=334" /></p>
 <p>This creates a .bib file, which contains a list of references each formatted like this (I deleted many of the fields just for the sake of space):</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="op">@</span>article{ready_predicting_<span class="dv">2010</span>,
-    title =<span class="st"> </span>{Predicting the distributions of marine organisms at the global scale},
-    volume =<span class="st"> </span>{<span class="dv">221</span>},
-    issn =<span class="st"> </span>{<span class="dv">03043800</span>},
-    url =<span class="st"> </span>{http<span class="op">:</span><span class="er">//</span>linkinghub.elsevier.com<span class="op">/</span>retrieve<span class="op">/</span>pii<span class="op">/</span>S030438000900711X},
-    journaltitle =<span class="st"> </span>{Ecological Modelling},
-    author =<span class="st"> </span>{Ready, Jonathan and Kaschner, Kristin and South, Andy B. and Eastwood, Paul D. and Rees, Tony and Rius, Josephine and Agbayani, Eli and Kullander, Sven and Froese, Rainer},
-    file =<span class="st"> </span>{Ready_etal2010.pdf<span class="op">:</span><span class="er">/</span>Users<span class="op">/</span>ohara<span class="op">/</span>Library<span class="op">/</span>Application Support<span class="op">/</span>Zotero<span class="op">/</span>Profiles<span class="op">/</span>th8m611h.default<span class="op">/</span>zotero<span class="op">/</span>storage<span class="op">/</span>297AD2JJ<span class="op">/</span>Ready_etal2010.pdf<span class="op">:</span>application<span class="op">/</span>pdf}
-}</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="op">@</span>article{ready_predicting_<span class="dv">2010</span>,</a>
+<a class="sourceLine" id="cb24-2" title="2">    title =<span class="st"> </span>{Predicting the distributions of marine organisms at the global scale},</a>
+<a class="sourceLine" id="cb24-3" title="3">    volume =<span class="st"> </span>{<span class="dv">221</span>},</a>
+<a class="sourceLine" id="cb24-4" title="4">    issn =<span class="st"> </span>{<span class="dv">03043800</span>},</a>
+<a class="sourceLine" id="cb24-5" title="5">    url =<span class="st"> </span>{http<span class="op">:</span><span class="er">//</span>linkinghub.elsevier.com<span class="op">/</span>retrieve<span class="op">/</span>pii<span class="op">/</span>S030438000900711X},</a>
+<a class="sourceLine" id="cb24-6" title="6">    journaltitle =<span class="st"> </span>{Ecological Modelling},</a>
+<a class="sourceLine" id="cb24-7" title="7">    author =<span class="st"> </span>{Ready, Jonathan and Kaschner, Kristin and South, Andy B. and Eastwood, Paul D. and Rees, Tony and Rius, Josephine and Agbayani, Eli and Kullander, Sven and Froese, Rainer},</a>
+<a class="sourceLine" id="cb24-8" title="8">    file =<span class="st"> </span>{Ready_etal2010.pdf<span class="op">:</span><span class="er">/</span>Users<span class="op">/</span>ohara<span class="op">/</span>Library<span class="op">/</span>Application Support<span class="op">/</span>Zotero<span class="op">/</span>Profiles<span class="op">/</span>th8m611h.default<span class="op">/</span>zotero<span class="op">/</span>storage<span class="op">/</span>297AD2JJ<span class="op">/</span>Ready_etal2010.pdf<span class="op">:</span>application<span class="op">/</span>pdf}</a>
+<a class="sourceLine" id="cb24-9" title="9">}</a></code></pre></div>
 <p><strong>Calling the bibliography in R Markdown</strong></p>
 <p>In your R Markdown document, you call the bibliography file in the YAML header like so:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="op">---</span>
-output<span class="op">:</span>
-<span class="st"> </span>html_document<span class="op">:</span>
-<span class="st">   </span>toc<span class="op">:</span><span class="st"> </span>true
-   number_sections<span class="op">:</span><span class="st"> </span>true
-bibliography<span class="op">:</span><span class="st"> </span>ohi.bib
-csl<span class="op">:</span><span class="st"> </span>ecology<span class="op">-</span>letters.csl
-
-<span class="op">---</span></code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="op">---</span></a>
+<a class="sourceLine" id="cb25-2" title="2">output<span class="op">:</span></a>
+<a class="sourceLine" id="cb25-3" title="3"><span class="st"> </span>html_document<span class="op">:</span></a>
+<a class="sourceLine" id="cb25-4" title="4"><span class="st">   </span>toc<span class="op">:</span><span class="st"> </span>true</a>
+<a class="sourceLine" id="cb25-5" title="5">   number_sections<span class="op">:</span><span class="st"> </span>true</a>
+<a class="sourceLine" id="cb25-6" title="6">bibliography<span class="op">:</span><span class="st"> </span>ohi.bib</a>
+<a class="sourceLine" id="cb25-7" title="7">csl<span class="op">:</span><span class="st"> </span>ecology<span class="op">-</span>letters.csl</a>
+<a class="sourceLine" id="cb25-8" title="8"></a>
+<a class="sourceLine" id="cb25-9" title="9"><span class="op">---</span></a></code></pre></div>
 <p><em>Notes:</em></p>
 <ul>
 <li>You can easily include the bibliography file in a subfolder: bibliography: refs/ohi.bib (if you like to keep your repository folders organized)</li>
@@ -318,8 +317,8 @@ csl<span class="op">:</span><span class="st"> </span>ecology<span class="op">-</
 <li>I just put the .csl into the same subfolder as the .bib, so my YAML header looked like:</li>
 </ul></li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">bibliography<span class="op">:</span><span class="st"> </span>refs<span class="op">/</span>ohi.bib
-csl<span class="op">:</span><span class="st"> </span>refs<span class="op">/</span>ecology<span class="op">-</span>letters.csl</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">bibliography<span class="op">:</span><span class="st"> </span>refs<span class="op">/</span>ohi.bib</a>
+<a class="sourceLine" id="cb26-2" title="2">csl<span class="op">:</span><span class="st"> </span>refs<span class="op">/</span>ecology<span class="op">-</span>letters.csl</a></code></pre></div>
 <p><br></p>
 <p><strong>Citing in the text of your R markdown</strong></p>
 <p>In the R Markdown document, the citations look like this: <code>[@articleidentifier]</code> where “articleidentifier” is the author/title fragment/year in the reference listed in the .bib file. So for the reference to Ready et al. 2010 from the .bib above, the citation would look like: <code>[@ready_predicting_2010]</code>.</p>
@@ -443,7 +442,7 @@ csl<span class="op">:</span><span class="st"> </span>refs<span class="op">/</spa
 </tr>
 <tr class="even">
 <td>layers_info folder</td>
-<td>individual Rmd files with descriptions of each data layer, filenames must match layer names in eez_layers_meta_data datatables</td>
+<td>individual Rmd files with descriptions of each data layer, filenames must match layer names in metadata_documentation datatables</td>
 <td>Changes to some layers will probably be necessary, but most layers will require no changes</td>
 </tr>
 <tr class="odd">
@@ -461,9 +460,9 @@ csl<span class="op">:</span><span class="st"> </span>refs<span class="op">/</spa
 <div id="steps-to-updating-methods-document" class="section level3">
 <h3><span class="header-section-number">5.4.1</span> Steps to updating methods document</h3>
 <p>The methods document is created by knitting ohi-global/global_supplement/Supplement.Rmd. However, many preparations need to be made prior to knitting.</p>
-<div id="step-1-update-eez_layers_meta_data" class="section level4">
-<h4><span class="header-section-number">5.4.1.1</span> Step 1: Update eez_layers_meta_data</h4>
-<p>The data tables in ohi-global/eez_layers_meta_data are used to create the methods document, and consequently must be fully up-to-date and accurate! This includes: layers_eez_base.csv, layers_eez_data_sources.csv, layers_eez_methods.csv, and layers_eez_targets.csv.</p>
+<div id="step-1-update-metadata_documentation" class="section level4">
+<h4><span class="header-section-number">5.4.1.1</span> Step 1: Update metadata_documentation</h4>
+<p>The data tables in ohi-global/metadata_documentation are used to create the methods document, and consequently must be fully up-to-date and accurate! This includes: layers_eez_base.csv, layers_eez_data_sources.csv, layers_eez_methods.csv, and layers_eez_targets.csv.</p>
 <p>Currently, the layers_eez_gapfill.csv is not used to create the methods document, but it is still a good idea to update this as well.</p>
 <p><br></p>
 <p><strong>layers_eez_base.csv</strong></p>
@@ -504,7 +503,7 @@ csl<span class="op">:</span><span class="st"> </span>refs<span class="op">/</spa
 </div>
 <div id="step-3-update-layers_info" class="section level4">
 <h4><span class="header-section-number">5.4.1.3</span> Step 3: Update layers_info</h4>
-<p>The layers_info folder includes an Rmd file for every data layer used to calculate the global OHI assessment. The files describe the general methods and data used to generate the layer. Ideally, these Rmd files do not include information that changes each year (e.g., final year of data used in analysis, links to data preparation files on Github, etc), so they can be used each year with minimal changes. Components that change every year should be included in tables, such as those in _ohi-global/eez_layers_meta_data.</p>
+<p>The layers_info folder includes an Rmd file for every data layer used to calculate the global OHI assessment. The files describe the general methods and data used to generate the layer. Ideally, these Rmd files do not include information that changes each year (e.g., final year of data used in analysis, links to data preparation files on Github, etc), so they can be used each year with minimal changes. Components that change every year should be included in tables, such as those in _ohi-global/metadata_documentation.</p>
 <p>However, if there have been changes to the model or data used to generate a layer it will be necessary to update the corresponding Rmd file.</p>
 <p>After the Rmds have been updated it is necesary to run the CombineLayers.R file, which merges all the layer information into a single document, layers_all.Rmd.</p>
 </div>

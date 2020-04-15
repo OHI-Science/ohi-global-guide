@@ -68,13 +68,14 @@ This repo contains data layers, supplementary information, models, and scripts u
 folder      |     description
 ------------| ------------------------------
 eez  |   global models and data
-     layers | data layers used in the models (data are copied from ohiprep using paths from eez_layers_meta_data/layers_eez_base.csv)
-     conf   | models and supplementary data used to calculate scores
-     calculate_scores.R | master script used to calculate scores
-     scores.csv | score output from calculate_scores.R (includes all score dimensions for each goal and country)
-eez_layers_meta_data | csv files describing data layers
-global_supplement | files used to create OHI methods document
+     eez/layers | data layers used in the models (data are copied from ohiprep using paths from metadata_documentation/layers_eez_base.csv)
+     eez/conf   | models and supplementary data used to calculate scores
+     eez/calculate_scores.R | master script used to calculate scores
+     eez/scores.csv | score output from calculate_scores.R (includes all score dimensions for each goal and country)
+metadata_documentation | csv files describing data layers
 yearly_results | reporting on results of each year's OHI assessment
+documents | files used to create OHI methods document
+
 
 
 ### ohicore

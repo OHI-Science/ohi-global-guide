@@ -5,7 +5,7 @@ After we have completed the data prep for a single layer, we update the informat
 1. Make sure that all ohiprep_v20?? files are saved, committed and pushed to Github.
 2. Ensure that OHI-global is cloned to your workspace and switch to that project in RStudio.
 3. Pull most recent draft of ohi-global from Github. 
-4. Open eez_layers_metadata/layers_eez_base.csv and update the directory and filenames. (Other data may also need to be updated) You will need to export the csv file to your computer, edit it in Excel, then upload back into RStudio. 
+4. Open metadata_documentation/layers_eez_base.csv and update the directory and filenames. (Other data may also need to be updated) You will need to export the csv file to your computer, edit it in Excel, then upload back into RStudio. 
 5. Update eez/conf/scenario_data_years.csv (this can be done in RStudio, as you will just be updating the data years in this file.)
 6. Walk through eez/calculate_scores.R line by line.
 7. As you go through, check output in Git window:
@@ -20,4 +20,4 @@ After we have completed the data prep for a single layer, we update the informat
 
 **Downloadable checklist:**
 
-![](https://docs.google.com/drawings/d/e/2PACX-1vTC1jdR_xIFkOlw1_xndWfhjYbkV7Mox_2MMplLjrdlwf8-N3whMG-4JPuMmngR-ZA0_3o4RADTyA91/pub?w=905&h=546)
+![](https://docs.google.com/drawings/d/e/2PACX-1vR2O34eRTfr6ekZBVXXwsqLwq_BJaSWauXrTHebhLYTgsAuKPccrIk3_gKeJCXvuL-Pxg_anSm2yDNs/pub?w=927&h=585)
