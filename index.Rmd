@@ -2,48 +2,88 @@
 title: "OHI Global Assessment Guide"
 author: "OHI Team"
 date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
+bibliography:
+- book.bib
+- packages.bib
+description: A guide for conducting the OHI Global Assessment
 documentclass: book
-bibliography: [book.bib, packages.bib]
-biblio-style: apalike
 link-citations: yes
-description: "A guide for conducting the OHI Global Assessment"
+site: bookdown::bookdown_site
+biblio-style: apalike
 ---
 
 # Overview {#Overview}
 
-The repositories used to calculate the global assessment are:
+This guide is a resource for calculating the annual Ocean Health Index global assessments. It is intended for use by OHI fellows and anyone interested in the process of how scores are calculated, but only those with access to the internal server (Mazu) are able to actually perform the assessment. 
+
+By conducting a yearly assessment, the OHI delivers information about a suite of goals important to humans and our use of the oceans. The OHI methods are reproducible and ever-evolving, so updates to this guide are welcomed as improvements and upgrades are incorporated.
+
+
+**Content covered in the following chapters includes:**
+
+* How to initialize a new assessment
+* Thorough instructions for data prep, including how to:
+  * Access and organize files
+  * Structure data prep scripts
+  * Gapfill data
+  * Check results
+* Update data layers to OHI global and recalculate scores
+* Finalize the assessment, including how to:
+  * Review scores
+  * Create bibliography
+  * Update metadata
+  * Create methods and results documents
+  * Upload to repository
 
 <!--- TODO Gage add important fig here (just kidding this is just an example)  --->
 
-*ohiprep_v20??* Scripts and intermediate files used to prepare the data layers used by the OHI model.
+## Repositories used to calculate the global assessment
 
-*ohi-global* Data layers, supplementary information, models, and scripts used to calculate the global scores.
+The OHI uses GitHub repositories (repos) to organize all of the associated data prep scripts, functions/packages, and score calculation materials for each assessment year. There are separate repositories for different parts of the project, which are detailed here. Practicioners of the assessment will clone all repositories to their RStudio workspace, but mainly work in the ohiprep_v20?? repository. 
 
-*ohicore* An R package that includes the core functions used in all assessments. See [package description](http://ohi-science.org/ohicore/) for more information.
+![](https://docs.google.com/drawings/d/e/2PACX-1vSry72oHC5HOEbt-tcF_SBRdEJyljC-SVWVuQbnuZcIMANi23XvMgBQkykRjqZST7vz-PeZoHYbizyd/pub?w=842&h=671)
+
+*[OHI github page](https://github.com/OHI-Science)*
 
 
-*Table describing ohiprep_vYEAR contents*
-(NOTE: suffix of repo name is the year of the assessment)
+### ohiprep_v20??
+
+Scripts and intermediate files used to prepare the data layers used by the OHI model are included in this repo. Each year a new version of this repository is created by copying over the previous assessment's repository contents and deleting the history (more on that later). The suffix of the repo name indicates the year of the assessment (e.g. for 2019, the repo name was ohiprep_v2019)
+
+**Contents:**
 
 folder      |      description
 ------------| ------------------------------
-globalprep  | scripts used to prepare all goal, pressure, and resilience data layers (description of file organization)
+globalprep  | Contains R markdown (Rmd) scripts used to prepare all goal, pressure, and resilience data layers. Files are organized by individual data layer, and contain all data, prep scripts, and any other files from previous assessment years in addition to the current assessment year.
 Reference   | handy reference materials used throughout the global assessmeent
 workflow    | Rmd templates, sourced files, and functions used throughout data preparation
 
 
-*Table describing ohi-global contents*
-(NOTE: this describes only the most relevant folders/files)
+### ohi-global
+
+This repo contains data layers, supplementary information, models, and scripts used to calculate the global scores. The contents of this repository are updated each time a data layer in ohiprep_v20?? is completed. 
+
+**Contents:**
 
 folder      |     description
 ------------| ------------------------------
 eez  |   global models and data
-     layers | data layers used in the models (data are copied from ohiprep using paths from eez_layers_meta_data/layers_eez_base.csv)
-     conf   | models and supplementary data used to calculate scores
-     calculate_scores.R | master script used to calculate scores
-     scores.csv | score output from calculate_scores.R (includes all score dimensions for each goal and country)
-eez_layers_meta_data | csv files describing data layers
-global_supplement | files used to create OHI methods document
+     eez/layers | data layers used in the models (data are copied from ohiprep using paths from metadata_documentation/layers_eez_base.csv)
+     eez/conf   | models and supplementary data used to calculate scores
+     eez/calculate_scores.R | master script used to calculate scores
+     eez/scores.csv | score output from calculate_scores.R (includes all score dimensions for each goal and country)
+metadata_documentation | csv files describing data layers
 yearly_results | reporting on results of each year's OHI assessment
+documents | files used to create OHI methods document
+
+
+
+### ohicore
+
+This is an R package that includes the core functions used in all assessments. See [package description](http://ohi-science.org/ohicore/) for more information.
+
+
+### globalfellows-issues
+
+This repository was created in 2018 for the first cohort of Global Fellows, and is used to communicate about the data prep process for each layer, document reference information, share ideas, and keep track of progress on tasks. This repository is used just for writing issues, and is separate from the other repositories where data prep occurs. More information about communicating via issues is found throughout this guide. 
 

@@ -1,7 +1,7 @@
 # Data Prep
 All data layers are prepared in the ohiprep_v20?? repository.  
 
-Spend some time researching the data prior to launching into the coding in R.  I look over the files in the dataprep folder on Github, as well as the Mazu folder that contains the raw data. I research the specific data layers I will be working on and the goals/pressures/resilience dimensions they are used to calculate.  I typically start in the [methods](https://raw.githack.com/OHI-Science/ohi-global/published/global_supplement/Supplement.html) document.  I also research the source data, looking over websites, reports, and published papers.  
+Spend some time researching the data prior to launching into the coding in R.  I look over the files in the dataprep folder on Github, as well as the Mazu folder that contains the raw data. I research the specific data layers I will be working on and the goals/pressures/resilience dimensions they are used to calculate.  I typically start in the [methods](https://raw.githack.com/OHI-Science/ohi-global/published/global_supplement/Supplement.html) document.  I also research the source data, looking over websites, reports, and published papers.
 
 In regard to preparing the data, the best approach is to prepare the layer or layers within a single Rmd script and then update the OHI scores one layer at a time.  This approach makes it much easier to identify and track potential errors.
 
@@ -186,7 +186,7 @@ Once the relevant data layers are created and incorporated into the OHI scores t
 
 ### Update the files
 
-Carefully walk through the data prep script/s and update as necessary.
+Carefully walk through the data prep scripts and update as necessary.
 
 You will also need to update READMEs.
 
@@ -197,21 +197,21 @@ Checking the dataprep scripts involves:
 * Going through each line of code to understand what is happening. Each step of dplyr chains should be evaluated, rather than running the entire chain and assuming it is correct.
 * Using functions such as summary, dim, length functions and figures to explore the data at different stages of preparation. 
 * Check the dimensions of the dataframe after each join or spread/collapse to ensure the length of the updated data makes sense.
-* Check that the frequency of NA values seems reasonable, especially after joins and spread/collapse functions.  And, if you gapfill missing values, make sure that you end up estimating all NA values.
+* Check that the frequency of NA values seems reasonable, especially after joins and spread/collapse functions.  And, if you gapfill missing values, make sure that you end up estimating all NA values. Note: for some layers, uninhabited/low-population regions will be manually assigned NA values.
 
 ***
 
 ## A typical data prep script
 
-All data prep is performed in R or, preferrably, Rmd documents. Rmd is an ideal format because it seemlessly integrates code and documentation, can display figures, and the output provides a clean methods document.
+All data prep is performed in R or, preferrably, R Markdown (Rmd) documents. Rmd is an ideal format because it seemlessly integrates code and documentation, can display figures, and the output provides a clean methods document.
 
 We have several shared practices for preparing data:
 
 * Ideally Rmd/R files are used to download and save source datafiles, but this isn't possible in most cases due to the format of the data.
 * We put a large premium on documenting the steps used to prepare data! 
 * In many cases, the data preparation for a goal is performed in a single file.  But, for more complex goals it is better to break the data preparation into multiple Rmd documents.  If multiple Rmd documents are used, a README must describe what each Rmd document does, the input/outputs, and the order of processing.  
-* If a process is run multiple times, the code should be converted to a function and placed in folder labeled R or src. 
-* The `here` package, and `here()` function should be used control file paths.
+* If a process is run multiple times, the code should be converted to a function and placed in folder labeled R or worklflow. 
+* The `here` package, and `here()` function should be used control relative file paths.
 * We use the tidyverse for tidying data
 
 A typical data prep script (or series of scripts) will include the following sections, which are described in more detail below:
@@ -242,6 +242,7 @@ This section describes all the updates to source data and/or methods since the p
 For example, the 2019 AO updates look like this: 
 
 - "Uninhabited and low population regions now given an NA value (vs. a gapfilled value)."
+- "Added an additional year of GDP data from the World Bank"
 
 ## prep Rmd: 3. Data sources
 This section describes all data sources and may include:
@@ -259,7 +260,7 @@ This section describes all data sources and may include:
 **Format**:  [e.g., NetCDF, Excel file]
 <br> <br>
 
-For example, the 2019 AO data sources section looks like this:
+For example, the 2018 AO data sources section looks like this:
 
 **Downloaded**: 7/23/2018
 
@@ -275,28 +276,64 @@ Data is available directly to R through the WDI package.
 **Time range**: 1990-2017
 
 ## prep Rmd: 4. Set up 
-This code chunk is used to load packages, source functions, and set variables used throughout the analyses.  
+This code chunk is used to load packages, source functions, and set variables used throughout the analyses. 
+
+Here, you can also initialize programatic creation of raw, intermediate and output file folders within the specific layer directory:
+
+```{r create_folders, eval=F}
+
+
+# check if 'raw', 'intermediate', and 'final' folders exist in the current assessment folder, if not, then create the folder in the working directory
+if (!file.exists(here("globalprep/layer_name/v20??/raw"))){
+  dir.create(here("globalprep/layer_name/v20??/raw"))
+} 
+
+if (!file.exists(here("globalprep/layer_name/v20??/intermediate"))){
+  dir.create(here("globalprep/layer_name/v20??/intermediate"))
+}
+
+if (!file.exists(here("globalprep/layer_name/v20??/output"))){
+  dir.create(here("globalprep/layer_name/v20??/output"))
+}
+
+```
+
 
 ### Packages
 The packages we load depend on the analyses, but we always use:
 
 - dplyr and tidyr: data wrangling tools [a cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) 
-- [here](https://github.com/jennybc/here_here): controls file paths
 
-We often use the following for spatial analyses:
+#### Packages commonly include, but are not limited to:
 
-- rgdal: tools for dealing with coordinate reference systems
-- sp: classes and methods for spatial data
-- sf: a new version of sp, providing a standardized way to encode spatial vector data
-- raster: reading, writing, manipulating, analyzing and modeling of gridded spatial data
-- fasterize: a better way to convert a shapefile to a raster file
+**OHIcore package which contains all the proprietary OHI functions**
 
-We often use the zoo package for time-series data. 
+* library(ohicore) 
+* Check to see if it is installed and install it if not: `if (!("ohicore" %in% installed.packages())){devtools::install_github("ohi-science/ohicore")}`
 
-And, for parallel processing, typically used to perform spatial analyses, we use:
 
-- doParallel
-- foreach
+**General data analysis and wrangling packages:**
+
+* `library(here)` - controls file paths, learn more [here](https://github.com/jennybc/here_here)
+* `library(tidyverse)` - includes ggplot2, readr, stringr, tidyr, and dplyr
+* `library(plotly)` - create interactive ggplots
+* `library(zoo)` - usually used for time series data
+
+
+**Packages used for spatial analysis:** 
+
+* `library(raster)` - reading, writing, manipulating, analyzing and modeling of gridded spatial data
+* `library(fasterize)` - a better way to convert a shapefile to a raster file
+* `library(sf)` - a new version of sp, providing a standardized way to encode spatial vector data
+* `library(sp)` - classes and methods for spatial data
+* `library(rgdal)` - tools for dealing with coordinate reference systems
+
+**Parallel processing libraries (usually used for data prep involving large spatial files):**
+
+* `library(parallel)`
+* `library(foreach)`
+* `library(doParallel)`
+
 
 ### common.R
 Nearly all scripts will source a common.R file.  This file creates several objects that make it easier to conduct an OHI assessment.  This includes:
@@ -328,7 +365,7 @@ head(rgns_eez)
 
 #### metadata for common.R
 
-*dir_M and mollCRS*
+**dir_M and mollCRS**
 
 The following are the dir_M and mollCRS objects:
 
@@ -344,7 +381,7 @@ mollCRS
 ```
 
 
-*regions_shape*
+**regions_shape**
 
 The regions_shape function returns a simple feature object called "regions". Regions is the master global shapefile that includes polygons for land, eez, high seas, and antarctica regions in the Mollweide coordinate reference system.
 
@@ -398,7 +435,7 @@ rgn_name   | character | country/territory name  | e.g., Afghanistan, Belize, Pr
 rgn_key    | factor | 3 letter identification code  | e.g., AFG, BEL
 area_km2   | numeric | area of region, km2  | range of 1-30604795
 
-*ohi_rasters*
+**ohi_rasters**
 
 The ohi_rasters function returns two rasters, "zones" and "ocean", both with ~1 km resolution and the mollweide coordinate reference system.
 
@@ -446,13 +483,13 @@ freq(ocean)
 
 ![](https://docs.google.com/drawings/d/e/2PACX-1vTyex8lM_fxw6-23Z1mY59Ejf3PkcBUYOYtgVx7aqjNAqtPwEmIgG289EcY9B3wLlgvrp9tTA2iCRbO/pub?w=960&h=720)
 
-*region_data()*
+**region_data()**
 
 The region_data function returns two dataframes, "rgns_all" and "rgns_eez".
 
 The "rgns_all" dataframe includes data for the eez, fao, and ccamlr ocean regions.  The IDs in rgn_ant_id correspond to the IDs in the zones raster. Once raster data are extracted for each region, the output is often aligned with the data in this dataframe. 
 
-*Metadata for rgns_all dataframe*
+**Metadata for rgns_all dataframe**
 
 field    |  data type | description    | examples
 --------- | ---------------- | --------------- | ----------------------------
@@ -464,7 +501,7 @@ rgn_name   |  character | country/territory name  | e.g., Afghanistan, Belize, P
 
 The "rgns_eez" dataframe includes data for the 220 OHI regions plus Antarctica (rgn_id 213).  This file is used to make sure that all regions are included in dataprep files.  It also includes data to indicate whether regions are territories.  This can also be used for gapfilling (in some cases, it makes sense to assign territories the same value as their administrative country).  
 
-*Metadata for rgns_eez dataframe*
+**Metadata for rgns_eez dataframe**
 
 field    |  data type | description    | examples
 --------- | --------------- | --------------- | ----------------------------
@@ -475,12 +512,12 @@ territory   | boolean | identifies whether the region is a territory | yes/no
 admin_rgn_id | numeric | administrative country rgn_id if a territory, otherwise the rgn_id | 1-250
 admin_country_name | character | administrative country name if a territory, otherwise the country name | e.g., Afghanistan, Belize, Canada
 
-*region_syns()*
+**region_syns()**
 
 Observed synonyms for each region, such that each region may have multiple synonyms.  These data are used to convert outside data to the OHI region name and ID.  This list is updated nearly everytime we run an assessment!
 
 
-*Metadata for region_syns dataframe*
+**Metadata for region_syns dataframe**
 
 field    |  data type | description    | examples
 --------- | ---------------- | --------------- | ----------------------------
@@ -490,11 +527,11 @@ rgn_key    | factor | 2-letter code for countries | e.g., FM
 eez_iso3   | factor | 3-letter code for countries | e.g., FSM
 rgn_typ    | factor | status of region            | disputed, landlocked, largescale (global, world); ohi_region
 
-*low_pop()*
+**low_pop()**
 
 Includes data for 21 regions with 0 and low populations.  These data are used to identify regions that should have NA values because the goal does not apply to regions with no/low populations (e.g., livelihoods and economies).
 
-*Metadata for low_pop dataframe*
+**Metadata for low_pop dataframe**
 
 field    |  data type | description    | examples
 --------- | --------------- | --------------- | ----------------------------
@@ -504,11 +541,11 @@ Southern_Island    | boolean | indicates if region is a southern island | 1/0
 Inhabited   | boolean | indicates if region is uninhabited | boolean, 1/0
 est_population    | numeric | number of established people in region  | 0-3000
 
-*UNgeorgn()*
+**UNgeorgn()**
 
 Each global regions UN georegion based on social and geopolitical considerations. 
 
-*Metadata for UNgeorgn dataframe*
+**Metadata for UNgeorgn dataframe**
 
 field    |  data type | description    | examples
 --------- | --------------- | --------------- | ----------------------------
@@ -519,6 +556,7 @@ r2_label  | factor | 22 classes | e.g., New Zealand, Melanesia
 rgn_label | character | global region name | e.g., Cocos Islands, Christmas Island
 Inhabited   | boolean | indicates if region is uninhabited | boolean, 1/0
 est_population    | numeric | number of established people in region  | 0-3000
+
 
 ## prep Rmd: 5. Data prep
 
@@ -547,7 +585,45 @@ This file should be saved as a .csv file in an "output" folder. In general, the 
 
 https://github.com/OHI-Science/ohi-global/blob/draft/eez_layers_meta_data/layers_eez_base.csv
 
- 
+### OHI data idiosyncracies: Low population/uninhabited regions and grouped regions
+Recently we have standardized how we identify low population regions, using the low_pop() function in the common.R file. These regions are assigned NAs for some goals (e.g. GDP values used in AO) and perfect scores for others (e.g. sanitation access). Use the following code to establish a vector of low pop regions that can be compared against the final dataset.
+```{r eval=F}
+
+# After sourcing common.R and gapfilling data: 
+low_pop()
+
+# Filter out regions that have populations > 3000 and keep NA values 
+low_pop <- low_pop %>%
+  filter(est_population < 3000 | is.na(est_population)) 
+
+# Make a vector of low population region IDs:
+low_pop_vector <- c(low_pop$rgn_id)  
+
+# Assign NA values in score column for low popuation areas:
+gapfilled_dataset$score[gapfilled_dataset$rgn_id %in% low_pop_vector] <- NA
+
+```
+
+Several of the datasets we use also report OHI regions as a group, and we want to report them all at the same scale/resolution used in OHI. For instance, Bonaire, Sint Eustatius and Saba are often reported together as "Caribbean Netherlands" or combined as "Bonaire, Sint Eustatius and Saba". Use the following code to apply the data to all three regions:
+```{r eval=F}
+# Assuming "tidy_dataset" has been wrangled, cleaned, and has column "country"
+CN <- filter(tidy_dataset, country=="Caribbean Netherlands") %>%
+   rename(country_old = country) # country could also be rgn_name 
+
+CN_subregions <- data.frame(country_old = "Caribbean Netherlands",
+                            country = c("Bonaire", "Sint Eustatius", "Saba")) %>%
+  left_join(CN) %>%
+  select(-country_old)
+
+# Remove lines of data for Caribbean Netherlands and replace with individual region-level data for the three subregions:
+tidy_dataset <- tidy_dataset %>%
+   filter(country != "Caribbean Netherlands") %>%
+   rbind(CN_subregions)  
+
+```
+
+
+
 ## prep Rmd: 6.  Gapfilling
 
 We make every effort to gapfill missing data.  The only legitimate reason for a region to have an NA value is if the goal is not relevant to the region.  For example, the livelihoods and economies goal is not relevant for an uninhabited island.
@@ -556,13 +632,77 @@ We have a paper describing why and how we estimate missing data: https://journal
 
 The first step to gapfilling missing data is to identify datasets that are predictive of the variable you are attempting to estimate and is also more complete.  Here are some of the general approaches we use to estimate missing global data:
 
-* Some mising data can be estimated from the original source.  For example, if there are some missing years within a dataset, we can often estimate these values using a linear model of available data.  For spatial raster data, we often estimate missing values using nearby raster cells.  
-* Secondary datasets can also be used to estimate mising values. For example, we gapfill some missing Social Progress Index values using World Governance Index data as a predictor.  And, in many cases we use [UN geopolitical data](https://github.com/OHI-Science/ohiprep_v2019/blob/gh-pages/globalprep/spatial/v2017/output/georegion_labels.csv) that classifies countries based on geopolitical and social variables to predict missing data.
+* Some missing data can be estimated from the original source.  For example, if there are some missing years within a dataset, we can often estimate these values using a linear model of available data.  For spatial raster data, we often estimate missing values using nearby raster cells.  
+* Secondary datasets can also be used to estimate missing values. For example, we gapfill some missing Social Progress Index values using World Governance Index data as a predictor.  And, in many cases we use [UN geopolitical data](https://github.com/OHI-Science/ohiprep_v2019/blob/gh-pages/globalprep/spatial/v2017/output/georegion_labels.csv) that classifies countries based on geopolitical and social variables to predict missing data.
 * And, we often use multiple approaches to estimate missing values within a dataset.
 
 Our goal is to estimate missing data using the simplest model that best predicts the data. Given this, it is necessary to determine whether datasets and model terms actually predict missing data and to compare the performance of multiple models. Ideally cross-validation methods are used to evaluate how well the models predict missing data, otherwise models will appear to perform much better than they actually do.   
 
 *There is no point in having a model with many predictive variables and complex non-linear fits if it performs no better than using a simple mean of the existing data!*
+
+### Training linear models for gapfilling
+
+**Basic gist:**
+Use alternative datasets to predict data points for a dataset you have limited data points for. In this instance, we had FMI data points for 40 regions included in the OHI, and needed to gapfill the remaining 180 regions. We checked for correlation between the FMI data and several other datasets, including AO need (rescaled GDP per capita per person purchasing power), GDP per capita, social progress index (SPI), world governance indicator (WGI), and UN georegions.
+
+A detailed example can be found [here](https://github.com/OHI-Science/ohiprep_v2019/blob/gh-pages/globalprep/res_fmi/v2019/fmi_model_compare.Rmd)
+
+**Steps:**
+
+1. Collect data that you'll use to predict values, and merge with existing data (only use the values that correspond to data you already have to create this df)
+2. Look at correlation between alternative data sets cor.test() and pairs.panels()
+3. Create initial model:
+```{r eval=F}
+
+mod1 <- lm(dep_variable ~ ind_variable, data=df_name)
+
+```
+
+4. Look at `summary(mod1)` to check for R-squared and p-value
+5. Create an array of predicted values:
+```{r eval=F}
+df_predicted <- df_name %>%
+  dplyr::group_by(rgn_id) %>%
+  dplyr::do({
+    pred <- predict(mod1, newdata =.[c('ind_variable')]) # creates a new column for predicted values
+    data.frame(., fmi_pred) # do loop applies the model fitting and prediction to each country group
+    }) %>%
+dplyr::ungroup()
+
+```
+
+6. Plot predicted vs actual values:
+```{r eval=F}
+ggplotly(ggplot(df_predicted, aes(x = dep_variable, y = pred, labels = rgn_id)) +
+geom_point() +
+geom_abline(slope = 1, intercept = 0, color = "red"))
+
+```
+*Note: "rgn_id" is just an example of a column in the dataset with a unique value for each observation.*
+
+lm() can also include multiple independent variables (must be merged into one data frame with one row for each observation):
+mod2 <- lm(dep_variable ~ ind_variable + ind_variable2, data=df_name)
+
+7. Compare models for fit and degrees of freedom: `AIC(mod1, mod2)`
+
+8. Use best-fit model to gapfill areas without data using do loop as shown in step 4. 
+
+If using UN georegions to gapfill, you'll want to use the most specific/granular label possible. Use separate models for regional and continental levels (r2_label vs r1_label as described in metadata above), and write code to tell R to grab the data from the most granular data available. Example from [FMI model comparison .Rmd](https://github.com/OHI-Science/ohiprep_v2019/blob/gh-pages/globalprep/res_fmi/v2019/fmi_model_compare.Rmd): 
+```{r eval=F}
+fmi_gf_all <- fmi_gf1 %>%
+  left_join(fmi_gf2, by=c("rgn_id", "r1_label", "r2_label", "rgn_label", "year", "spi", "fmi")) %>% 
+  mutate(gapfilled = ifelse(is.na(fmi) & !is.na(fmi_pred_r2), "1", 0)) %>%
+  mutate(method = ifelse(is.na(fmi) & !is.na(fmi_pred_r2), "SPI + UN_geopolitical region r2", NA)) %>%
+  mutate(fmi = ifelse(is.na(fmi), fmi_pred_r2, fmi)) %>% 
+  mutate(gapfilled = ifelse(is.na(fmi) & !is.na(fmi_pred_r1), "1", gapfilled)) %>%
+  mutate(method = ifelse(is.na(fmi) & !is.na(fmi_pred_r1), "SPI + UN_geopolitical region r1", method)) %>%
+  mutate(fmi = ifelse(is.na(fmi), fmi_pred_r1, fmi))
+```
+
+
+
+
+### Saving gapfilling report files
 
 Gapfilling steps are often mixed with the dataprep code.  Once the gapfilling is done, we will save a dataset describing which data were gapfilled and the method.  Every dataset should have a corresponding gapfilling dataset...*even if there was no gapfilling*.  
 
@@ -597,8 +737,7 @@ Because we calculate the global index every year, the most powerful way of check
 
 For this comparison we typically compare the most recent shared year of data between the two assessments.  The following code walks through this process using data calculated for the lasting special places goal.  In this case, we will pretend we have just completed preparing the data for the 2018 assessment and we want to compare the results to the 2017 assessment. Here we focus on the data for the 3nm offshore region.  
 
-```
-
+```{r eval=F} 
 library(dplyr)
 library(here)
 library(ggplot2)
@@ -612,15 +751,14 @@ summary(new)
 
 old <- read.csv(here("globalprep/lsp/v2017/output/lsp_prot_area_offshore3nm.csv"))
 summary(old)
-
 ```
+
 
 The most recent shared year between the two datasets is 2017, so this is the year that will be compared.  The old and new values are plotted as a scatterplot, with a point for each region.  We create an interactive plot and add a one-to-one line to make it easier to determine which regions have changed.  Any changes in values will reflect either changes to the source data or changes to the data prep script.
 
 *It is important to explore the reasons for these changes because it could reflect errors!*
 
-```
-
+```{r eval=F}
 # get region names
 region_data()
 head(rgns_eez)
@@ -640,8 +778,8 @@ compare_plot <- ggplot(compare, aes(x=a_prot_3nm, y=a_prot_3nm_new, label=region
   geom_abline(slope=1, intercept=0, color="red")
   
 ggplotly(compare_plot)
-
 ```
+
 
 In this case, the values for most regions remain the same from the 2017 to 2018 assessment, however, there are some changes.  The biggest change was for Antarctica, which we can ignore because we do not calculate scores for Antarctica for the global assessment.  However, there is also a fairly large change in the Greece data, and some smaller changes for some other regions.
 
@@ -651,7 +789,7 @@ By carefully exploring the source data we found that these differences reflect u
 ## prep Rmd: 8. Final run
 The final step is to commit and push all files.  Then, close R and do NOT save the workspace image. The purpose of closing everything is to clear the memory of all data objects to make sure that the code still runs.  This may be a problem if we change object names but fail to make necessary corresponding throughout the code. 
 
-![](images/Workspace.jpg)
+![](https://docs.google.com/drawings/d/e/2PACX-1vRf6bzIscOnKcqrxUNn9q4IOkPbElNbCJbcXpb3oC6jADbeVQ-e4pAA17fUBYa3GiJENILw48xgBSA4/pub?w=531&h=243)
 
 I typically close everything by opening another repository.  
 
@@ -667,5 +805,57 @@ Check the following:
 ***
 
 ## Notes on parallel processing
+In OHI, we often use parallel processing packages to process data-intensive spatial layers. Parallel processing allows multiple computations to take place at the same time. For more information, check out this [introductory resource from NCEAS.](https://nceas.github.io/oss-lessons/parallel-computing-in-r/parallel-computing-in-r.html)
 
-Coming soon!
+*Note: below is essentially copy and pasted from [this reference issue](https://github.com/OHI-Science/globalfellows-issues/issues/43) and might need more context to be helpful*
+
+[Vignette on getting started with doParallel and foreach packages](https://cran.r-project.org/web/packages/doParallel/vignettes/gettingstartedParallel.pdf) refers to two ways to use parallel processing in the `doParallel` package. 
+
+*Method 1:* `registerDoParallel(4)`
+
+OR 
+
+*Method 2:*
+```{r eval=F}
+cl <- makeCluster(4)
+registerDoParallel(cl)
+foreach(i in 1:10) %dopar%{}
+stopCluster(cl)
+```
+
+### stopCluster & makeCluster
+
+**Stopping your cluster:**
+
+If you are using snow-like functionality, you will want to stop your cluster when you are done using it. The doParallel package’s .onUnload function will do this automatically if the cluster was created automatically by registerDoParallel, but if you created the cluster manually you should stop it using the stopCluster function: `stopCluster(cl)`
+
+[Stack overflow discussion](https://stackoverflow.com/questions/45894635/why-does-doparallelgetdoparworkers-return-14-but-after-i-have-completed-the) on whether cores stop being registered after `foreach` finishes 
+
+
+**Tip:** Limit to 5 or fewer cores for any data prep
+
+
+### Using htop to check on processes running
+Sometimes a process will be running that slows down the whole system, and htop can help identify and stop the source of this issue.
+
+[Useful resource here](https://www.deonsworld.co.za/2012/12/20/understanding-and-using-htop-monitor-system-resources/)
+
+1. When you are logged into the Mazu RStudio server window, open the terminal shell. 
+2. type `htop` and hit enter
+![](https://docs.google.com/drawings/d/e/2PACX-1vTTRgierwPuguYyuVRQIepMIKtUq1HWYzju-vtW2BjUOtuYD24PMx3Y6s6CsZNmbwu27rtqrQa6y5Tw/pub?w=300&h=100)
+
+3. When you press enter, a matrix will appear showing how many cores are being used, and the processes running underneath
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vSXapuGRUlSxvW32xW74lU-Iv9p5eikiQixj93hfIeM0ivozG6hwsIjZO6q2f_l7NkHt5AM-73jMFO6/pub?w=910&h=463)
+
+4. Kill processes by scrolling with arrow keys or by clicking on them. Click 'kill' or hit k on the keyboard
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vTw7iG5UPirTfqJkqSn96FdO-3hzcrJhJN5xmi1RilGW4EysFnBC4ADi7B_NlaeuIGDNlwMEKKxV_F9/pub?w=212&h=100)
+
+5. 'Send signal' bar will open with 15 SIGTERM highlighted - hit enter, or esc to cancel 
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vQbUM7vh3GTXqgOduYhFWdrbJ2ATZXtkxpyTo2dr1j8RF82t76_WHPxcBdaIceHmcYLnzvatEVg_XiW/pub?w=337&h=641)
+
+Note: some users have problems with RStudio crashing when trying to kill processes in the terminal window. Using the terminal on your computer should work with no problem. To do this, open the terminal and login using `ssh username@mazu.nceas.ucsb.edu` and hit enter. Enter your password (letters will not appear) and hit enter to login, then follow the steps above. 
+
+![](https://docs.google.com/drawings/d/e/2PACX-1vT3gCYjGdUl3SEh03V7UasbtqBin5TKyPVKdssJDA8ybz4J6ZYitDuMof70F50yaCjyDa8t50J4kYlp/pub?w=596&h=120)
