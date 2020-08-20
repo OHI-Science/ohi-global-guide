@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Finalizing the global assessment | OHI Global Assessment Guide</title>
   <meta name="description" content="A guide for conducting the OHI Global Assessment" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Finalizing the global assessment | OHI Global Assessment Guide" />
   <meta property="og:type" content="book" />
@@ -24,14 +24,14 @@
 <meta name="author" content="OHI Team" />
 
 
-<meta name="date" content="2020-04-15" />
+<meta name="date" content="2020-08-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="updating-scores.html">
+<link rel="prev" href="updating-scores.html"/>
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -40,6 +40,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -50,9 +53,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -61,14 +64,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -77,9 +82,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -288,26 +293,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Once you’ve created your library (or collection/folder/whatever) in Zotero, you can export it in BibLaTex format (the whole library from the File menu, or the collection by right-clicking and choosing “Export Collection”, then selecting “BibLaTex” as the format:</p>
 <p><img src="https://docs.google.com/drawings/d/e/2PACX-1vRX8j7Nri1Y6MbTEf5h_xgcU5OHVhuCJ6TNqRAF-oERlz8evGuPL1L3o4PBZv3ZUqzTBP03QeMdwNMA/pub?w=844&amp;h=334" /></p>
 <p>This creates a .bib file, which contains a list of references each formatted like this (I deleted many of the fields just for the sake of space):</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="op">@</span>article{ready_predicting_<span class="dv">2010</span>,</a>
-<a class="sourceLine" id="cb24-2" title="2">    title =<span class="st"> </span>{Predicting the distributions of marine organisms at the global scale},</a>
-<a class="sourceLine" id="cb24-3" title="3">    volume =<span class="st"> </span>{<span class="dv">221</span>},</a>
-<a class="sourceLine" id="cb24-4" title="4">    issn =<span class="st"> </span>{<span class="dv">03043800</span>},</a>
-<a class="sourceLine" id="cb24-5" title="5">    url =<span class="st"> </span>{http<span class="op">:</span><span class="er">//</span>linkinghub.elsevier.com<span class="op">/</span>retrieve<span class="op">/</span>pii<span class="op">/</span>S030438000900711X},</a>
-<a class="sourceLine" id="cb24-6" title="6">    journaltitle =<span class="st"> </span>{Ecological Modelling},</a>
-<a class="sourceLine" id="cb24-7" title="7">    author =<span class="st"> </span>{Ready, Jonathan and Kaschner, Kristin and South, Andy B. and Eastwood, Paul D. and Rees, Tony and Rius, Josephine and Agbayani, Eli and Kullander, Sven and Froese, Rainer},</a>
-<a class="sourceLine" id="cb24-8" title="8">    file =<span class="st"> </span>{Ready_etal2010.pdf<span class="op">:</span><span class="er">/</span>Users<span class="op">/</span>ohara<span class="op">/</span>Library<span class="op">/</span>Application Support<span class="op">/</span>Zotero<span class="op">/</span>Profiles<span class="op">/</span>th8m611h.default<span class="op">/</span>zotero<span class="op">/</span>storage<span class="op">/</span>297AD2JJ<span class="op">/</span>Ready_etal2010.pdf<span class="op">:</span>application<span class="op">/</span>pdf}</a>
-<a class="sourceLine" id="cb24-9" title="9">}</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="finalizing-the-global-assessment.html#cb24-1"></a><span class="op">@</span>article{ready_predicting_<span class="dv">2010</span>,</span>
+<span id="cb24-2"><a href="finalizing-the-global-assessment.html#cb24-2"></a>    title =<span class="st"> </span>{Predicting the distributions of marine organisms at the global scale},</span>
+<span id="cb24-3"><a href="finalizing-the-global-assessment.html#cb24-3"></a>    volume =<span class="st"> </span>{<span class="dv">221</span>},</span>
+<span id="cb24-4"><a href="finalizing-the-global-assessment.html#cb24-4"></a>    issn =<span class="st"> </span>{<span class="dv">03043800</span>},</span>
+<span id="cb24-5"><a href="finalizing-the-global-assessment.html#cb24-5"></a>    url =<span class="st"> </span>{http<span class="op">:</span><span class="er">//</span>linkinghub.elsevier.com<span class="op">/</span>retrieve<span class="op">/</span>pii<span class="op">/</span>S030438000900711X},</span>
+<span id="cb24-6"><a href="finalizing-the-global-assessment.html#cb24-6"></a>    journaltitle =<span class="st"> </span>{Ecological Modelling},</span>
+<span id="cb24-7"><a href="finalizing-the-global-assessment.html#cb24-7"></a>    author =<span class="st"> </span>{Ready, Jonathan and Kaschner, Kristin and South, Andy B. and Eastwood, Paul D. and Rees, Tony and Rius, Josephine and Agbayani, Eli and Kullander, Sven and Froese, Rainer},</span>
+<span id="cb24-8"><a href="finalizing-the-global-assessment.html#cb24-8"></a>    file =<span class="st"> </span>{Ready_etal2010.pdf<span class="op">:</span><span class="er">/</span>Users<span class="op">/</span>ohara<span class="op">/</span>Library<span class="op">/</span>Application Support<span class="op">/</span>Zotero<span class="op">/</span>Profiles<span class="op">/</span>th8m611h.default<span class="op">/</span>zotero<span class="op">/</span>storage<span class="op">/</span>297AD2JJ<span class="op">/</span>Ready_etal2010.pdf<span class="op">:</span>application<span class="op">/</span>pdf}</span>
+<span id="cb24-9"><a href="finalizing-the-global-assessment.html#cb24-9"></a>}</span></code></pre></div>
 <p><strong>Calling the bibliography in R Markdown</strong></p>
 <p>In your R Markdown document, you call the bibliography file in the YAML header like so:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="op">---</span></a>
-<a class="sourceLine" id="cb25-2" title="2">output<span class="op">:</span></a>
-<a class="sourceLine" id="cb25-3" title="3"><span class="st"> </span>html_document<span class="op">:</span></a>
-<a class="sourceLine" id="cb25-4" title="4"><span class="st">   </span>toc<span class="op">:</span><span class="st"> </span>true</a>
-<a class="sourceLine" id="cb25-5" title="5">   number_sections<span class="op">:</span><span class="st"> </span>true</a>
-<a class="sourceLine" id="cb25-6" title="6">bibliography<span class="op">:</span><span class="st"> </span>ohi.bib</a>
-<a class="sourceLine" id="cb25-7" title="7">csl<span class="op">:</span><span class="st"> </span>ecology<span class="op">-</span>letters.csl</a>
-<a class="sourceLine" id="cb25-8" title="8"></a>
-<a class="sourceLine" id="cb25-9" title="9"><span class="op">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="finalizing-the-global-assessment.html#cb25-1"></a><span class="op">---</span></span>
+<span id="cb25-2"><a href="finalizing-the-global-assessment.html#cb25-2"></a>output<span class="op">:</span></span>
+<span id="cb25-3"><a href="finalizing-the-global-assessment.html#cb25-3"></a><span class="st"> </span>html_document<span class="op">:</span></span>
+<span id="cb25-4"><a href="finalizing-the-global-assessment.html#cb25-4"></a><span class="st">   </span>toc<span class="op">:</span><span class="st"> </span>true</span>
+<span id="cb25-5"><a href="finalizing-the-global-assessment.html#cb25-5"></a>   number_sections<span class="op">:</span><span class="st"> </span>true</span>
+<span id="cb25-6"><a href="finalizing-the-global-assessment.html#cb25-6"></a>bibliography<span class="op">:</span><span class="st"> </span>ohi.bib</span>
+<span id="cb25-7"><a href="finalizing-the-global-assessment.html#cb25-7"></a>csl<span class="op">:</span><span class="st"> </span>ecology<span class="op">-</span>letters.csl</span>
+<span id="cb25-8"><a href="finalizing-the-global-assessment.html#cb25-8"></a></span>
+<span id="cb25-9"><a href="finalizing-the-global-assessment.html#cb25-9"></a><span class="op">---</span></span></code></pre></div>
 <p><em>Notes:</em></p>
 <ul>
 <li>You can easily include the bibliography file in a subfolder: bibliography: refs/ohi.bib (if you like to keep your repository folders organized)</li>
@@ -317,8 +322,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>I just put the .csl into the same subfolder as the .bib, so my YAML header looked like:</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">bibliography<span class="op">:</span><span class="st"> </span>refs<span class="op">/</span>ohi.bib</a>
-<a class="sourceLine" id="cb26-2" title="2">csl<span class="op">:</span><span class="st"> </span>refs<span class="op">/</span>ecology<span class="op">-</span>letters.csl</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="finalizing-the-global-assessment.html#cb26-1"></a>bibliography<span class="op">:</span><span class="st"> </span>refs<span class="op">/</span>ohi.bib</span>
+<span id="cb26-2"><a href="finalizing-the-global-assessment.html#cb26-2"></a>csl<span class="op">:</span><span class="st"> </span>refs<span class="op">/</span>ecology<span class="op">-</span>letters.csl</span></code></pre></div>
 <p><br></p>
 <p><strong>Citing in the text of your R markdown</strong></p>
 <p>In the R Markdown document, the citations look like this: <code>[@articleidentifier]</code> where “articleidentifier” is the author/title fragment/year in the reference listed in the .bib file. So for the reference to Ready et al. 2010 from the .bib above, the citation would look like: <code>[@ready_predicting_2010]</code>.</p>
@@ -480,21 +485,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If it is a new data source, paste the tag into a new line and fill in the other information (name, description, years, and native resolution).</p>
 <p>For all references that were not updated, fill in the ds_updated_20?? with “n” or “NA”.</p>
 <p><br></p>
-<p><strong>layers_eez_methods.csv</strong></p>
-<p>This file contains information for three different aspects of every layer - the dataprep url, data source reference, and methods updates. Information should be filled in for all three of these sections for each layer that has been updated.</p>
-<ul>
-<li><em>dataprep_url</em>: File path to the knitted html file . Note: finalized data prep files should all be knitted BEFORE attempting to update this document, as this can take some time!</li>
-<li><em>ds_reference</em>: Alias tag created BibLaTeX file as described above. This tag should match exactly with the tag in layers_eez_data_sources.csv. Always double check this!</li>
-<li><em>methods_update</em>: Short description of updates to the data; usually is additional year of data and/or changes to gapfilling methods or other calculations.</li>
-</ul>
-<p><em>Example of complete updated data for the ao_need layer:</em></p>
-<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vT0tkXA9_xuLpwHvf-qrbfr0NmyP8S6HpopTeMisdGXJzayxIOKoYqlzUhmLNgZ-fJPi-0d2sSKKusJ/pub?w=915&amp;h=147" /></p>
+<p><strong>layers_eez_dataprep</strong></p>
+<p><em>dataprep_url</em>: File path to the knitted html file . Note: finalized data prep files should all be knitted BEFORE attempting to update this document, as this can take some time!</p>
+<p><br></p>
+<p><strong>layers_eez_reference</strong></p>
+<p><em>reference</em>: Alias tag created BibLaTeX file as described above. This tag should match exactly with the tag in layers_eez_data_sources.csv. Always double check this!</p>
+<p><br></p>
+<p><strong>layers_eez_updates</strong></p>
+<p><em>updates</em>: Short description of updates to the data; usually is additional year of data and/or changes to gapfilling methods or other calculations.</p>
 <p><br></p>
 <p><strong>layers_eez_gapfill.csv</strong></p>
 <p>Add file path location of gapfilling report for each layer.</p>
 <p><br></p>
 <p><strong>layers_eez_targets.csv</strong></p>
-<p>Coming soon!</p>
+<p>This really only needs to be updated when layers are removed/added.</p>
 </div>
 <div id="step-2-update-ohi.bib" class="section level4">
 <h4><span class="header-section-number">5.4.1.2</span> Step 2: Update OHI.bib</h4>
@@ -615,11 +619,13 @@ The data now officially has a DOI, and you can mark this off your list of things
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -627,12 +633,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -644,6 +649,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

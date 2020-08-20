@@ -241,17 +241,21 @@ For all references that were not updated, fill in the ds_updated_20?? with "n" o
 
 <br>
 
-**layers_eez_methods.csv**
+**layers_eez_dataprep**
 
-This file contains information for three different aspects of every layer - the dataprep url, data source reference, and methods updates. Information should be filled in for all three of these sections for each layer that has been updated.
+*dataprep_url*: File path to the knitted html file . Note: finalized data prep files should all be knitted BEFORE attempting to update this document, as this can take some time! 
 
-- *dataprep_url*: File path to the knitted html file . Note: finalized data prep files should all be knitted BEFORE attempting to update this document, as this can take some time! 
-- *ds_reference*: Alias tag created BibLaTeX file as described above. This tag should match exactly with the tag in layers_eez_data_sources.csv. Always double check this! 
-- *methods_update*: Short description of updates to the data; usually is additional year of data and/or changes to gapfilling methods or other calculations.
+<br>
 
-*Example of complete updated data for the ao_need layer:*
+**layers_eez_reference**
 
-![](https://docs.google.com/drawings/d/e/2PACX-1vT0tkXA9_xuLpwHvf-qrbfr0NmyP8S6HpopTeMisdGXJzayxIOKoYqlzUhmLNgZ-fJPi-0d2sSKKusJ/pub?w=915&h=147)
+*reference*: Alias tag created BibLaTeX file as described above. This tag should match exactly with the tag in layers_eez_data_sources.csv. Always double check this! 
+
+<br>
+
+**layers_eez_updates**
+
+*updates*: Short description of updates to the data; usually is additional year of data and/or changes to gapfilling methods or other calculations.
 
 <br>
 
@@ -263,7 +267,7 @@ Add file path location of gapfilling report for each layer.
 
 **layers_eez_targets.csv**
 
-Coming soon!
+This really only needs to be updated when layers are removed/added. 
 
 
 #### Step 2: Update OHI.bib
