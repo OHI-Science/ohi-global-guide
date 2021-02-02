@@ -24,7 +24,7 @@
 <meta name="author" content="OHI Team" />
 
 
-<meta name="date" content="2020-08-20" />
+<meta name="date" content="2021-02-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -329,12 +329,12 @@ Make sure that you are in the old ohiprep working directory. This is indicated b
 <p>For each data layer, the scenario_data_years.csv associates the year the source data was collected or reported with the OHI assessment year. The data looks like this:</p>
 <p><img src="https://docs.google.com/drawings/d/e/2PACX-1vQxucSVU9go4CON5vIe1e6wE-MjjqP_GvKwJ07NmjqmKOhByEXV06hbQPBsPazDI_OfjJ4Bw_ocdUzh/pub?w=367&amp;h=171" /></p>
 <p>In this case, the data layer for ao_access (access to artisanal fishing opportunities data used to calculate the score for the artisanal opportunities goal) goes from 2008 to the most current assessment year (not shown). The first OHI global assessment was in 2012 but the data goes to 2008 because five years of data are typically required to calculate trend. In this case, the 2012 trend was calculated using data from 2008 to 2012. The data year is 2013 for all assessment years because these particular data have never been updated.</p>
-<p>There is a helper script (eez_layers_meta_data/new_year_prep.R) that updates this file when embarking on a new assessment year. This script adds an additional assessment year to the eez/conf/scenario_data_years.csv. The data year is the same as the previous assessment year. As each data layer is added to update scores, the data year must be manually updated directly within the eez/conf/scenario_data_years.csv.</p>
+<p>There is a helper script (metadata_documentation/new_year_prep.R) that updates this file when embarking on a new assessment year. This script adds an additional assessment year to the eez/conf/scenario_data_years.csv. The data year is the same as the previous assessment year. As each data layer is added to update scores, the data year must be manually updated directly within the eez/conf/scenario_data_years.csv.</p>
 <p><img src="https://docs.google.com/drawings/d/e/2PACX-1vTNWAvTE4anmRwBxs4nlkKQhQSnVceFLUXUvM6YeOs-B21Z-AI0msh6bfye3mAJ3UncLAhUZ8Cma90E/pub?w=784&amp;h=219" /></p>
 </div>
-<div id="calculate_all.r" class="section level4">
-<h4><span class="header-section-number">2.2.2.2</span> calculate_all.R</h4>
-<p>The calculate_all.R script, located in the eez folder, is the main script used to calculate scores. This script creates objects used by ohicore functions, calls ohicore functions that calculate scores, and includes code to check results.</p>
+<div id="calculate_scores.r" class="section level4">
+<h4><span class="header-section-number">2.2.2.2</span> calculate_scores.R</h4>
+<p>The calculate_scores.R script, located in the eez folder, is the main script used to calculate scores. This script creates objects used by ohicore functions, calls ohicore functions that calculate scores, and includes code to check results.</p>
 <p>This script needs to be updated for a new assessment year. Specfically, links to the ohiprep repository (step 2) and the most recent assessment year (step 3) must be updated.</p>
 <p>Once this script is updated, it is critical to walk through the entire script to make sure all the steps are working and there are no changes to the previous year’s scores. The <code>ohicore::CheckLayers</code> function will likely generate some warnings. The following warnings are expected and do not indicate a problem:</p>
 <p><img src="https://docs.google.com/drawings/d/e/2PACX-1vQEhOhvblvIQZavRE6shUzOHt4nuZtk6aIyFPjDUqijgInrs3sXwQtO7BrCYBikCInr_eHUVLa6AasA/pub?w=727&amp;h=206" /></p>
@@ -354,7 +354,7 @@ Make sure that you are in the old ohiprep working directory. This is indicated b
 <h2><span class="header-section-number">2.3</span> Keeping track of layer progress</h2>
 <p>We use a Google Sheet to help us keep track of where we are in the process of preparing data for the OHI global. The following is part of the 2019 global assessemnt layers checklist:</p>
 <p><img src="https://docs.google.com/drawings/d/e/2PACX-1vSnti_VB7Kq_tXQUNETWQ7Lw4nKuMISJx2awnnb8jbSKYzFY3sUB3zkC_1QZnwiCgkJrB3WETk8J8Qp/pub?w=929&amp;h=468" /></p>
-<p>The main part of the checklist is created using code in ohi-global/eez_layers_meta_data/new_year_prep.R.</p>
+<p>The main part of the checklist is created using code in ohi-global/metadata_documentation/new_year_prep.R.</p>
 <p>However, the “Notes” are added in secondarily. The “Notes” can be used for many things during this process of conducting an assessment, but starting notes include information that is helpful while preparing the data.</p>
 <p>These notes are likely to change every year, but here is a place to start:</p>
 <table>
