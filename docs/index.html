@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>OHI Global Assessment Guide</title>
   <meta name="description" content="A guide for conducting the OHI Global Assessment" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="OHI Global Assessment Guide" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="OHI Team" />
 
 
-<meta name="date" content="2021-02-02" />
+<meta name="date" content="2021-12-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,9 @@
   
 
 <link rel="next" href="starting-a-new-year.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,22 +51,23 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +87,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -117,6 +120,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="lib/css/bootstrap.min.css" type="text/css" />
 <link rel="stylesheet" href="lib/css/style.css" type="text/css" />
 <link rel="stylesheet" href="lib/css/lesson.css" type="text/css" />
@@ -135,24 +139,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">OHI Global Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#repositories-used-to-calculate-the-global-assessment"><i class="fa fa-check"></i><b>1.1</b> Repositories used to calculate the global assessment</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#repositories-used-to-calculate-the-global-assessment"><i class="fa fa-check"></i><b>1.1</b> Repositories used to calculate the global assessment</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#ohiprep_v20"><i class="fa fa-check"></i><b>1.1.1</b> ohiprep_v20??</a></li>
 <li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#ohi-global"><i class="fa fa-check"></i><b>1.1.2</b> ohi-global</a></li>
 <li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#ohicore"><i class="fa fa-check"></i><b>1.1.3</b> ohicore</a></li>
 <li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#globalfellows-issues"><i class="fa fa-check"></i><b>1.1.4</b> globalfellows-issues</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html"><i class="fa fa-check"></i><b>2</b> Starting a new year</a><ul>
+<li class="chapter" data-level="2" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html"><i class="fa fa-check"></i><b>2</b> Starting a new year</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#review-and-organize-relevant-issues"><i class="fa fa-check"></i><b>2.1</b> Review and organize relevant issues</a></li>
-<li class="chapter" data-level="2.2" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#prepare-the-repositories"><i class="fa fa-check"></i><b>2.2</b> Prepare the repositories!</a><ul>
+<li class="chapter" data-level="2.2" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#prepare-the-repositories"><i class="fa fa-check"></i><b>2.2</b> Prepare the repositories!</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#ohiprep-repository"><i class="fa fa-check"></i><b>2.2.1</b> ohiprep repository</a></li>
 <li class="chapter" data-level="2.2.2" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#ohi-global-1"><i class="fa fa-check"></i><b>2.2.2</b> ohi-global</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="starting-a-new-year.html"><a href="starting-a-new-year.html#keeping-track-of-layer-progress"><i class="fa fa-check"></i><b>2.3</b> Keeping track of layer progress</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-prep.html"><a href="data-prep.html"><i class="fa fa-check"></i><b>3</b> Data Prep</a><ul>
-<li class="chapter" data-level="3.1" data-path="data-prep.html"><a href="data-prep.html#file-organization"><i class="fa fa-check"></i><b>3.1</b> File organization</a><ul>
+<li class="chapter" data-level="3" data-path="data-prep.html"><a href="data-prep.html"><i class="fa fa-check"></i><b>3</b> Data Prep</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-prep.html"><a href="data-prep.html#file-organization"><i class="fa fa-check"></i><b>3.1</b> File organization</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="data-prep.html"><a href="data-prep.html#saving-external-data"><i class="fa fa-check"></i><b>3.1.1</b> Saving external data</a></li>
 <li class="chapter" data-level="3.1.2" data-path="data-prep.html"><a href="data-prep.html#vpn-setup-to-access-mazu"><i class="fa fa-check"></i><b>3.1.2</b> VPN Setup to Access Mazu</a></li>
 <li class="chapter" data-level="3.1.3" data-path="data-prep.html"><a href="data-prep.html#setting-up-rstudio-mazu-server"><i class="fa fa-check"></i><b>3.1.3</b> Setting up Rstudio Mazu Server</a></li>
@@ -160,7 +170,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.5" data-path="data-prep.html"><a href="data-prep.html#globalprep-files"><i class="fa fa-check"></i><b>3.1.5</b> globalprep files</a></li>
 <li class="chapter" data-level="3.1.6" data-path="data-prep.html"><a href="data-prep.html#intermediate-files-that-are-too-large-for-github"><i class="fa fa-check"></i><b>3.1.6</b> Intermediate files that are too large for Github</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="data-prep.html"><a href="data-prep.html#starting-a-new-data-prep-project"><i class="fa fa-check"></i><b>3.2</b> Starting a new data prep project</a><ul>
+<li class="chapter" data-level="3.2" data-path="data-prep.html"><a href="data-prep.html#starting-a-new-data-prep-project"><i class="fa fa-check"></i><b>3.2</b> Starting a new data prep project</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="data-prep.html"><a href="data-prep.html#prepare-the-dataprep-folder"><i class="fa fa-check"></i><b>3.2.1</b> Prepare the dataprep folder</a></li>
 <li class="chapter" data-level="3.2.2" data-path="data-prep.html"><a href="data-prep.html#start-an-issue"><i class="fa fa-check"></i><b>3.2.2</b> Start an issue</a></li>
 <li class="chapter" data-level="3.2.3" data-path="data-prep.html"><a href="data-prep.html#update-the-files"><i class="fa fa-check"></i><b>3.2.3</b> Update the files</a></li>
@@ -169,33 +180,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-1.-summary"><i class="fa fa-check"></i><b>3.4</b> prep Rmd: 1. Summary</a></li>
 <li class="chapter" data-level="3.5" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-2.-updates"><i class="fa fa-check"></i><b>3.5</b> prep Rmd: 2. Updates</a></li>
 <li class="chapter" data-level="3.6" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-3.-data-sources"><i class="fa fa-check"></i><b>3.6</b> prep Rmd: 3. Data sources</a></li>
-<li class="chapter" data-level="3.7" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-4.-set-up"><i class="fa fa-check"></i><b>3.7</b> prep Rmd: 4. Set up</a><ul>
+<li class="chapter" data-level="3.7" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-4.-set-up"><i class="fa fa-check"></i><b>3.7</b> prep Rmd: 4. Set up</a>
+<ul>
 <li class="chapter" data-level="3.7.1" data-path="data-prep.html"><a href="data-prep.html#packages"><i class="fa fa-check"></i><b>3.7.1</b> Packages</a></li>
 <li class="chapter" data-level="3.7.2" data-path="data-prep.html"><a href="data-prep.html#common.r"><i class="fa fa-check"></i><b>3.7.2</b> common.R</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-5.-data-prep"><i class="fa fa-check"></i><b>3.8</b> prep Rmd: 5. Data prep</a><ul>
+<li class="chapter" data-level="3.8" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-5.-data-prep"><i class="fa fa-check"></i><b>3.8</b> prep Rmd: 5. Data prep</a>
+<ul>
 <li class="chapter" data-level="3.8.1" data-path="data-prep.html"><a href="data-prep.html#ohi-data-idiosyncracies-low-populationuninhabited-regions-and-grouped-regions"><i class="fa fa-check"></i><b>3.8.1</b> OHI data idiosyncracies: Low population/uninhabited regions and grouped regions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-6.-gapfilling"><i class="fa fa-check"></i><b>3.9</b> prep Rmd: 6. Gapfilling</a><ul>
+<li class="chapter" data-level="3.9" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-6.-gapfilling"><i class="fa fa-check"></i><b>3.9</b> prep Rmd: 6. Gapfilling</a>
+<ul>
 <li class="chapter" data-level="3.9.1" data-path="data-prep.html"><a href="data-prep.html#training-linear-models-for-gapfilling"><i class="fa fa-check"></i><b>3.9.1</b> Training linear models for gapfilling</a></li>
 <li class="chapter" data-level="3.9.2" data-path="data-prep.html"><a href="data-prep.html#saving-gapfilling-report-files"><i class="fa fa-check"></i><b>3.9.2</b> Saving gapfilling report files</a></li>
 </ul></li>
 <li class="chapter" data-level="3.10" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-7.-results-check"><i class="fa fa-check"></i><b>3.10</b> prep Rmd: 7. Results check</a></li>
 <li class="chapter" data-level="3.11" data-path="data-prep.html"><a href="data-prep.html#prep-rmd-8.-final-run"><i class="fa fa-check"></i><b>3.11</b> prep Rmd: 8. Final run</a></li>
-<li class="chapter" data-level="3.12" data-path="data-prep.html"><a href="data-prep.html#notes-on-parallel-processing"><i class="fa fa-check"></i><b>3.12</b> Notes on parallel processing</a><ul>
+<li class="chapter" data-level="3.12" data-path="data-prep.html"><a href="data-prep.html#notes-on-parallel-processing"><i class="fa fa-check"></i><b>3.12</b> Notes on parallel processing</a>
+<ul>
 <li class="chapter" data-level="3.12.1" data-path="data-prep.html"><a href="data-prep.html#stopcluster-makecluster"><i class="fa fa-check"></i><b>3.12.1</b> stopCluster &amp; makeCluster</a></li>
 <li class="chapter" data-level="3.12.2" data-path="data-prep.html"><a href="data-prep.html#using-htop-to-check-on-processes-running"><i class="fa fa-check"></i><b>3.12.2</b> Using htop to check on processes running</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="updating-scores.html"><a href="updating-scores.html"><i class="fa fa-check"></i><b>4</b> Updating scores</a></li>
-<li class="chapter" data-level="5" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html"><i class="fa fa-check"></i><b>5</b> Finalizing the global assessment</a><ul>
+<li class="chapter" data-level="5" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html"><i class="fa fa-check"></i><b>5</b> Finalizing the global assessment</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#create-results-folder"><i class="fa fa-check"></i><b>5.1</b> Create results folder</a></li>
 <li class="chapter" data-level="5.2" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#final-score-review"><i class="fa fa-check"></i><b>5.2</b> Final score review</a></li>
-<li class="chapter" data-level="5.3" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#citation-management"><i class="fa fa-check"></i><b>5.3</b> Citation management</a><ul>
+<li class="chapter" data-level="5.3" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#citation-management"><i class="fa fa-check"></i><b>5.3</b> Citation management</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#getting-zotero-and-rstudio-to-work-well-together"><i class="fa fa-check"></i><b>5.3.1</b> Getting Zotero and RStudio to work well together</a></li>
 <li class="chapter" data-level="5.3.2" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#working-with-zotero"><i class="fa fa-check"></i><b>5.3.2</b> Working with Zotero</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#methods-document"><i class="fa fa-check"></i><b>5.4</b> Methods document</a><ul>
+<li class="chapter" data-level="5.4" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#methods-document"><i class="fa fa-check"></i><b>5.4</b> Methods document</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#steps-to-updating-methods-document"><i class="fa fa-check"></i><b>5.4.1</b> Steps to updating methods document</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#results-document"><i class="fa fa-check"></i><b>5.5</b> Results document</a></li>
@@ -225,9 +243,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">OHI Global Assessment Guide</h1>
 <p class="author"><em>OHI Team</em></p>
-<p class="date"><em>2021-02-02</em></p>
+<p class="date"><em>2021-12-01</em></p>
 </div>
-<div id="Overview" class="section level1">
+<div id="Overview" class="section level1" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Overview</h1>
 <p>This guide is a resource for calculating the annual Ocean Health Index global assessments. It is intended for use by OHI fellows and anyone interested in the process of how scores are calculated, but only those with access to the internal server (Mazu) are able to actually perform the assessment.</p>
 <p>By conducting a yearly assessment, the OHI delivers information about a suite of goals important to humans and our use of the oceans. The OHI methods are reproducible and ever-evolving, so updates to this guide are welcomed as improvements and upgrades are incorporated.</p>
@@ -252,12 +270,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul>
 <!--- TODO Gage add important fig here (just kidding this is just an example)  --->
-<div id="repositories-used-to-calculate-the-global-assessment" class="section level2">
+<div id="repositories-used-to-calculate-the-global-assessment" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Repositories used to calculate the global assessment</h2>
 <p>The OHI uses GitHub repositories (repos) to organize all of the associated data prep scripts, functions/packages, and score calculation materials for each assessment year. There are separate repositories for different parts of the project, which are detailed here. Practicioners of the assessment will clone all repositories to their RStudio workspace, but mainly work in the ohiprep_v20?? repository.</p>
 <p><img src="https://docs.google.com/drawings/d/e/2PACX-1vSry72oHC5HOEbt-tcF_SBRdEJyljC-SVWVuQbnuZcIMANi23XvMgBQkykRjqZST7vz-PeZoHYbizyd/pub?w=842&amp;h=671" /></p>
 <p><em><a href="https://github.com/OHI-Science">OHI github page</a></em></p>
-<div id="ohiprep_v20" class="section level3">
+<div id="ohiprep_v20" class="section level3" number="1.1.1">
 <h3><span class="header-section-number">1.1.1</span> ohiprep_v20??</h3>
 <p>Scripts and intermediate files used to prepare the data layers used by the OHI model are included in this repo. Each year a new version of this repository is created by copying over the previous assessment’s repository contents and deleting the history (more on that later). The suffix of the repo name indicates the year of the assessment (e.g. for 2019, the repo name was ohiprep_v2019)</p>
 <p><strong>Contents:</strong></p>
@@ -288,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </div>
-<div id="ohi-global" class="section level3">
+<div id="ohi-global" class="section level3" number="1.1.2">
 <h3><span class="header-section-number">1.1.2</span> ohi-global</h3>
 <p>This repo contains data layers, supplementary information, models, and scripts used to calculate the global scores. The contents of this repository are updated each time a data layer in ohiprep_v20?? is completed.</p>
 <p><strong>Contents:</strong></p>
@@ -339,11 +357,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </div>
-<div id="ohicore" class="section level3">
+<div id="ohicore" class="section level3" number="1.1.3">
 <h3><span class="header-section-number">1.1.3</span> ohicore</h3>
 <p>This is an R package that includes the core functions used in all assessments. See <a href="http://ohi-science.org/ohicore/">package description</a> for more information.</p>
 </div>
-<div id="globalfellows-issues" class="section level3">
+<div id="globalfellows-issues" class="section level3" number="1.1.4">
 <h3><span class="header-section-number">1.1.4</span> globalfellows-issues</h3>
 <p>This repository was created in 2018 for the first cohort of Global Fellows, and is used to communicate about the data prep process for each layer, document reference information, share ideas, and keep track of progress on tasks. This repository is used just for writing issues, and is separate from the other repositories where data prep occurs. More information about communicating via issues is found throughout this guide.</p>
 
@@ -360,7 +378,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -379,6 +396,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -399,6 +417,10 @@ gitbook.start({
 "text": null
 },
 "download": ["series.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

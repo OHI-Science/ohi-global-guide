@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Starting a new year | OHI Global Assessment Guide</title>
+  <title>Page not found | OHI Global Assessment Guide</title>
   <meta name="description" content="A guide for conducting the OHI Global Assessment" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Starting a new year | OHI Global Assessment Guide" />
+  <meta property="og:title" content="Page not found | OHI Global Assessment Guide" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Starting a new year | OHI Global Assessment Guide" />
+  <meta name="twitter:title" content="Page not found | OHI Global Assessment Guide" />
   
   <meta name="twitter:description" content="A guide for conducting the OHI Global Assessment" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="data-prep.html"/>
+
+
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -240,202 +240,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="starting-a-new-year" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Starting a new year</h1>
-<p>There are several steps to beginning a year’s assessment. This guide walks through the steps you will want to take. Each of the following steps is described in detail:</p>
-<ol style="list-style-type: decimal">
-<li>Review and organize relevant github issues</li>
-<li>Prepare the repositories
-<ul>
-<li>ohiprep_v20??</li>
-<li>ohi-global</li>
-</ul></li>
-<li>Keeping track of layer progress</li>
-</ol>
-<div id="review-and-organize-relevant-issues" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Review and organize relevant issues</h2>
-<p>Review the github::issues from the previous year’s assessment and create a list linking to the particular issues that might be useful in the year to come. This can include:</p>
-<ul>
-<li>references or discussions that may lead to improvements to goal models, pressures or resilience</li>
-<li>new datasets that are worth exploring</li>
-<li>potential new improvements to ohicore</li>
-<li>ideas for reorganizing or cleaning repositories</li>
-<li>etc.</li>
-</ul>
-<p>Create a new issue that organizes and links to these issues. This officially marks the start of the OHI assessment!</p>
-<p>(This is also a good time to close issues that are completed or no longer relevant.)</p>
-<p><br>
-<br></p>
-</div>
-<div id="prepare-the-repositories" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Prepare the repositories!</h2>
-<p>In preparation for the new assessment, you will need to prepare the repositories we use for the global assessment.</p>
-<p>For the ohiprep repository, you will actually copy the previous year’s assessment into a new repository with an updated name and delete the history (more on this below). This helps to keep the size of the repository under control. For the ohi-global repository, you will update a couple files and perform a couple checks to make sure the scores do not change.</p>
-<p>ohicore will probably not need any changes. However, now is a good time to improve warning messages or add functions to improve analysis and visualization.</p>
-<p>This is also a good time to think about making organizational changes to the repositories. Sometimes an organizational scheme that worked well in the past doesn’t work as well over time.</p>
-<div id="ohiprep-repository" class="section level3" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> ohiprep repository</h3>
-<p>Create a copy of the most recent ohiprep repository and rename with the new assessment year. I use the following steps to do this:</p>
-<ol style="list-style-type: decimal">
-<li>If you don’t have the most recent year’s repository, clone it to your local machine. For example, if the last completed assessment was in 2018, you would clone the <a href="https://github.com/OHI-Science/ohiprep_v2018" class="uri">https://github.com/OHI-Science/ohiprep_v2018</a>. Here is one approach using RStudio:
-<br>
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vSLa1d1hMX5K5GU5dLqHMpVMH5IBD6XWo1L64-FH2Ho8C7wHETIbM_du8bBSIVmVU1xnI_DHXRRPVYu/pub?w=960&amp;h=720" />
-<br>
-<br>
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vRfbnzfJc6aFeh4RJUQyVGhFcYTxNMVHE2cViAx2tdAv5saDQxxLbcG_zrF26sIMRwpB9oL4gP6JjjP/pub?w=960&amp;h=720" />
-<br>
-<br>
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vSwmCmYw36X-H4jTeCOkDExArQo4cP_jbwrn2Ca9lHQnEpN5gOScqiheZWg7W45bnvOZmGjKtxGDg_o/pub?w=960&amp;h=720" />
-<br>
-<br>
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vReR9MGPVUYmK1GJ_ss0txuJPYi6wwZyj-IWmuYbu_WKhUG8mvJ9zr1uii8dB2OPe_WtQfl2X6xYEYx/pub?w=960&amp;h=720" /></li>
-</ol>
-<p><br>
-<br>
-2. Navigate to <a href="https://github.com/OHI-Science" class="uri">https://github.com/OHI-Science</a> and create a new repository. Use the following parameters (but change the year in the repository name to match the current assessment year):</p>
-<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vTWRO0yujh6TuP-aPRvTmJ8vAlCJVmWTjgwV4yAzRH8kN9MV4e22E9o4tofcknHzUJduyt2EMQdDRFk/pub?w=960&amp;h=720" /></p>
-<p><br>
-<br>
-3. Copy the contents of the old ohiprep repository into the newly created repository. Open the ohiprep_v20?? project in RStudio, and navigate to the Shell:
-<br>
-<br>
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vS_wf1TM2NaGbx8UQ74BZHeVwstloazzMqdY6x5m5PQ3oHQ-T8CZyPvgZTze-ixPSFiHUYn-CnODTkd/pub?w=960&amp;h=720" />
-<br>
-<br>
-Make sure that you are in the old ohiprep working directory. This is indicated by the:
-<code>C:\Users\Melanie\github\ohiprep_v2018</code></p>
-<p>If you are not in the correct working directory use the <code>cd</code> command to navigate there. Type in the mirror command:</p>
-<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vSD4Oiac0U_RsH77UZ7Hzky-HkmWBLrDuPwaCwCxvBPASjKJx3LYGULDLrV2Ch1arYf4cgEde4SNnJU/pub?w=960&amp;h=720" />
-<br>
-<br>
-4. Navigate to the new repository on Github.com, <a href="https://github.com/OHI-Science/ohiprep_v20" class="uri">https://github.com/OHI-Science/ohiprep_v20</a>??.git and make sure the folders/files are there. Check that the default branch is “gh-pages” (and not the “master” branch).</p>
-<p><br></p>
-<ol start="5" style="list-style-type: decimal">
-<li>Clone the new repo to your local system (instructions in step 1)</li>
-</ol>
-<p><br>
-6. Delete the commit history of the new repository. This gives us a clean slate to work from and keeps the repository from getting quite as big. I follow the general instructions from <a href="https://gist.github.com/heiswayi/350e2afda8cece810c0f6116dadbe651">here</a>. Make sure you are in the working directory of the new repository, and in the shell type the following:</p>
-<p>Check out to a temporary branch: <code>git checkout --orphan TEMP_BRANCH</code></p>
-<p>Add all the files: <code>git add -A</code></p>
-<p>Commit the changes: <code>git commit -am "Initial commit"</code></p>
-<p>Delete the old branch: <code>git branch -D gh-pages</code></p>
-<p>Rename the temporary branch to master: <code>git branch -m gh-pages</code></p>
-<p>Finally, force update to our repository: <code>git push -f origin gh-pages</code></p>
-<p><br></p>
-<ol start="7" style="list-style-type: decimal">
-<li>Navigate to the new repository on Github.com, <a href="https://github.com/OHI-Science/ohiprep_v20" class="uri">https://github.com/OHI-Science/ohiprep_v20</a>??.git and check whether there is only one commit.
-<br></li>
-</ol>
-<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vQa82FsLBZMVmnr6sELDHNDRSci-ZzDSrutngTbSS1AWFZNzMczrCURbxKvlABA3ZtF4Y13A-It02o2/pub?w=960&amp;h=720" /></p>
-<p><br>
-<br>
-8. Update README.md and delete unnecessary .Rproj files with the wrong year, commit, push.</p>
-<p><br></p>
-<ol start="9" style="list-style-type: decimal">
-<li>You are done….go have a cup of tea!</li>
-</ol>
-</div>
-<div id="ohi-global-1" class="section level3" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> ohi-global</h3>
-<p>The main files that get updated are:</p>
-<ul>
-<li>eez/conf/scenario_data_years.csv</li>
-<li>eez/calculate_scores.R</li>
-</ul>
-<div id="scenario_data_years.csv" class="section level4" number="2.2.2.1">
-<h4><span class="header-section-number">2.2.2.1</span> scenario_data_years.csv</h4>
-<p>For each data layer, the scenario_data_years.csv associates the year the source data was collected or reported with the OHI assessment year. The data looks like this:</p>
-<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vQxucSVU9go4CON5vIe1e6wE-MjjqP_GvKwJ07NmjqmKOhByEXV06hbQPBsPazDI_OfjJ4Bw_ocdUzh/pub?w=367&amp;h=171" /></p>
-<p>In this case, the data layer for ao_access (access to artisanal fishing opportunities data used to calculate the score for the artisanal opportunities goal) goes from 2008 to the most current assessment year (not shown). The first OHI global assessment was in 2012 but the data goes to 2008 because five years of data are typically required to calculate trend. In this case, the 2012 trend was calculated using data from 2008 to 2012. The data year is 2013 for all assessment years because these particular data have never been updated.</p>
-<p>There is a helper script (metadata_documentation/new_year_prep.R) that updates this file when embarking on a new assessment year. This script adds an additional assessment year to the eez/conf/scenario_data_years.csv. The data year is the same as the previous assessment year. As each data layer is added to update scores, the data year must be manually updated directly within the eez/conf/scenario_data_years.csv.</p>
-<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vTNWAvTE4anmRwBxs4nlkKQhQSnVceFLUXUvM6YeOs-B21Z-AI0msh6bfye3mAJ3UncLAhUZ8Cma90E/pub?w=784&amp;h=219" /></p>
-</div>
-<div id="calculate_scores.r" class="section level4" number="2.2.2.2">
-<h4><span class="header-section-number">2.2.2.2</span> calculate_scores.R</h4>
-<p>The calculate_scores.R script, located in the eez folder, is the main script used to calculate scores. This script creates objects used by ohicore functions, calls ohicore functions that calculate scores, and includes code to check results.</p>
-<p>This script needs to be updated for a new assessment year. Specfically, links to the ohiprep repository (step 2) and the most recent assessment year (step 3) must be updated.</p>
-<p>Once this script is updated, it is critical to walk through the entire script to make sure all the steps are working and there are no changes to the previous year’s scores. The <code>ohicore::CheckLayers</code> function will likely generate some warnings. The following warnings are expected and do not indicate a problem:</p>
-<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vQEhOhvblvIQZavRE6shUzOHt4nuZtk6aIyFPjDUqijgInrs3sXwQtO7BrCYBikCInr_eHUVLa6AasA/pub?w=727&amp;h=206" /></p>
-<p>Once the scores are generated, it is important to run the score_check function (step 10). For the scenario_year argument, be sure to provide the year of the most recent completed assessment:</p>
-<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vTC4n6UhNio-X9LugEvzMKcm_VqzAygBW4hkKfV0o2sh673aybdhozH7GY0fGYm-1hJv-o27OehAHlQ/pub?w=794&amp;h=316" /></p>
-<p>Once, this is run, check the html file that is created. This file will be in the eez/score_check folder with the name provided in the function (in the above example file_name = “check_2019_assess”) with the date it was generated. Ideally, this will be a very boring plot comprised of a series of yellow bars, indicating that nothing changed. Sadly, you may actually see something like this:</p>
-<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vS0JQy_Iij56sj7ePtyreKMJvQ6Obc1-piJbDLhTzB0E0HxcNi-0628zOMoTdez-IgLNzSGWN89nzgj/pub?w=897&amp;h=504" /></p>
-<p>At first glance, the changes to mariculture (and the corresponding food provision goal) and natural products and tourism is worrisome. If there have been no changes to models or data, these should be the same. However, I am somewhat reassured that all the changes are fairly small (&lt;1 point change in score). Regardless, these changes must be explained to convince ourselves that nothing is wrong.</p>
-<p>In the Git window, I notice that there were some changes to some reference point files. Further exploration reveals that adding an additional year changed the reference points of the mariculture and tourism and recreation goals. This change is fine because the reference points are calculated using all years of data. The small natural product goal changed for the similar reasons.</p>
-<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vShSb4UsldRuktecvnJObR92Y9I2HANjc4DR0BZfUoZbsqB_trkHcuOUPNecmgPyTPw0pGNqmNf1uRp/pub?w=928&amp;h=303" /></p>
-<p>I have now convinced myself that all is well.</p>
-<p>The final step of this process is to delete the eez/data_check folder. This will be created again at the start of the new assessment! Even though this folder is deleted, the files are preserved in the Git history. We don’t really want this, because these files will not be useful in the future and they are fairly large. This makes the ohi-global more bulky than it needs to be. Eventually, we will want to figure out how to delete these large files from Git history. But I wouldn’t bother until it becomes a problem (i.e., when the ohi-global repository starts taking a crazy long time to clone locally).</p>
-</div>
-</div>
-</div>
-<div id="keeping-track-of-layer-progress" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Keeping track of layer progress</h2>
-<p>We use a Google Sheet to help us keep track of where we are in the process of preparing data for the OHI global. The following is part of the 2019 global assessemnt layers checklist:</p>
-<p><img src="https://docs.google.com/drawings/d/e/2PACX-1vSnti_VB7Kq_tXQUNETWQ7Lw4nKuMISJx2awnnb8jbSKYzFY3sUB3zkC_1QZnwiCgkJrB3WETk8J8Qp/pub?w=929&amp;h=468" /></p>
-<p>The main part of the checklist is created using code in ohi-global/metadata_documentation/new_year_prep.R.</p>
-<p>However, the “Notes” are added in secondarily. The “Notes” can be used for many things during this process of conducting an assessment, but starting notes include information that is helpful while preparing the data.</p>
-<p>These notes are likely to change every year, but here is a place to start:</p>
-<table>
-<colgroup>
-<col width="15%" />
-<col width="85%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Notes</th>
-<th>layers</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>not updated, no new data</td>
-<td>ao_access, cw_trash_trend, eco_status, eco_trend, liv_status, liv_trend, fp_habitat, fp_mora, fp_mora_artisanal, g_mariculture, g_msi_gov, g_tourism, hab_coral_health, hab_coral_trend, hab_mangrove_health, hab_mangrove_trend, hab_saltmarsh_health, hab_saltmarsh_trend, hab_seagrass_health, hab_seagrass_trend, hd_habitat, had_subtidal_hb, le_sector_weight, li_sector_evenness, np_blast, np_cyanide, po_trash, po_water, sp_alien, sp_alien_species</td>
-</tr>
-<tr class="even">
-<td>not updated, considered static data</td>
-<td>hab_coral_extent, hab_mangrove_extent, hab_rockyreef_extent, hab_saltmarsh_extent, hab_seagrass_extent, hab_softbottom_extent, rgn_area, rgn_area_inland1km, rgn_area_offshore3nm, rgn_global, rgn_labesl, sp_alien, sp_alien_species, uninhabited</td>
-</tr>
-<tr class="odd">
-<td>not updated, updated in functions.R</td>
-<td>element_wts_cp_km2_x_protection, element_wts_cs_km2_x_storage, element_wts_hab_pres_abs</td>
-</tr>
-<tr class="even">
-<td>generated with LSP data</td>
-<td>fp_mpa_coast, fp_mpa_eez, hd_mpa_coast, hd_mpa_eez</td>
-</tr>
-<tr class="odd">
-<td>generated with SPP data</td>
-<td>species_diversity_3nm, species_diversity_eez</td>
-</tr>
-<tr class="even">
-<td>WGI data</td>
-<td>ss_wgi, wgi_all (pressure and resilience, inverse of one another)</td>
-</tr>
-<tr class="odd">
-<td>SPI data</td>
-<td>ss_spi, res_spi (pressure and resilience, inverse of one another)</td>
-</tr>
-<tr class="even">
-<td>before doing this layer, run code in mar_prs_population</td>
-<td>cw_pathogen_trend</td>
-</tr>
-<tr class="odd">
-<td>layer generated by mariculture script</td>
-<td>sp_genetic</td>
-</tr>
-</tbody>
-</table>
-<p>This is also a good time to do a literature search (and review issues during the past year) to determine whether there are new data sources for the layers that aren’t updated because new source data is unavailable.</p>
-
-</div>
+<div id="page-not-found" class="section level1">
+<h1>Page not found</h1>
+<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
+<p>You may want to try searching to find the page's new location, or use
+the table of contents to find the page you are looking for.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-prep.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -466,7 +283,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OHI-Science/ohi-global-guide/edit/master/start_new_year.Rmd",
+"link": "https://github.com/OHI-Science/ohi-global-guide/edit/master/%s",
 "text": "Edit"
 },
 "history": {

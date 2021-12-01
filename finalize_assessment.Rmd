@@ -219,13 +219,13 @@ This file includes the directory and file name for each of the updated layers. U
 
 **layers_eez_data_sources.csv**
 
-In the OHI group Zotero library (invite required), you will create a new reference for each of the data sources that have been update for the current assessment year. This can be done easily by downloading Zotero to your computer and installing the extension in your browser to save the data source directly to the library, where the information can then be edited. (See section 5.3: Citation Management for more information) You will not be overwriting old citations in the Zotero library, but rather adding a new citation, even if all of the information about the data source is the same. This can also be done by duplicating old citations (right click on an item in zotero and select duplicate item) and editing the date information. 
+In the OHI group Zotero library (invite required), you will create a new reference for each of the data sources that have been updated for the current assessment year. NOTE: For the OHI global assessment, you should do all Zotero work in the "OHI Global Refs" folder. This can be done easily by downloading Zotero to your computer and installing the extension in your browser to save the data source directly to the library, where the information can then be edited. (See section 5.3: Citation Management for more information).
 
-Create citations in Zotero and update the information, including title, author, abstract, date, URL, and accessed date. "Date" should indicate the year listed in the data citation, OR the most recent year in the dataset if no citation exists. "Accessed" should align with the date indicated in the data prep .Rmd file, OR the timestamp on the saved raw data files if a download date is not obvious. Example of completed citation information in Zotero: 
+Create citations in Zotero and update the information, including title, author, abstract, date, URL, and accessed date. "Date" should indicate the year listed in the data citation, OR the most recent year in the dataset if no citation exists. "Accessed" should align with the date indicated in the data prep .Rmd file, OR the timestamp on the saved raw data files if a download date is not obvious. If there are new data sources, fill out the information and add them to "OHI Global Refs" folder. If the datasource has an additional year of data, find that datasource in "OHI Global Refs" and update the date and any other relevant information.  Example of completed citation information in Zotero: 
 
 ![](https://docs.google.com/drawings/d/e/2PACX-1vQT5N_fbalcK5GY_cTYQ7nQYaGS6MPQY-8ogqoFZlGH7yqzON49l2kQ7yfMyU6_LzoQ0ylLhZ5-3yhN/pub?w=458&h=680)
 
-One you have completed filling in citation information, right click the item in Zotero and choose "Export Item...". Export as a BibLaTeX file and save as a .bib to your computer.
+One you have completed filling in citation information, right click the item in Zotero and choose "Export Item...". Export as a BibLaTeX file and save as a .bib to your computer. It is important that when you right click the item and export it, you are working from the "OHI Global Refs" folder. 
 
 ![](https://docs.google.com/drawings/d/e/2PACX-1vRwsusCeQVmbycYSitRdBY7bGwld10OY9ALbH6UwM30tdNtgWeUPU9Gw9jwgfp8eX0GB8yr6f8SaaXy/pub?w=604&h=492)
 
@@ -271,7 +271,7 @@ This really only needs to be updated when layers are removed/added.
 
 
 #### Step 2: Update OHI.bib
-Make sure all references are included in the OHI Zotero library (see Section 5.3: Citation Management for more). Then export the OHI library as a BibLaTeX file and replace the OHI.bib file in ohi-global/global_supplement with the updated file.
+Make sure all references are included in the OHI Zotero library (see Section 5.3: Citation Management for more). Then export the folder "OHI Global Refs" as a BibLaTeX file and replace the OHI.bib file in ohi-global/global_supplement with the updated file.
 
 We have noticed that some of the OHI.bib entries need to be modified to report correctly. For example, when the author of a report is an agency, such as the US State Depart, it will be reported as "Depart, US".  For this reason, we use the BIBcorrect.R file to correct and then overwrite the OHI.bib file.  
 
