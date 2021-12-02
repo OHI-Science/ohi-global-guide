@@ -311,6 +311,27 @@ NOTE: If there are any changes to the scores, it is important to run the Results
 
 ***
 
+## Update ESRI Living Atlas of the World OHI map
+
+Every year we update our OHI ARCGIS online map to reflect the current assessment year's scores. You can find the map here: [ARCGIS Living Atlas of the World](https://livingatlas.arcgis.com/en/home/) by searching for "Ocean Health Index". 
+
+Through UCSB, you should have an ARCGIS online account. You will need to be added to the group "Global Ocean Health Index" by either Gage Clawson or Melanie Frazier (or whoever is running OHI at this point). https://ucsb.maps.arcgis.com/home/group.html?id=e2857950e3314d77a1fd14959f3cce8e#overview
+
+First, you will run the script in the ohi-global repo, located in ohi-global/yearly_results/globalxxxx/ESRI_data/prepping_esri_data.Rmd. [Link to 2021 prep](https://github.com/OHI-Science/ohi-global/blob/draft/yearly_results/global2021/ESRI_data/prepping_esri_data.Rmd).
+
+Once you have run that script, you will need to upload the created data into the ARCGIS OHI global map.
+
+To obtain the zip file which you will upload, export the .dbf, .shp, .shx, and .prj files from the ohi-global/yearly_results/globalxxxx/ESRI_data/scores_xxxx folder on Mazu, and rename to "ohi_scores_2020_final.zip".
+
+**NOTE: It is important that this file is named "ohi_scores_2020_final.zip", even if the assessment year is not 2020. This is because we originally uploaded the data and created an ARCGIS map from it when it was named "ohi_scores_2020_final.zip". I'm sure we could figure out how to change the name of the source file on ARCGIS online if we wanted to, or recreate the map with a non-year specific name, but at this time its not worth the effort... just roll with 2020 in the name.**
+
+Now log into https://ucsb.maps.arcgis.com/. You should've been added to the "Global Ocean Health Index" group by now. Click on Groups ---> Global Ocean Health Index ---> and update the files accordingly as instructed below. 
+
+Upload the ohi_scores_2020_final.zip file to "OHI Scores Source" by clicking "Update Data" ---> "Overwrite Entire Layer". Now the data is updated on ARCGIS Online! All you have left to do is edit the text on "OHI Scores Source" and "Historical Global Ocean Health Index Scores (2012-2021)" to match the current assessment year, and all of the new data should be reflected in the [ARCGIS Living Atlas of the World](https://livingatlas.arcgis.com/en/home/) map for OHI. 
+
+
+***
+
 ## Updates document
 
 
