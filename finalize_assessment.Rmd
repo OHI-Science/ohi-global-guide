@@ -57,7 +57,7 @@ Once all the data layers have been updated we conduct a final review of the scor
 
 * Create a Zotero library or collection, export it as .bib (or other formats - seems flexible)
 * Call the bibliography file and a citation style (optional) in your R Markdown YAML header
-* Create your citations in the body of the R Markdown text using [@name_shorttitle_2016] format
+* Create your citations in the body of the R Markdown text using `[@name_shorttitle_2016]` format
 * Hit "knit" - done!
 
 ***
@@ -161,7 +161,7 @@ You can edit the .bib manually if you like (e.g. delete empty records that are c
 
 #### Zotero group library
 
-We have a group OHI Zotero library. This is handy because we can save and organize our OHI references so they are available to everyone (including screenshots, pdfs, and notes). In regard to writing, Zotero offers a very intuitive method of inserting citations into Word documents and @oharac describes how to use Zotero with markdown.
+We have a group OHI Zotero library. This is handy because we can save and organize our OHI references so they are available to everyone (including screenshots, pdfs, and notes). In regard to writing, Zotero offers a very intuitive method of inserting citations into Word documents and Casey Ohara describes how to use Zotero with markdown.
 
 To use the Zotero group library for OHI, you will first need to be invited to the group. You will then need to download the standalone Zotero program and the web-browser plugin from [here](https://www.zotero.org/download/). Hopefully everything will sync up automatically. If it works, you should see this:
 
@@ -332,8 +332,23 @@ Upload the ohi_scores_2020_final.zip file to "OHI Scores Source" by clicking "Up
 
 ***
 
-## Updates document
+## Github Releases 
 
+One of the things we like to add to our final scores blog post is a link to a github release. This makes the ohi-global, ohiprep_vxxxx, and ohicore repositories easily downloadable as zip files (and we can add those zip files to knb, see next section). The link to our current releases is here: https://github.com/OHI-Science/ohi-global/releases
+
+1. Make a release for ohicore repository (if there were any changes to ohicore)
+2. Make a release for the ohi-global repository and link to ohicore and ohiprep_vxxxx repositories.
+
+To make a release:
+
+ - go to the repositories release page (https://github.com/OHI-Science/ohi-global/releases)
+ - click "Draft a new release"
+ - Copy/paste the information from previous releases, updating the year, version of the release, and all links. I.e. if we were making a release for v2022, we update to year to v2022, and since it it the first release, the name will be "v2022.1".
+ - Target the "published" branch of ohi-global
+ - Create a new tag for vxxxx.x (i.e. if v2022 first release, it will be v2022.1)
+ - Publish the release. This will create the zip files for ohi-global and show up on the releases page now. 
+ 
+Note: If you need to make a new release for ohicore, go to the ohicore repository and follow the same steps as above. 
 
 ***
 ## Upload to a repository

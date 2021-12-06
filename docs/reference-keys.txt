@@ -62,7 +62,7 @@ step-4-review-other-files
 step-5-knit-supplement.rmd
 results-document
 update-esri-living-atlas-of-the-world-ohi-map
-updates-document
+github-releases
 upload-to-a-repository
 overview
 people

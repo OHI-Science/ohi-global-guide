@@ -24,7 +24,7 @@
 <meta name="author" content="OHI Team" />
 
 
-<meta name="date" content="2021-12-02" />
+<meta name="date" content="2021-12-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -218,7 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#results-document"><i class="fa fa-check"></i><b>5.5</b> Results document</a></li>
 <li class="chapter" data-level="5.6" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#update-esri-living-atlas-of-the-world-ohi-map"><i class="fa fa-check"></i><b>5.6</b> Update ESRI Living Atlas of the World OHI map</a></li>
-<li class="chapter" data-level="5.7" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#updates-document"><i class="fa fa-check"></i><b>5.7</b> Updates document</a></li>
+<li class="chapter" data-level="5.7" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#github-releases"><i class="fa fa-check"></i><b>5.7</b> Github Releases</a></li>
 <li class="chapter" data-level="5.8" data-path="finalizing-the-global-assessment.html"><a href="finalizing-the-global-assessment.html#upload-to-a-repository"><i class="fa fa-check"></i><b>5.8</b> Upload to a repository</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -301,7 +301,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Create a Zotero library or collection, export it as .bib (or other formats - seems flexible)</li>
 <li>Call the bibliography file and a citation style (optional) in your R Markdown YAML header</li>
-<li>Create your citations in the body of the R Markdown text using <span class="citation">(<a href="#ref-name_shorttitle_2016" role="doc-biblioref"><strong>name_shorttitle_2016?</strong></a>)</span> format</li>
+<li>Create your citations in the body of the R Markdown text using <code>[@name_shorttitle_2016]</code> format</li>
 <li>Hit “knit” - done!</li>
 </ul>
 <hr />
@@ -372,7 +372,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="http://ohi-science.org/ohiprep_v2019/Reference/Zotero/Zotero.html">Getting started with zotero (OHIprep_v2019)</a></p>
 <div id="zotero-group-library" class="section level4" number="5.3.2.1">
 <h4><span class="header-section-number">5.3.2.1</span> Zotero group library</h4>
-<p>We have a group OHI Zotero library. This is handy because we can save and organize our OHI references so they are available to everyone (including screenshots, pdfs, and notes). In regard to writing, Zotero offers a very intuitive method of inserting citations into Word documents and <span class="citation">(<a href="#ref-oharac" role="doc-biblioref"><strong>oharac?</strong></a>)</span> describes how to use Zotero with markdown.</p>
+<p>We have a group OHI Zotero library. This is handy because we can save and organize our OHI references so they are available to everyone (including screenshots, pdfs, and notes). In regard to writing, Zotero offers a very intuitive method of inserting citations into Word documents and Casey Ohara describes how to use Zotero with markdown.</p>
 <p>To use the Zotero group library for OHI, you will first need to be invited to the group. You will then need to download the standalone Zotero program and the web-browser plugin from <a href="https://www.zotero.org/download/">here</a>. Hopefully everything will sync up automatically. If it works, you should see this:</p>
 <p><img src="https://docs.google.com/drawings/d/e/2PACX-1vRuPxplxo381emzpaMHeQ6a4ihhDiP5SD_fi-GPc55ziJZ_Y1QYifo36nuYwNCCCW9FfJROfOR73HnX/pub?w=929&amp;h=567" /></p>
 </div>
@@ -565,8 +565,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Upload the ohi_scores_2020_final.zip file to “OHI Scores Source” by clicking “Update Data” —&gt; “Overwrite Entire Layer.” Now the data is updated on ARCGIS Online! All you have left to do is edit the text on “OHI Scores Source” and “Historical Global Ocean Health Index Scores (2012-2021)” to match the current assessment year, and all of the new data should be reflected in the <a href="https://livingatlas.arcgis.com/en/home/">ARCGIS Living Atlas of the World</a> map for OHI.</p>
 <hr />
 </div>
-<div id="updates-document" class="section level2" number="5.7">
-<h2><span class="header-section-number">5.7</span> Updates document</h2>
+<div id="github-releases" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Github Releases</h2>
+<p>One of the things we like to add to our final scores blog post is a link to a github release. This makes the ohi-global, ohiprep_vxxxx, and ohicore repositories easily downloadable as zip files (and we can add those zip files to knb, see next section). The link to our current releases is here: <a href="https://github.com/OHI-Science/ohi-global/releases" class="uri">https://github.com/OHI-Science/ohi-global/releases</a></p>
+<ol style="list-style-type: decimal">
+<li>Make a release for ohicore repository (if there were any changes to ohicore)</li>
+<li>Make a release for the ohi-global repository and link to ohicore and ohiprep_vxxxx repositories.</li>
+</ol>
+<p>To make a release:</p>
+<ul>
+<li>go to the repositories release page (<a href="https://github.com/OHI-Science/ohi-global/releases" class="uri">https://github.com/OHI-Science/ohi-global/releases</a>)</li>
+<li>click “Draft a new release”</li>
+<li>Copy/paste the information from previous releases, updating the year, version of the release, and all links. I.e. if we were making a release for v2022, we update to year to v2022, and since it it the first release, the name will be “v2022.1.”</li>
+<li>Target the “published” branch of ohi-global</li>
+<li>Create a new tag for vxxxx.x (i.e. if v2022 first release, it will be v2022.1)</li>
+<li>Publish the release. This will create the zip files for ohi-global and show up on the releases page now.</li>
+</ul>
+<p>Note: If you need to make a new release for ohicore, go to the ohicore repository and follow the same steps as above.</p>
 <hr />
 </div>
 <div id="upload-to-a-repository" class="section level2" number="5.8">
