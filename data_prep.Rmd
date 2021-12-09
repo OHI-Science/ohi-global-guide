@@ -69,6 +69,9 @@ smb://mazu.nceas.ucsb.edu/ohi
 and then hit Connect!
 
 ![](https://docs.google.com/drawings/d/e/2PACX-1vRctPyg0LHmcWcvMRJzeBgDIuMZYjCJS2kBYzq8sWIDw98u6nW4cbKBe4h_gaH4QbgCdNdv3plxWTID/pub?w=960&h=720)
+
+
+
 ***
 
 ### Setting up Rstudio Mazu Server
@@ -86,7 +89,7 @@ This is what it looks like on my computer:
 
 ***
 
-### Using Cyberduck to Transfer Large Files 
+### Using Cyberduck or Filezilla to Transfer Large Files 
 
 You should consider looking into Cyberduck (but I wouldn't bother with this until you find you need it).
 
@@ -101,6 +104,10 @@ If you need to move really big files between Mazu and your computer, I find that
 *Note:* You can modify the path if you want to be directed to another location in mazu.
 
 3. Now you can start dragging and dropping! Click Disconnect when you're done using Cyberduck.
+
+Similarly (which I find much easier to use) you can use Filezilla to accomplish the same thing as Cyberduck. The easiest way that I have found to access files on mazu, is to use [Filezilla](https://filezilla-project.org/). It is really easy to set up, and once you put in the information, all you have to click is the upper left corner of the app and you are in! See image below on how to set up the SFTP on filezilla so you can start clicking around and exploring files on Mazu:
+
+![image](images/filezilla.png)
 ***
 
 ### globalprep files 
@@ -579,11 +586,11 @@ The final output should be a dataframe that includes:
 
 * *rgn_id* All 220 regions should be included in the final file!
 * *year* This should include all years of data necessary to calculate scores for all scenario years, including trend. For some data layers the data has never been updated, in these cases, there is still a year column but it may only contain a single year.
-* *value* This column will contain the calculated value for the data, and the column name will vary across datasets. In general, naming conventions should be consistently used every year, but feel free to modify the column name if you feel it could be improved.  Just be sure to make the corresponding change to the "name_data_fld" in this file: https://github.com/OHI-Science/ohi-global/blob/draft/eez_layers_meta_data/layers_eez_base.csv.
+* *value* This column will contain the calculated value for the data, and the column name will vary across datasets. In general, naming conventions should be consistently used every year, but feel free to modify the column name if you feel it could be improved.  Just be sure to make the corresponding change to the "name_data_fld" in this file: https://github.com/OHI-Science/ohi-global/blob/draft/metadata_documentation/layers_eez_base.csv.
 
 This file should be saved as a .csv file in an "output" folder. In general, the name of the file should be the same as the previous year.  However, if you feel the file name can be improved, you will need to update the fn variable in this data file:
 
-https://github.com/OHI-Science/ohi-global/blob/draft/eez_layers_meta_data/layers_eez_base.csv
+https://github.com/OHI-Science/ohi-global/blob/draft/metadata_documentation/layers_eez_base.csv
 
 ### OHI data idiosyncracies: Low population/uninhabited regions and grouped regions
 Recently we have standardized how we identify low population regions, using the low_pop() function in the common.R file. These regions are assigned NAs for some goals (e.g. GDP values used in AO) and perfect scores for others (e.g. sanitation access). Use the following code to establish a vector of low pop regions that can be compared against the final dataset.

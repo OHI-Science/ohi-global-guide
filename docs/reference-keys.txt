@@ -17,7 +17,7 @@ file-organization
 saving-external-data
 vpn-setup-to-access-mazu
 setting-up-rstudio-mazu-server
-using-cyberduck-to-transfer-large-files
+using-cyberduck-or-filezilla-to-transfer-large-files
 globalprep-files
 intermediate-files-that-are-too-large-for-github
 starting-a-new-data-prep-project
