@@ -14,10 +14,10 @@ This section will discuss:
 
 *** 
 ## File organization
-<!--- TODO Ask Mel what "be responsible for serving other people's data" means. Unclear to me. --->
+
 ### Saving external data
 In almost all cases, OHI data comes from other institutions. We save these data to   
-the NCEAS private server (Mazu) because we do not want to be responsible for serving other people's data.
+the NCEAS private server (Mazu) because we do not want to be responsible for distributing other people's data.
 
 These data are saved to Mazu: git-annex/globalprep/_raw_data in a folder that is labeled with an abbreviated version of the datasource (Figure 1). The data is saved to a folder describing the year the data was downloaded (e.g., d2015, d2016).  
 
@@ -57,20 +57,7 @@ The VPN allows you to work from the Mazu server when you are not onsite. I almos
 Here is some information on getting setup: http://www.ets.ucsb.edu/services/campus-vpn/what-vpn
 and: http://www.ets.ucsb.edu/services/campus-vpn/get-connected
 
-Once you have the VPN, here's how you map Mazu from a Mac: 
-
-Finder, then do command-K (Or go to the Menu > Go > Connect to Server)
-Paste:
-
-```
-smb://mazu.nceas.ucsb.edu/ohi
-```
-
-and then hit Connect!
-
-![](https://docs.google.com/drawings/d/e/2PACX-1vRctPyg0LHmcWcvMRJzeBgDIuMZYjCJS2kBYzq8sWIDw98u6nW4cbKBe4h_gaH4QbgCdNdv3plxWTID/pub?w=960&h=720)
-
-
+Once you have the VPN, here's you can access Mazu via the Rstudio Mazu server, or via SFTP clients like Cyberduck or Filezilla (outlined below). 
 
 ***
 
@@ -91,9 +78,24 @@ This is what it looks like on my computer:
 
 ### Using Cyberduck or Filezilla to Transfer Large Files 
 
-You should consider looking into Cyberduck (but I wouldn't bother with this until you find you need it).
+You should consider using Cyberduck or Filezilla to view and access files on the Mazu server (I prefer to use Filezilla).
 
-If you need to move really big files between Mazu and your computer, I find that the VPN typically fails. For this, I use [Cyberduck](https://download.cnet.com/Cyberduck-for-Windows/3000-18500_4-75623481.html).
+If you need to move really big files between Mazu and your computer, I find that the using mapped VPN on your personal computer typically fails. For this, I use [Filezilla](https://filezilla-project.org/) (Cyberduck works just fine too).
+
+1. Once it is downloaded, you can open Filezilla, click the button in the top left: 
+![](images/filezilla_open.png)
+
+2. This will open up a new window, where you can input the server you would like to access (the same as cyberduck): 
+![](images/filezilla_window.png)
+
+3. I like to have it connect and open directly to OHI's `git-annex` folder, so I don't have to navigate there from my home folder. To do this, you can click on the "Advanced" tab in the setup, and specify the default remote directory "/home/shares/ohi/git-annex": 
+![](images/filezilla_window_2.png)
+
+4. Now you should be able to see the git-annex remote directory and explore/download files/upload files, etc! 
+![](images/filezilla_explore.png)
+
+
+Instructions for Cyberduck instead of Filezilla: 
 
 1. After you download Cyberduck, open it up and click Open Connection.
 ![](https://docs.google.com/drawings/d/e/2PACX-1vRkVsbyCsv3LQYuSbAueUjv2KLyiJCWL9gvJd3jCIyX-xvCHnWzWJU0gO-izhaurjdM8S5yHOCQCR_r/pub?w=960&h=720)
@@ -105,9 +107,7 @@ If you need to move really big files between Mazu and your computer, I find that
 
 3. Now you can start dragging and dropping! Click Disconnect when you're done using Cyberduck.
 
-Similarly (which I find much easier to use) you can use Filezilla to accomplish the same thing as Cyberduck. The easiest way that I have found to access files on mazu, is to use [Filezilla](https://filezilla-project.org/). It is really easy to set up, and once you put in the information, all you have to click is the upper left corner of the app and you are in! See image below on how to set up the SFTP on filezilla so you can start clicking around and exploring files on Mazu:
 
-![image](images/filezilla.png)
 ***
 
 ### globalprep files 
