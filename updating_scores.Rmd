@@ -23,7 +23,12 @@ After we have completed the data prep for a single layer, we update the informat
 ![](https://docs.google.com/drawings/d/e/2PACX-1vR2O34eRTfr6ekZBVXXwsqLwq_BJaSWauXrTHebhLYTgsAuKPccrIk3_gKeJCXvuL-Pxg_anSm2yDNs/pub?w=927&h=585)
 
 
-**However, If a new layer has been added (for example when a new goal model is developed)**, you will open the `OHI-Global/metadata_documentation` folder, and fill in each of the spreadsheets here in a spreadsheet software (i.e. Microsoft Excel) with the new layer information. Add a new row in each spreadsheet registry for the new data layer and fill in each column. Once completed, run through steps 1-12 with the new layer. See below for information on each csv and how to fill this in. 
+**However, If a new layer has been added (for example when a new goal model is developed)**, you will need to complete all of the following to register the layer into OHI Global. 
+
+
+**Updating `metadata_documentation`**
+
+Open the `OHI-Global/metadata_documentation` folder, and fill in each of the spreadsheets here in a spreadsheet software (i.e. Microsoft Excel) with the new layer information. Add a new row in each spreadsheet registry for the new data layer and fill in each column. Once completed, run through steps 1-12 with the new layer. See below for information on each csv and how to fill this in. 
 
  - `layers_eez_base.csv`: This file includes the directory and file name for each of the updated layers. Add a new row for the new layer and update each column listed below appropriately: 
     - `layer`: This is the layer name. Add the new name of the layer you want. For kelp habitat extent, this would be `hab_kelp_extent`.
@@ -48,9 +53,13 @@ After we have completed the data prep for a single layer, we update the informat
 
  - `layers_eez_updates.csv`: This outlines the updates we have done for each layer for this assessment. 
     - `updates`: Short description of updates to the data; usually is additional year of data and/or changes to gapfilling methods or other calculations.
+    
+    
+**Updating functions.R**
 
- - `layers_eez_dataprep.csv`: 
-    - `dataprep_url`: File path to the knitted html file . Note: finalized data prep files should all be knitted BEFORE attempting to update this document, as this can take some time!
+If you are adding a new layer to a goal, you will also need to add the layer name to the `ohi-global/eez/conf/functions.R`. At the beginning of each goal function in `functions.R`, the layers that are a part of that goal are read in. So for kelp_extent, you will need to add it. See example below: 
+<img width="418" alt="image" src="https://user-images.githubusercontent.com/33332753/184976526-da9e66f7-5eee-4e62-9f52-261156045d40.png">
 
- - `layers_eez_gapfill.csv`: 
-    - `gf_file`: File path to the knitted html gapfill file . 
+**Updating pressures and resiliences matrices**
+
+With the addition of a new layer, you will need to update the pressure and resilience matrices. These matrices are located in `ohi-global/eez/conf/`. Each pressure and each resilience will affect a layer in different ways. If you are adding a habitat layer, like kelp, you will need to think about if kelp interacts with a pressure or resilience, and the magnitude of that affect (magnitude only for pressures). For example, the intertidal habitat destruction pressure is weighted as the highest pressure for kelp coastal protection. 
