@@ -63,3 +63,7 @@ If you are adding a new layer to a goal, you will also need to add the layer nam
 **Updating pressures and resiliences matrices**
 
 With the addition of a new layer, you will need to update the pressure and resilience matrices. These matrices are located in `ohi-global/eez/conf/`. Each pressure and each resilience will affect a layer in different ways. If you are adding a habitat layer, like kelp, you will need to think about if kelp interacts with a pressure or resilience, and the magnitude of that affect (magnitude only for pressures). For example, the intertidal habitat destruction pressure is weighted as the highest pressure for kelp coastal protection. 
+
+
+**scenario_data_years.csv**
+You will also need to add rows to `scenario_data_years.csv` for each new layer you are adding. 
