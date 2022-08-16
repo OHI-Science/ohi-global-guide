@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Updating scores | OHI Global Assessment Guide</title>
   <meta name="description" content="A guide for conducting the OHI Global Assessment" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Updating scores | OHI Global Assessment Guide" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="A guide for conducting the OHI Global Assessment" />
   
@@ -24,7 +23,7 @@
 <meta name="author" content="OHI Team" />
 
 
-<meta name="date" content="2022-04-25" />
+<meta name="date" content="2022-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,7 @@
   
 <link rel="prev" href="data-prep.html"/>
 <link rel="next" href="finalizing-the-global-assessment.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -241,31 +240,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="updating-scores" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Updating scores</h1>
+<div id="updating-scores" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Updating scores<a href="updating-scores.html#updating-scores" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>After we have completed the data prep for a single layer, we update the information to the <a href="https://github.com/OHI-Science/ohi-global">OHI-global repository</a> to calculate global EEZ scores. Follow these steps to upload the data to OHI-global:</p>
 <ol style="list-style-type: decimal">
 <li>Make sure that all ohiprep_v20?? files are saved, committed and pushed to Github.</li>
 <li>Ensure that OHI-global is cloned to your workspace and switch to that project in RStudio.</li>
 <li>Pull most recent draft of ohi-global from Github.</li>
-<li>Open metadata_documentation/layers_eez_base.csv and update the directory and filenames. (Other data may also need to be updated) You will need to export the csv file to your computer, edit it in Excel, then upload back into RStudio.</li>
-<li>Update eez/conf/scenario_data_years.csv (this can be done in RStudio, as you will just be updating the data years in this file.)</li>
-<li>Walk through eez/calculate_scores.R line by line.</li>
+<li>Open <code>metadata_documentation/layers_eez_base.csv</code> and update the directory and filenames. (Other data may also need to be updated) You will need to export the csv file to your computer, edit it in Excel, then upload back into RStudio.</li>
+<li>Update <code>eez/conf/scenario_data_years.csv</code> (this can be done in RStudio, as you will just be updating the data years in this file.)</li>
+<li>Walk through <code>eez/calculate_scores.R</code> line by line.</li>
 <li>As you go through, check output in Git window:</li>
 </ol>
 <ul>
 <li>are the correct files being updated?</li>
-<li>Do changes in score.csv seem reasonable?</li>
+<li>Do changes in <code>scores.csv</code> seem reasonable?</li>
 </ul>
 <ol start="8" style="list-style-type: decimal">
-<li>In the score_check() function at Step 10 in calculate_scores.R, check the scenario_year and change file_name to an alias representing the layer name (e.g. “np” for natural products)</li>
-<li>Explore data in eez/score_check/layer_alias_score_check.html to see how this year’s data compare to last year’s.</li>
+<li>In the <code>score_check()</code> function at Step 10 in <code>calculate_scores.R</code>, check the scenario_year and change file_name to an alias representing the layer name (e.g. “np” for natural products)</li>
+<li>Explore data in <code>eez/score_check/layer_alias_score_check.html</code> to see how this year’s data compare to last year’s.</li>
 <li>If everything looks good (you might want to write down any outliers and take a screenshot of the commit comparison scatter to explore later), save, commit and push all of the changes to Github.</li>
 <li>Post screenshot to Github issues for review.</li>
-<li>Update the layers_checklist (Google spreadsheet) with the status of each layers and close Github issues as appropriate.</li>
+<li>Update the <code>layers_checklist</code> (Google spreadsheet) with the status of each layers and close Github issues as appropriate.</li>
 </ol>
 <p><strong>Downloadable checklist:</strong></p>
 <p><img src="https://docs.google.com/drawings/d/e/2PACX-1vR2O34eRTfr6ekZBVXXwsqLwq_BJaSWauXrTHebhLYTgsAuKPccrIk3_gKeJCXvuL-Pxg_anSm2yDNs/pub?w=927&amp;h=585" /></p>
+<p><strong>However, If a new layer has been added (for example when a new goal model is developed)</strong>, you will open the <code>OHI-Global/metadata_documentation</code> folder, and fill in each of the spreadsheets here in a spreadsheet software (i.e. Microsoft Excel) with the new layer information. Add a new row in each spreadsheet registry for the new data layer and fill in each column. Once completed, run through steps 1-12 with the new layer. See below for information on each csv and how to fill this in.</p>
+<ul>
+<li><p><code>layers_eez_base.csv</code>: This file includes the directory and file name for each of the updated layers. Add a new row for the new layer and update each column listed below appropriately:</p>
+<ul>
+<li><code>layer</code>: This is the layer name. Add the new name of the layer you want. For kelp habitat extent, this would be <code>hab_kelp_extent</code>.</li>
+<li><code>dir</code>: This is the file path to pull the layer from the globalprep repository. For kelp habitat extent this would be <code>ohiprep:globalprep/hab_kelp/v2021/data</code></li>
+<li><code>fn:</code> This stands for “file name.” Fill in the cell with the filename of the layer you want to pull into ohi-global. For kelp habitat extent this would be <code>habitat_extent_kelp.csv</code>.</li>
+<li><code>ingest</code>: Indicates whether or not you want to “ingest” the layer in to ohi-global when updating scores. These will usually all be TRUE.</li>
+<li><code>name_data_fld</code>: This represents the column name with the values of the layer you want to pull in. For example, kelp extent is <code>km2</code>.</li>
+<li><code>name</code>: Add a longer title for the data layer. This is pulled into some documentation.</li>
+<li><code>units</code>: Add the units of the layer. Kelp extent is km2.</li>
+<li><code>description</code>: Add a longer description of the data layer. This is pulled into some documentation.</li>
+</ul></li>
+<li><p><code>layers_eez_targets.csv</code>: Add the goal/dimension that the new data layer relates to. Goals are indicated with two-letter codes and sub-goals are indicated with three-letter codes, with pressures, resilience, and spatial layers indicated separately.</p>
+<ul>
+<li><code>layer</code>: Add the layer name. This should match the <code>layer</code> column in <code>layers_eez_base.csv</code></li>
+<li><code>goal</code>: This is the goal that the layer affects. For kelp extent, this would only affect the carbon storage subgoal, <code>CS</code>.</li>
+<li><code>dimension</code>: This is the dimension (I.e. status, trend, pressure, weighting, resilience). Kelp extent affects trend and status for carbon storage.</li>
+</ul></li>
+<li><p><code>layers_eez_data_sources.csv</code>: This will be completed at the end of the assessment, and it outlined in <a href="http://ohi-science.org/ohi-global-guide/finalizing-the-global-assessment.html#step-1-update-metadata_documentation">section 5.4.1.1 Step 1: Update metadata_documentation</a></p></li>
+<li><p><code>layers_eez_reference.csv</code>: Same as <code>layers_eez_data_sources.csv</code></p></li>
+<li><p><code>layers_eez_updates.csv</code>: This outlines the updates we have done for each layer for this assessment.</p>
+<ul>
+<li><code>updates</code>: Short description of updates to the data; usually is additional year of data and/or changes to gapfilling methods or other calculations.</li>
+</ul></li>
+<li><p><code>layers_eez_dataprep.csv</code>:</p>
+<ul>
+<li><code>dataprep_url</code>: File path to the knitted html file . Note: finalized data prep files should all be knitted BEFORE attempting to update this document, as this can take some time!</li>
+</ul></li>
+<li><p><code>layers_eez_gapfill.csv</code>:</p>
+<ul>
+<li><code>gf_file</code>: File path to the knitted html gapfill file .</li>
+</ul></li>
+</ul>
 
 </div>
             </section>

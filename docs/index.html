@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>OHI Global Assessment Guide</title>
   <meta name="description" content="A guide for conducting the OHI Global Assessment" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="OHI Global Assessment Guide" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="A guide for conducting the OHI Global Assessment" />
   
@@ -24,7 +23,7 @@
 <meta name="author" content="OHI Team" />
 
 
-<meta name="date" content="2022-04-25" />
+<meta name="date" content="2022-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,7 @@
   
 
 <link rel="next" href="starting-a-new-year.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -244,10 +243,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">OHI Global Assessment Guide</h1>
 <p class="author"><em>OHI Team</em></p>
-<p class="date"><em>2022-04-25</em></p>
+<p class="date"><em>2022-08-16</em></p>
 </div>
-<div id="Overview" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Overview</h1>
+<div id="Overview" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Overview<a href="index.html#Overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>This guide is a resource for calculating the annual Ocean Health Index global assessments. It is intended for use by OHI fellows and anyone interested in the process of how scores are calculated, but only those with access to the internal server (Mazu) are able to actually perform the assessment.</p>
 <p>By conducting a yearly assessment, the OHI delivers information about a suite of goals important to humans and our use of the oceans. The OHI methods are reproducible and ever-evolving, so updates to this guide are welcomed as improvements and upgrades are incorporated.</p>
 <p><strong>Content covered in the following chapters includes:</strong></p>
@@ -271,13 +270,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul>
 <!--- TODO Gage add important fig here (just kidding this is just an example)  --->
-<div id="repositories-used-to-calculate-the-global-assessment" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Repositories used to calculate the global assessment</h2>
+<div id="repositories-used-to-calculate-the-global-assessment" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Repositories used to calculate the global assessment<a href="index.html#repositories-used-to-calculate-the-global-assessment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The OHI uses GitHub repositories (repos) to organize all of the associated data prep scripts, functions/packages, and score calculation materials for each assessment year. There are separate repositories for different parts of the project, which are detailed here. Practicioners of the assessment will clone all repositories to their RStudio workspace, but mainly work in the ohiprep_v20?? repository.</p>
 <p><img src="https://docs.google.com/drawings/d/e/2PACX-1vSry72oHC5HOEbt-tcF_SBRdEJyljC-SVWVuQbnuZcIMANi23XvMgBQkykRjqZST7vz-PeZoHYbizyd/pub?w=842&amp;h=671" /></p>
 <p><em><a href="https://github.com/OHI-Science">OHI github page</a></em></p>
-<div id="ohiprep_v20" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> ohiprep_v20??</h3>
+<div id="ohiprep_v20" class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> ohiprep_v20??<a href="index.html#ohiprep_v20" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Scripts and intermediate files used to prepare the data layers used by the OHI model are included in this repo. Each year a new version of this repository is created by copying over the previous assessment’s repository contents and deleting the history (more on that later). The suffix of the repo name indicates the year of the assessment (e.g. for 2019, the repo name was ohiprep_v2019)</p>
 <p><strong>Contents:</strong></p>
 <table>
@@ -307,8 +306,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </div>
-<div id="ohi-global" class="section level3" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> ohi-global</h3>
+<div id="ohi-global" class="section level3 hasAnchor" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> ohi-global<a href="index.html#ohi-global" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This repo contains data layers, supplementary information, models, and scripts used to calculate the global scores. The contents of this repository are updated each time a data layer in ohiprep_v20?? is completed.</p>
 <p><strong>Contents:</strong></p>
 <table>
@@ -358,12 +357,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </div>
-<div id="ohicore" class="section level3" number="1.1.3">
-<h3><span class="header-section-number">1.1.3</span> ohicore</h3>
+<div id="ohicore" class="section level3 hasAnchor" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> ohicore<a href="index.html#ohicore" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is an R package that includes the core functions used in all assessments. See <a href="http://ohi-science.org/ohicore/">package description</a> for more information.</p>
 </div>
-<div id="globalfellows-issues" class="section level3" number="1.1.4">
-<h3><span class="header-section-number">1.1.4</span> globalfellows-issues</h3>
+<div id="globalfellows-issues" class="section level3 hasAnchor" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> globalfellows-issues<a href="index.html#globalfellows-issues" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This repository was created in 2018 for the first cohort of Global Fellows, and is used to communicate about the data prep process for each layer, document reference information, share ideas, and keep track of progress on tasks. This repository is used just for writing issues, and is separate from the other repositories where data prep occurs. More information about communicating via issues is found throughout this guide.</p>
 
 </div>

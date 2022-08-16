@@ -5,19 +5,52 @@ After we have completed the data prep for a single layer, we update the informat
 1. Make sure that all ohiprep_v20?? files are saved, committed and pushed to Github.
 2. Ensure that OHI-global is cloned to your workspace and switch to that project in RStudio.
 3. Pull most recent draft of ohi-global from Github. 
-4. Open metadata_documentation/layers_eez_base.csv and update the directory and filenames. (Other data may also need to be updated) You will need to export the csv file to your computer, edit it in Excel, then upload back into RStudio. 
-5. Update eez/conf/scenario_data_years.csv (this can be done in RStudio, as you will just be updating the data years in this file.)
-6. Walk through eez/calculate_scores.R line by line.
+4. Open `metadata_documentation/layers_eez_base.csv` and update the directory and filenames. (Other data may also need to be updated) You will need to export the csv file to your computer, edit it in Excel, then upload back into RStudio. 
+5. Update `eez/conf/scenario_data_years.csv` (this can be done in RStudio, as you will just be updating the data years in this file.)
+6. Walk through `eez/calculate_scores.R` line by line.
 7. As you go through, check output in Git window:
  - are the correct files being updated? 
- - Do changes in score.csv seem reasonable?
-8. In the score_check() function at Step 10 in calculate_scores.R, check the scenario_year and change file_name to an alias representing the layer name (e.g. "np" for natural products)
-9. Explore data in eez/score_check/layer_alias_score_check.html to see how this year's data compare to last year's. 
+ - Do changes in `scores.csv` seem reasonable?
+8. In the `score_check()` function at Step 10 in `calculate_scores.R`, check the scenario_year and change file_name to an alias representing the layer name (e.g. "np" for natural products)
+9. Explore data in `eez/score_check/layer_alias_score_check.html` to see how this year's data compare to last year's. 
 10. If everything looks good (you might want to write down any outliers and take a screenshot of the commit comparison scatter to explore later), save, commit and push all of the changes to Github. 
 11. Post screenshot to Github issues for review. 
-12. Update the layers_checklist (Google spreadsheet) with the status of each layers and close Github issues as appropriate.
+12. Update the `layers_checklist` (Google spreadsheet) with the status of each layers and close Github issues as appropriate.
 
 
 **Downloadable checklist:**
 
 ![](https://docs.google.com/drawings/d/e/2PACX-1vR2O34eRTfr6ekZBVXXwsqLwq_BJaSWauXrTHebhLYTgsAuKPccrIk3_gKeJCXvuL-Pxg_anSm2yDNs/pub?w=927&h=585)
+
+
+**However, If a new layer has been added (for example when a new goal model is developed)**, you will open the `OHI-Global/metadata_documentation` folder, and fill in each of the spreadsheets here in a spreadsheet software (i.e. Microsoft Excel) with the new layer information. Add a new row in each spreadsheet registry for the new data layer and fill in each column. Once completed, run through steps 1-12 with the new layer. See below for information on each csv and how to fill this in. 
+
+ - `layers_eez_base.csv`: This file includes the directory and file name for each of the updated layers. Add a new row for the new layer and update each column listed below appropriately: 
+    - `layer`: This is the layer name. Add the new name of the layer you want. For kelp habitat extent, this would be `hab_kelp_extent`.
+    - `dir`: This is the file path to pull the layer from the globalprep repository. For kelp habitat extent this would be `ohiprep:globalprep/hab_kelp/v2021/data`
+    - `fn:` This stands for "file name". Fill in the cell with the filename of the layer you want to pull into ohi-global. For kelp habitat extent this would be `habitat_extent_kelp.csv`.
+    - `ingest`: Indicates whether or not you want to "ingest" the layer in to ohi-global when updating scores. These will usually all be TRUE. 
+    - `name_data_fld`: This represents the column name with the values of the layer you want to pull in. For example, kelp extent is `km2`. 
+    - `name`: Add a longer title for the data layer. This is pulled into some documentation. 
+    - `units`: Add the units of the layer. Kelp extent is km2. 
+    - `description`: Add a longer description of the data layer. This is pulled into some documentation. 
+
+
+ - `layers_eez_targets.csv`: Add the goal/dimension that the new data layer relates to. Goals are indicated with two-letter codes and sub-goals are indicated with three-letter codes, with pressures, resilience, and spatial layers indicated separately.
+    - `layer`: Add the layer name. This should match the `layer` column in `layers_eez_base.csv`
+    - `goal`: This is the goal that the layer affects. For kelp extent, this would only affect the carbon storage subgoal, `CS`. 
+    - `dimension`: This is the dimension (I.e. status, trend, pressure, weighting, resilience). Kelp extent affects trend and status for carbon storage. 
+
+
+ - `layers_eez_data_sources.csv`: This will be completed at the end of the assessment, and it outlined in [section 5.4.1.1 Step 1: Update metadata_documentation](http://ohi-science.org/ohi-global-guide/finalizing-the-global-assessment.html#step-1-update-metadata_documentation)
+
+ - `layers_eez_reference.csv`: Same as `layers_eez_data_sources.csv`
+
+ - `layers_eez_updates.csv`: This outlines the updates we have done for each layer for this assessment. 
+    - `updates`: Short description of updates to the data; usually is additional year of data and/or changes to gapfilling methods or other calculations.
+
+ - `layers_eez_dataprep.csv`: 
+    - `dataprep_url`: File path to the knitted html file . Note: finalized data prep files should all be knitted BEFORE attempting to update this document, as this can take some time!
+
+ - `layers_eez_gapfill.csv`: 
+    - `gf_file`: File path to the knitted html gapfill file . 

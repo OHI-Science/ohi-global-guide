@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Data Prep | OHI Global Assessment Guide</title>
   <meta name="description" content="A guide for conducting the OHI Global Assessment" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Data Prep | OHI Global Assessment Guide" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="A guide for conducting the OHI Global Assessment" />
   
@@ -24,7 +23,7 @@
 <meta name="author" content="OHI Team" />
 
 
-<meta name="date" content="2022-04-25" />
+<meta name="date" content="2022-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,7 @@
   
 <link rel="prev" href="starting-a-new-year.html"/>
 <link rel="next" href="updating-scores.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -241,8 +240,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-prep" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Data Prep</h1>
+<div id="data-prep" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Data Prep<a href="data-prep.html#data-prep" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>All data layers are prepared in the ohiprep_v20?? repository.</p>
 <p>Spend some time researching the data prior to launching into the coding in R. I look over the files in the dataprep folder on Github, as well as the Mazu folder that contains the raw data. I research the specific data layers I will be working on and the goals/pressures/resilience dimensions they are used to calculate. I typically start in the <a href="https://raw.githack.com/OHI-Science/ohi-global/published/global_supplement/Supplement.html">methods</a> document. I also research the source data, looking over websites, reports, and published papers.</p>
 <p>In regard to preparing the data, the best approach is to prepare the layer or layers within a single Rmd script and then update the OHI scores one layer at a time. This approach makes it much easier to identify and track potential errors.</p>
@@ -254,10 +253,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Notes on parallel processing</li>
 </ol>
 <hr />
-<div id="file-organization" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> File organization</h2>
-<div id="saving-external-data" class="section level3" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> Saving external data</h3>
+<div id="file-organization" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> File organization<a href="data-prep.html#file-organization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="saving-external-data" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Saving external data<a href="data-prep.html#saving-external-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In almost all cases, OHI data comes from other institutions. We save these data to<br />
 the NCEAS private server (Mazu) because we do not want to be responsible for distributing other people’s data.</p>
 <p>These data are saved to Mazu: git-annex/globalprep/_raw_data in a folder that is labeled with an abbreviated version of the datasource (Figure 1). The data is saved to a folder describing the year the data was downloaded (e.g., d2015, d2016).</p>
@@ -281,8 +280,8 @@ the NCEAS private server (Mazu) because we do not want to be responsible for dis
 </ul>
 <hr />
 </div>
-<div id="vpn-setup-to-access-mazu" class="section level3" number="3.1.2">
-<h3><span class="header-section-number">3.1.2</span> VPN Setup to Access Mazu</h3>
+<div id="vpn-setup-to-access-mazu" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> VPN Setup to Access Mazu<a href="data-prep.html#vpn-setup-to-access-mazu" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here is why you will want to get your VPN accounts set up:</p>
 <ol style="list-style-type: decimal">
 <li>You can access files on Mazu while you are offsite</li>
@@ -296,8 +295,8 @@ and: <a href="http://www.ets.ucsb.edu/services/campus-vpn/get-connected" class="
 <p>Once you have the VPN, here’s you can access Mazu via the Rstudio Mazu server, or via SFTP clients like Cyberduck or Filezilla (outlined below).</p>
 <hr />
 </div>
-<div id="setting-up-rstudio-mazu-server" class="section level3" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> Setting up Rstudio Mazu Server</h3>
+<div id="setting-up-rstudio-mazu-server" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Setting up Rstudio Mazu Server<a href="data-prep.html#setting-up-rstudio-mazu-server" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You will definitely want to get set up to run RStudio on Mazu! This is so great for so many reasons.</p>
 <ol style="list-style-type: decimal">
 <li>It makes it super easy to work remotely.</li>
@@ -309,8 +308,8 @@ and: <a href="http://www.ets.ucsb.edu/services/campus-vpn/get-connected" class="
 <img src="https://docs.google.com/drawings/d/e/2PACX-1vQMt-gUz07-sdOmHiWQn2fKGb7lOPChXwsoExZ6NiCVu0ylHv65rV3e5H6pWwic4FDas1ajjZSj4v8I/pub?w=960&amp;h=720" /></p>
 <hr />
 </div>
-<div id="using-cyberduck-or-filezilla-to-transfer-large-files" class="section level3" number="3.1.4">
-<h3><span class="header-section-number">3.1.4</span> Using Cyberduck or Filezilla to Transfer Large Files</h3>
+<div id="using-cyberduck-or-filezilla-to-transfer-large-files" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Using Cyberduck or Filezilla to Transfer Large Files<a href="data-prep.html#using-cyberduck-or-filezilla-to-transfer-large-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You should consider using Cyberduck or Filezilla to view and access files on the Mazu server (I prefer to use Filezilla).</p>
 <p>If you need to move really big files between Mazu and your computer, I find that the using mapped VPN on your personal computer typically fails. For this, I use <a href="https://filezilla-project.org/">Filezilla</a> (Cyberduck works just fine too).</p>
 <ol style="list-style-type: decimal">
@@ -336,8 +335,8 @@ and: <a href="http://www.ets.ucsb.edu/services/campus-vpn/get-connected" class="
 </ol>
 <hr />
 </div>
-<div id="globalprep-files" class="section level3" number="3.1.5">
-<h3><span class="header-section-number">3.1.5</span> globalprep files</h3>
+<div id="globalprep-files" class="section level3 hasAnchor" number="3.1.5">
+<h3><span class="header-section-number">3.1.5</span> globalprep files<a href="data-prep.html#globalprep-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>All of the R scripts and metadata used to prepare the data, as well as the final data layers are saved in the Github ohiprep_v???? repository in the globalprep folder.</p>
 <p>The only data that will not be saved on Github are files that are too large or incompatible with Github (see below).</p>
 <p><strong>Primary goal/component folder</strong> The folder should be named according to the OHI target (the goal or dimension that the data is used to calculate). For example the folder for the tourism and recreation goal would be called: globalprep/tr (see table below for all folder abbreviations). These recommendations are flexible and should be modified as needed, for example goals can be combined in a single folder (e.g., spp_ico) or, there may be several folders for different components of a single goal (e.g. tr_sustainability and tr_tourists).</p>
@@ -431,8 +430,8 @@ and: <a href="http://www.ets.ucsb.edu/services/campus-vpn/get-connected" class="
 <p><img src="https://docs.google.com/drawings/d/e/2PACX-1vQL9FTF2lZ3yBCv9ZEI7OQ0sNCGdKpUrP0FfjtV_14vvzHAx3rxMQLJ-nFcfjRVT61sHTti4Husmrm-/pub?w=960&amp;h=720" /></p>
 <hr />
 </div>
-<div id="intermediate-files-that-are-too-large-for-github" class="section level3" number="3.1.6">
-<h3><span class="header-section-number">3.1.6</span> Intermediate files that are too large for Github</h3>
+<div id="intermediate-files-that-are-too-large-for-github" class="section level3 hasAnchor" number="3.1.6">
+<h3><span class="header-section-number">3.1.6</span> Intermediate files that are too large for Github<a href="data-prep.html#intermediate-files-that-are-too-large-for-github" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>These files will be saved on Mazu, the internal server’s, globalprep folder.</p>
 <p>Our goal is to have everything (except for data obtained from other sources) stored on GitHub, but some files are too large or inappropriate for GitHub and must be stored on Mazu. Each of these files should be stored in a way that mirrors that on Github. If there is a need to make a duplicate folder on <code>git-annex</code>, it should have the same name as the folder used in GitHub.</p>
 <p><img src="https://docs.google.com/drawings/d/e/2PACX-1vQjq4gTVyHmB-QKIAAWEin3YRPSsEqoq2yZZ0W5uP6D47vXAZUoNJl21BPKLumifz_UgbZ_ef1-U0lt/pub?w=960&amp;h=720" /></p>
@@ -441,10 +440,10 @@ and: <a href="http://www.ets.ucsb.edu/services/campus-vpn/get-connected" class="
 <hr />
 </div>
 </div>
-<div id="starting-a-new-data-prep-project" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Starting a new data prep project</h2>
-<div id="prepare-the-dataprep-folder" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> Prepare the dataprep folder</h3>
+<div id="starting-a-new-data-prep-project" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Starting a new data prep project<a href="data-prep.html#starting-a-new-data-prep-project" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="prepare-the-dataprep-folder" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Prepare the dataprep folder<a href="data-prep.html#prepare-the-dataprep-folder" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In ohiprep_v20??/globalprep navigate to the folder that contains the files you will need to prepare the data. Select the most recent assessment year of data and copy/paste to create a new folder in the same location, changing the name to reflect the current assessment year.</p>
 <p>For example, if we are preparing data layers for the 2019 assessment for the artisanal opportunities goal, ao, we would copy the v2018 folder and name it v2019.</p>
 <p><img src="https://docs.google.com/drawings/d/e/2PACX-1vTkXdx-bGQoOhzXn6Wz94yV9_S9BlKY0kPhAtp9nKaewr0lRD0Cr0B_H37aUoDANt0Ck6p4wSaFIJPz/pub?w=960&amp;h=720" />
@@ -452,13 +451,13 @@ Next, delete all unnecessary files, particularly the files in the raw, intermedi
 <p>Typically, you will not delete the dataprep script/s and README. You will also want to preserve the folder structure. If in doubt, I delete the files and then copy them over as needed. For some goals, such as fisheries, there are lots and lots of files and it is very confusing. In these cases, I just copy the files as I need them.</p>
 <p>Once you have created and cleaned the new folder commit and push the updates!</p>
 </div>
-<div id="start-an-issue" class="section level3" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Start an issue</h3>
+<div id="start-an-issue" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Start an issue<a href="data-prep.html#start-an-issue" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>On Github create an issue for this dataprep project. Here you will document progress, report problems or concerns, pose questions, describe changes to code, and report on final results. For example, if working on the artisanal opportunities dataprep, name the issue “Artisanal opportunities.”</p>
 <p>Once the relevant data layers are created and incorporated into the OHI scores this issue will be closed.</p>
 </div>
-<div id="update-the-files" class="section level3" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> Update the files</h3>
+<div id="update-the-files" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Update the files<a href="data-prep.html#update-the-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Carefully walk through the data prep scripts and update as necessary.</p>
 <p>You will also need to update READMEs.</p>
 <p>As you check and update the scripts, don’t assume everything is correct. There could be changes to the source data that introduce errors (this often happens). We could have made a mistake somewhere. And, even if there aren’t any mistakes, there is usually room for improvement.</p>
@@ -472,8 +471,8 @@ Next, delete all unnecessary files, particularly the files in the raw, intermedi
 <hr />
 </div>
 </div>
-<div id="a-typical-data-prep-script" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> A typical data prep script</h2>
+<div id="a-typical-data-prep-script" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> A typical data prep script<a href="data-prep.html#a-typical-data-prep-script" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>All data prep is performed in R or, preferrably, R Markdown (Rmd) documents. Rmd is an ideal format because it seemlessly integrates code and documentation, can display figures, and the output provides a clean methods document.</p>
 <p>We have several shared practices for preparing data:</p>
 <ul>
@@ -498,16 +497,16 @@ Next, delete all unnecessary files, particularly the files in the raw, intermedi
 </ol>
 <p>A generic data prep Rmd file is located on Github: <a href="https://raw.githubusercontent.com/OHI-Science/ohiprep/master/src/templates/generic_data_prep.Rmd">https://raw.githubusercontent.com/OHI-Science/ohiprep/master/src/templates/generic_data_prep.Rmd</a></p>
 </div>
-<div id="prep-rmd-1.-summary" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> prep Rmd: 1. Summary</h2>
+<div id="prep-rmd-1.-summary" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> prep Rmd: 1. Summary<a href="data-prep.html#prep-rmd-1.-summary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This section describes the purpose of the script and the data layers that are generated.</p>
 <p>For example, the 2019 AO summary looks like this:</p>
 <ul>
 <li>“This script generates the”need” layer for the artisanal opportunities goal. The “access” layer, which is not updated due to a lack of a data source, is located here: globalprep/res_mora_ao/v2013/data/r_mora_s4_2013a.csv.”</li>
 </ul>
 </div>
-<div id="prep-rmd-2.-updates" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> prep Rmd: 2. Updates</h2>
+<div id="prep-rmd-2.-updates" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> prep Rmd: 2. Updates<a href="data-prep.html#prep-rmd-2.-updates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This section describes all the updates to source data and/or methods since the previous year’s assessment.</p>
 <p>For example, the 2019 AO updates look like this:</p>
 <ul>
@@ -515,8 +514,8 @@ Next, delete all unnecessary files, particularly the files in the raw, intermedi
 <li>“Added an additional year of GDP data from the World Bank”</li>
 </ul>
 </div>
-<div id="prep-rmd-3.-data-sources" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> prep Rmd: 3. Data sources</h2>
+<div id="prep-rmd-3.-data-sources" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> prep Rmd: 3. Data sources<a href="data-prep.html#prep-rmd-3.-data-sources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This section describes all data sources and may include:</p>
 <p><strong>Reference</strong>: [citation for source data; website, literature, contact information. Version of data (if relevant).]</p>
 <p><strong>Downloaded</strong>: [date downloaded or received]</p>
@@ -535,8 +534,8 @@ Reported at country scale.</p>
 <p>Data is available directly to R through the WDI package.</p>
 <p><strong>Time range</strong>: 1990-2017</p>
 </div>
-<div id="prep-rmd-4.-set-up" class="section level2" number="3.7">
-<h2><span class="header-section-number">3.7</span> prep Rmd: 4. Set up</h2>
+<div id="prep-rmd-4.-set-up" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> prep Rmd: 4. Set up<a href="data-prep.html#prep-rmd-4.-set-up" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This code chunk is used to load packages, source functions, and set variables used throughout the analyses.</p>
 <p>Here, you can also initialize programatic creation of raw, intermediate and output file folders within the specific layer directory:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-prep.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check if &#39;raw&#39;, &#39;intermediate&#39;, and &#39;final&#39; folders exist in the current assessment folder, if not, then create the folder in the working directory</span></span>
@@ -551,14 +550,14 @@ Reported at country scale.</p>
 <span id="cb1-10"><a href="data-prep.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="fu">here</span>(<span class="st">&quot;globalprep/layer_name/v20??/output&quot;</span>))){</span>
 <span id="cb1-11"><a href="data-prep.html#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dir.create</span>(<span class="fu">here</span>(<span class="st">&quot;globalprep/layer_name/v20??/output&quot;</span>))</span>
 <span id="cb1-12"><a href="data-prep.html#cb1-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div id="packages" class="section level3" number="3.7.1">
-<h3><span class="header-section-number">3.7.1</span> Packages</h3>
+<div id="packages" class="section level3 hasAnchor" number="3.7.1">
+<h3><span class="header-section-number">3.7.1</span> Packages<a href="data-prep.html#packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The packages we load depend on the analyses, but we always use:</p>
 <ul>
 <li>dplyr and tidyr: data wrangling tools <a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">a cheatsheet</a></li>
 </ul>
-<div id="packages-commonly-include-but-are-not-limited-to" class="section level4" number="3.7.1.1">
-<h4><span class="header-section-number">3.7.1.1</span> Packages commonly include, but are not limited to:</h4>
+<div id="packages-commonly-include-but-are-not-limited-to" class="section level4 hasAnchor" number="3.7.1.1">
+<h4><span class="header-section-number">3.7.1.1</span> Packages commonly include, but are not limited to:<a href="data-prep.html#packages-commonly-include-but-are-not-limited-to" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>OHIcore package which contains all the proprietary OHI functions</strong></p>
 <ul>
 <li>library(ohicore)</li>
@@ -587,8 +586,8 @@ Reported at country scale.</p>
 </ul>
 </div>
 </div>
-<div id="common.r" class="section level3" number="3.7.2">
-<h3><span class="header-section-number">3.7.2</span> common.R</h3>
+<div id="common.r" class="section level3 hasAnchor" number="3.7.2">
+<h3><span class="header-section-number">3.7.2</span> common.R<a href="data-prep.html#common.r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Nearly all scripts will source a common.R file. This file creates several objects that make it easier to conduct an OHI assessment. This includes:</p>
 <table>
 <colgroup>
@@ -649,9 +648,8 @@ Reported at country scale.</p>
 ##  * rgn_syns() = function to load dataframe of region synonyms (used to convert country names to OHI regions)
 ##  * low_pop() = function to load dataframe of regions with low and no human population
 ##  * UNgeorgn = function to load dataframe of UN geopolitical designations used to gapfill missing data</code></pre>
-<pre><code>## Warning in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;, prefer_proj
-## = prefer_proj): Discarded datum Unknown based on WGS84 ellipsoid in Proj4
-## definition</code></pre>
+<pre><code>## Warning in eval(ei, envir): The Mazu directory dir_M set in src/R/common.R does
+## not exist. Do you need to mount Mazu: /Volumes/ohi?</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="data-prep.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># call the function to load the data, the message describes the available data: </span></span>
 <span id="cb5-2"><a href="data-prep.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">region_data</span>()</span></code></pre></div>
 <pre><code>## loads 2 dataframes: rgns_all and rgns_eez 
@@ -680,14 +678,14 @@ Reported at country scale.</p>
 ## 4      
 ## 5      
 ## 6</code></pre>
-<div id="metadata-for-common.r" class="section level4" number="3.7.2.1">
-<h4><span class="header-section-number">3.7.2.1</span> metadata for common.R</h4>
+<div id="metadata-for-common.r" class="section level4 hasAnchor" number="3.7.2.1">
+<h4><span class="header-section-number">3.7.2.1</span> metadata for common.R<a href="data-prep.html#metadata-for-common.r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>dir_M and mollCRS</strong></p>
 <p>The following are the dir_M and mollCRS objects:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data-prep.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## dir_M describes the path to our internal server based on your computer&#39;s operating system</span></span>
 <span id="cb11-2"><a href="data-prep.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do">: The following may be different on your operating system</span></span>
 <span id="cb11-3"><a href="data-prep.html#cb11-3" aria-hidden="true" tabindex="-1"></a>dir_M</span></code></pre></div>
-<pre><code>## [1] &quot;/home/shares/ohi&quot;</code></pre>
+<pre><code>## [1] &quot;/Volumes/ohi&quot;</code></pre>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data-prep.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## mollCRS is the code for the Mollweide coordinate reference system</span></span>
 <span id="cb13-2"><a href="data-prep.html#cb13-2" aria-hidden="true" tabindex="-1"></a>mollCRS</span></code></pre></div>
 <pre><code>## CRS arguments:
@@ -1042,8 +1040,8 @@ Reported at country scale.</p>
 </div>
 </div>
 </div>
-<div id="prep-rmd-5.-data-prep" class="section level2" number="3.8">
-<h2><span class="header-section-number">3.8</span> prep Rmd: 5. Data prep</h2>
+<div id="prep-rmd-5.-data-prep" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> prep Rmd: 5. Data prep<a href="data-prep.html#prep-rmd-5.-data-prep" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We follow several coding practices when preparing our data:</p>
 <ul>
 <li><p>Code chunks are broken into manageable pieces and are proceeded by a description of what is being accomplished</p></li>
@@ -1061,8 +1059,8 @@ Reported at country scale.</p>
 </ul>
 <p>This file should be saved as a .csv file in an “output” folder. In general, the name of the file should be the same as the previous year. However, if you feel the file name can be improved, you will need to update the fn variable in this data file:</p>
 <p><a href="https://github.com/OHI-Science/ohi-global/blob/draft/metadata_documentation/layers_eez_base.csv" class="uri">https://github.com/OHI-Science/ohi-global/blob/draft/metadata_documentation/layers_eez_base.csv</a></p>
-<div id="ohi-data-idiosyncracies-low-populationuninhabited-regions-and-grouped-regions" class="section level3" number="3.8.1">
-<h3><span class="header-section-number">3.8.1</span> OHI data idiosyncracies: Low population/uninhabited regions and grouped regions</h3>
+<div id="ohi-data-idiosyncracies-low-populationuninhabited-regions-and-grouped-regions" class="section level3 hasAnchor" number="3.8.1">
+<h3><span class="header-section-number">3.8.1</span> OHI data idiosyncracies: Low population/uninhabited regions and grouped regions<a href="data-prep.html#ohi-data-idiosyncracies-low-populationuninhabited-regions-and-grouped-regions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Recently we have standardized how we identify low population regions, using the low_pop() function in the common.R file. These regions are assigned NAs for some goals (e.g. GDP values used in AO) and perfect scores for others (e.g. sanitation access). Use the following code to establish a vector of low pop regions that can be compared against the final dataset.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-prep.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After sourcing common.R and gapfilling data: </span></span>
 <span id="cb15-2"><a href="data-prep.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">low_pop</span>()</span>
@@ -1092,8 +1090,8 @@ Reported at country scale.</p>
 <span id="cb16-13"><a href="data-prep.html#cb16-13" aria-hidden="true" tabindex="-1"></a>   <span class="fu">rbind</span>(CN_subregions)  </span></code></pre></div>
 </div>
 </div>
-<div id="prep-rmd-6.-gapfilling" class="section level2" number="3.9">
-<h2><span class="header-section-number">3.9</span> prep Rmd: 6. Gapfilling</h2>
+<div id="prep-rmd-6.-gapfilling" class="section level2 hasAnchor" number="3.9">
+<h2><span class="header-section-number">3.9</span> prep Rmd: 6. Gapfilling<a href="data-prep.html#prep-rmd-6.-gapfilling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We make every effort to gapfill missing data. The only legitimate reason for a region to have an NA value is if the goal is not relevant to the region. For example, the livelihoods and economies goal is not relevant for an uninhabited island.</p>
 <p>We have a paper describing why and how we estimate missing data: <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0160377" class="uri">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0160377</a>. But the following is the short version.</p>
 <p>The first step to gapfilling missing data is to identify datasets that are predictive of the variable you are attempting to estimate and is also more complete. Here are some of the general approaches we use to estimate missing global data:</p>
@@ -1105,8 +1103,8 @@ Reported at country scale.</p>
 </ul>
 <p>Our goal is to estimate missing data using the simplest model that best predicts the data. Given this, it is necessary to determine whether datasets and model terms actually predict missing data and to compare the performance of multiple models. Ideally cross-validation methods are used to evaluate how well the models predict missing data, otherwise models will appear to perform much better than they actually do.</p>
 <p><em>There is no point in having a model with many predictive variables and complex non-linear fits if it performs no better than using a simple mean of the existing data!</em></p>
-<div id="training-linear-models-for-gapfilling" class="section level3" number="3.9.1">
-<h3><span class="header-section-number">3.9.1</span> Training linear models for gapfilling</h3>
+<div id="training-linear-models-for-gapfilling" class="section level3 hasAnchor" number="3.9.1">
+<h3><span class="header-section-number">3.9.1</span> Training linear models for gapfilling<a href="data-prep.html#training-linear-models-for-gapfilling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Basic gist:</strong>
 Use alternative datasets to predict data points for a dataset you have limited data points for. In this instance, we had FMI data points for 40 regions included in the OHI, and needed to gapfill the remaining 180 regions. We checked for correlation between the FMI data and several other datasets, including AO need (rescaled GDP per capita per person purchasing power), GDP per capita, social progress index (SPI), world governance indicator (WGI), and UN georegions.</p>
 <p>A detailed example can be found <a href="https://github.com/OHI-Science/ohiprep_v2019/blob/gh-pages/globalprep/res_fmi/v2019/fmi_model_compare.Rmd">here</a></p>
@@ -1151,8 +1149,8 @@ mod2 &lt;- lm(dep_variable ~ ind_variable + ind_variable2, data=df_name)</p>
 <span id="cb20-7"><a href="data-prep.html#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">method =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(fmi) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(fmi_pred_r1), <span class="st">&quot;SPI + UN_geopolitical region r1&quot;</span>, method)) <span class="sc">%&gt;%</span></span>
 <span id="cb20-8"><a href="data-prep.html#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fmi =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(fmi), fmi_pred_r1, fmi))</span></code></pre></div>
 </div>
-<div id="saving-gapfilling-report-files" class="section level3" number="3.9.2">
-<h3><span class="header-section-number">3.9.2</span> Saving gapfilling report files</h3>
+<div id="saving-gapfilling-report-files" class="section level3 hasAnchor" number="3.9.2">
+<h3><span class="header-section-number">3.9.2</span> Saving gapfilling report files<a href="data-prep.html#saving-gapfilling-report-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Gapfilling steps are often mixed with the dataprep code. Once the gapfilling is done, we will save a dataset describing which data were gapfilled and the method. Every dataset should have a corresponding gapfilling dataset…<em>even if there was no gapfilling</em>.</p>
 <p>The gapfilling record is saved with the same name as the corresponding output data, but with a “_gf” extension.</p>
 <p><img src="https://docs.google.com/drawings/d/e/2PACX-1vTGj33cUjqLbPw3sPkPBNGovaaradQASn3CzuTvLL8VgcFqcmlPGNskPksNjlqu1E8enu9zVSOklXJ8/pub?w=960&amp;h=720" /></p>
@@ -1165,8 +1163,8 @@ mod2 &lt;- lm(dep_variable ~ ind_variable + ind_variable2, data=df_name)</p>
 <p><img src="https://docs.google.com/drawings/d/e/2PACX-1vSFPuVZaRrO__JnOOSOl-AukPo3HN3rpBcIYDuC0pau2xHw3IVtnqOvTrdY5AfcVs7XybADvZD-tLtr/pub?w=691&amp;h=690" /></p>
 </div>
 </div>
-<div id="prep-rmd-7.-results-check" class="section level2" number="3.10">
-<h2><span class="header-section-number">3.10</span> prep Rmd: 7. Results check</h2>
+<div id="prep-rmd-7.-results-check" class="section level2 hasAnchor" number="3.10">
+<h2><span class="header-section-number">3.10</span> prep Rmd: 7. Results check<a href="data-prep.html#prep-rmd-7.-results-check" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>It is critical to check the final output data!</p>
 <p>Here are some of the ways we check data:</p>
 <ul>
@@ -1217,8 +1215,8 @@ mod2 &lt;- lm(dep_variable ~ ind_variable + ind_variable2, data=df_name)</p>
 <p>In this case, the values for most regions remain the same from the 2017 to 2018 assessment, however, there are some changes. The biggest change was for Antarctica, which we can ignore because we do not calculate scores for Antarctica for the global assessment. However, there is also a fairly large change in the Greece data, and some smaller changes for some other regions.</p>
 <p>By carefully exploring the source data we found that these differences reflect updates to the source data. For example, a marine reserve may have been established in 2017, but weren’t yet incorporated into the World Database on Protected Areas.</p>
 </div>
-<div id="prep-rmd-8.-final-run" class="section level2" number="3.11">
-<h2><span class="header-section-number">3.11</span> prep Rmd: 8. Final run</h2>
+<div id="prep-rmd-8.-final-run" class="section level2 hasAnchor" number="3.11">
+<h2><span class="header-section-number">3.11</span> prep Rmd: 8. Final run<a href="data-prep.html#prep-rmd-8.-final-run" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The final step is to commit and push all files. Then, close R and do NOT save the workspace image. The purpose of closing everything is to clear the memory of all data objects to make sure that the code still runs. This may be a problem if we change object names but fail to make necessary corresponding throughout the code.</p>
 <p><img src="https://docs.google.com/drawings/d/e/2PACX-1vRf6bzIscOnKcqrxUNn9q4IOkPbElNbCJbcXpb3oC6jADbeVQ-e4pAA17fUBYa3GiJENILw48xgBSA4/pub?w=531&amp;h=243" /></p>
 <p>I typically close everything by opening another repository.</p>
@@ -1232,8 +1230,8 @@ mod2 &lt;- lm(dep_variable ~ ind_variable + ind_variable2, data=df_name)</p>
 </ul>
 <hr />
 </div>
-<div id="notes-on-parallel-processing" class="section level2" number="3.12">
-<h2><span class="header-section-number">3.12</span> Notes on parallel processing</h2>
+<div id="notes-on-parallel-processing" class="section level2 hasAnchor" number="3.12">
+<h2><span class="header-section-number">3.12</span> Notes on parallel processing<a href="data-prep.html#notes-on-parallel-processing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In OHI, we often use parallel processing packages to process data-intensive spatial layers. Parallel processing allows multiple computations to take place at the same time. For more information, check out this <a href="https://nceas.github.io/oss-lessons/parallel-computing-in-r/parallel-computing-in-r.html">introductory resource from NCEAS.</a></p>
 <p><em>Note: below is essentially copy and pasted from <a href="https://github.com/OHI-Science/globalfellows-issues/issues/43">this reference issue</a> and might need more context to be helpful</em></p>
 <p><a href="https://cran.r-project.org/web/packages/doParallel/vignettes/gettingstartedParallel.pdf">Vignette on getting started with doParallel and foreach packages</a> refers to two ways to use parallel processing in the <code>doParallel</code> package.</p>
@@ -1244,15 +1242,15 @@ mod2 &lt;- lm(dep_variable ~ ind_variable + ind_variable2, data=df_name)</p>
 <span id="cb23-2"><a href="data-prep.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cl)</span>
 <span id="cb23-3"><a href="data-prep.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">foreach</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">%dopar%</span>{}</span>
 <span id="cb23-4"><a href="data-prep.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cl)</span></code></pre></div>
-<div id="stopcluster-makecluster" class="section level3" number="3.12.1">
-<h3><span class="header-section-number">3.12.1</span> stopCluster &amp; makeCluster</h3>
+<div id="stopcluster-makecluster" class="section level3 hasAnchor" number="3.12.1">
+<h3><span class="header-section-number">3.12.1</span> stopCluster &amp; makeCluster<a href="data-prep.html#stopcluster-makecluster" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Stopping your cluster:</strong></p>
 <p>If you are using snow-like functionality, you will want to stop your cluster when you are done using it. The doParallel package’s .onUnload function will do this automatically if the cluster was created automatically by registerDoParallel, but if you created the cluster manually you should stop it using the stopCluster function: <code>stopCluster(cl)</code></p>
 <p><a href="https://stackoverflow.com/questions/45894635/why-does-doparallelgetdoparworkers-return-14-but-after-i-have-completed-the">Stack overflow discussion</a> on whether cores stop being registered after <code>foreach</code> finishes</p>
 <p><strong>Tip:</strong> Limit to 5 or fewer cores for any data prep</p>
 </div>
-<div id="using-htop-to-check-on-processes-running" class="section level3" number="3.12.2">
-<h3><span class="header-section-number">3.12.2</span> Using htop to check on processes running</h3>
+<div id="using-htop-to-check-on-processes-running" class="section level3 hasAnchor" number="3.12.2">
+<h3><span class="header-section-number">3.12.2</span> Using htop to check on processes running<a href="data-prep.html#using-htop-to-check-on-processes-running" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sometimes a process will be running that slows down the whole system, and htop can help identify and stop the source of this issue.</p>
 <p><a href="https://www.deonsworld.co.za/2012/12/20/understanding-and-using-htop-monitor-system-resources/">Useful resource here</a></p>
 <ol style="list-style-type: decimal">
