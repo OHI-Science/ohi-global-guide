@@ -170,11 +170,9 @@ To use the Zotero group library for OHI, you will first need to be invited to th
 
 
 ## Methods document
-Every year we update a document describing the methods used to calculate the assessment (example methods document: https://raw.githack.com/OHI-Science/ohi-global/published/global_supplement/Supplement.htmlhttps://raw.githack.com/OHI-Science/ohi-global/published/global_supplement/Supplement.html). 
+Every year we update a document describing the methods used to calculate the assessment (example methods document: https://oceanhealthindex.org/images/htmls/Supplement.html) 
 
-This file can be accessed from our OHI-science global webpage.
-
-The files used to create this document are located here: https://github.com/OHI-Science/ohi-global/tree/draft/global_supplement
+The files used to create this document are located here: https://github.com/OHI-Science/ohi-global/tree/draft/documents/methods and https://github.com/OHI-Science/ohi-global/tree/draft/metadata_documentation
 
 To maximize flexibility, we have broken our methods into component parts that can be used in multiple contexts.  For example, the Rmd files that describe each data layer are incorporated into the official methods document and are also used to create a webpage describing the data layers. Previously, if we updated our methods we had to update both the methods document and the website, but with this approach we only have to make the change in one location.  This helps keep our messaging more consistent.  
 
@@ -194,7 +192,6 @@ trend.Rmd | description of OHI model for calculating trend scores | No changes l
 pressure.Rmd | description of OHI model for calculating pressure scores | No changes likely necessary
 resilience. Rmd | description of OHI model for calculating resilience scores | No changes likely necessary
 goal_descriptions folder | individual Rmd files describing each goal/subgoal | Minimal changes to some files may be necessary if the model or data used in a goal changes
-goal_descriptions_short folder | individual Rmd files with a *short* description of each goal/subgoal | Minimal changes to some files may be necessary if the model or data used in a goal changes
 layers_info folder | individual Rmd files with descriptions of each data layer, filenames must match layer names in metadata_documentation datatables | Changes to some layers will probably be necessary, but most layers will require no changes
 figures folder | figures displayed in the Supplement.html | No changes likely necessary
 methods-in-ecology-and-evolution.csl | instructions for displaying references | no need to change unless a different way of displaying references is desired
@@ -202,7 +199,7 @@ methods-in-ecology-and-evolution.csl | instructions for displaying references | 
 
 
 ### Steps to updating methods document
-The methods document is created by knitting ohi-global/global_supplement/Supplement.Rmd.  However, many preparations need to be made prior to knitting.
+The methods document is created by knitting ohi-global/documents/methods/Supplement.Rmd.  However, many preparations need to be made prior to knitting.
 
 #### Step 1: Update metadata_documentation
 The data tables in ohi-global/metadata_documentation are used to create the methods document, and consequently must be fully up-to-date and accurate!  This includes: layers_eez_base.csv, layers_eez_data_sources.csv, layers_eez_methods.csv, and layers_eez_targets.csv.  
@@ -221,11 +218,11 @@ This file includes the directory and file name for each of the updated layers. U
 
 In the OHI group Zotero library (invite required), you will create a new reference for each of the data sources that have been updated for the current assessment year. NOTE: For the OHI global assessment, you should do all Zotero work in the "OHI Global Refs" folder. This can be done easily by downloading Zotero to your computer and installing the extension in your browser to save the data source directly to the library, where the information can then be edited. (See section 5.3: Citation Management for more information).
 
-Create citations in Zotero and update the information, including title, author, abstract, date, URL, and accessed date. "Date" should indicate the year listed in the data citation, OR the most recent year in the dataset if no citation exists. "Accessed" should align with the date indicated in the data prep .Rmd file, OR the timestamp on the saved raw data files if a download date is not obvious. If there are new data sources, fill out the information and add them to "OHI Global Refs" folder. If the datasource has an additional year of data, find that datasource in "OHI Global Refs" and update the date and any other relevant information.  Example of completed citation information in Zotero: 
+Create citations in Zotero or update the existing citations, including title, author, abstract, date, URL, and accessed date. "Date" should indicate the year listed in the data citation, OR the most recent year in the dataset if no citation exists. "Accessed" should align with the date indicated in the data prep .Rmd file, OR the timestamp on the saved raw data files if a download date is not obvious. **If there are new data sources, fill out the information and add them to "OHI Global Refs" folder. If the datasource has an additional year of data, find that datasource in "OHI Global Refs" and update the date and any other relevant information.**  Example of completed citation information in Zotero: 
 
 ![](https://docs.google.com/drawings/d/e/2PACX-1vQT5N_fbalcK5GY_cTYQ7nQYaGS6MPQY-8ogqoFZlGH7yqzON49l2kQ7yfMyU6_LzoQ0ylLhZ5-3yhN/pub?w=458&h=680)
 
-One you have completed filling in citation information, right click the item in Zotero and choose "Export Item...". Export as a BibLaTeX file and save as a .bib to your computer. It is important that when you right click the item and export it, you are working from the "OHI Global Refs" folder. 
+One you have completed filling in citation information, right click the item in Zotero and choose "Export Item...". Export as a BibLaTeX file and save as a .bib to your computer. **It is VERY important that when you right click the item and export it, you are working from the "OHI Global Refs" folder.**
 
 ![](https://docs.google.com/drawings/d/e/2PACX-1vRwsusCeQVmbycYSitRdBY7bGwld10OY9ALbH6UwM30tdNtgWeUPU9Gw9jwgfp8eX0GB8yr6f8SaaXy/pub?w=604&h=492)
 
@@ -243,7 +240,7 @@ For all references that were not updated, fill in the ds_updated_20?? with "n" o
 
 **layers_eez_dataprep**
 
-*dataprep_url*: File path to the knitted html file . Note: finalized data prep files should all be knitted BEFORE attempting to update this document, as this can take some time! 
+*dataprep_url*: File path to the knitted html file . **Note: finalized data prep files should all be knitted BEFORE attempting to update this document, as this can take some time!**
 
 <br>
 
@@ -271,23 +268,21 @@ This really only needs to be updated when layers are removed/added.
 
 
 #### Step 2: Update OHI.bib
-Make sure all references are included in the OHI Zotero library (see Section 5.3: Citation Management for more). Then export the folder "OHI Global Refs" as a BibLaTeX file and replace the OHI.bib file in ohi-global/global_supplement with the updated file.
-
-We have noticed that some of the OHI.bib entries need to be modified to report correctly. For example, when the author of a report is an agency, such as the US State Depart, it will be reported as "Depart, US".  For this reason, we use the BIBcorrect.R file to correct and then overwrite the OHI.bib file.  
+Make sure all references are included in the OHI Zotero library (see Section 5.3: Citation Management for more). Then export the folder "OHI Global Refs" as a BibLaTeX file and replace the OHI.bib file in `ohi-global/documents/methods/` with the updated file.
 
 
 #### Step 3: Update layers_info
-The layers_info folder includes an Rmd file for every data layer used to calculate the global OHI assessment.  The files describe the general methods and data used to generate the layer. Ideally, these Rmd files do not include information that changes each year (e.g., final year of data used in analysis, links to data preparation files on Github, etc), so they can be used each year with minimal changes.   Components that change every year should be included in tables, such as those in _ohi-global/metadata_documentation.
+The `metadata_documentation/ohi_model/layers_info` folder includes an Rmd file for every data layer used to calculate the global OHI assessment.  The files describe the general methods and data used to generate the layer. Ideally, these Rmd files do not include information that changes each year (e.g., final year of data used in analysis, links to data preparation files on Github, etc), so they can be used each year with minimal changes. Components that change every year should be included in tables, such as those in `ohi-global/metadata_documentation`.
 
 However, if there have been changes to the model or data used to generate a layer it will be necessary to update the corresponding Rmd file.
 
-After the Rmds have been updated it is necesary to run the CombineLayers.R file, which merges all the layer information into a single document, layers_all.Rmd. 
+After the Rmds have been updated it is necessary to run the CombineLayers.R file, which merges all the layer information into a single document, layers_all.Rmd. 
 
 #### Step 4: Review other files
 
 Review whether any of the other files require editing.  There may be changes to the text to make it clearer, but otherwise, the following files are unlikely to change:  
 
-There will be no changes to the following files: goal_model.Rmd, insex_scores.Rmd, pressure.Rmd, resilience.Rmd, or trend.Rmd, unless changes are made to the OHI models (which is unlikely).
+There will usually be no changes to the following files: goal_model.Rmd, index_scores.Rmd, pressure.Rmd, resilience.Rmd, or trend.Rmd, unless changes are made to the OHI models.
 
 The Rmds describing the goal models in the goal_descriptions and goal_descriptions_short folders will only change if there have been changes to the goal model or data.
 
@@ -298,7 +293,7 @@ Review the Supplement.Rmd document to update the assessment year (i.e., title at
 
 ***
 ## Results document
-After producing the final scores, we create a document that describes the results of the assessment: https://raw.githack.com/OHI-Science/ohi-global/published/global2018/Results/Supplement_Results.html. This file can be accessed from our OHI-science global webpage.
+After producing the final scores, we create a document that describes the results of the assessment: https://oceanhealthindex.org/images/htmls/Supplement_Results.html. This file can be accessed from our website.
 
 The file is created using this Rmd: ohi-global/yearly_results/global20??/Results/Supplement_Results.Rmd.  
 
@@ -306,7 +301,7 @@ It is critical to carefully step through this script and modify as needed; for e
 
 And, of course, freely modify this script to reflect the data/figures you believe will be most useful to people.  This could involve editing text, removing particular figures, adding figures, etc.
 
-NOTE: If there are any changes to the scores, it is important to run the Results_first_look.Rmd file prior to running this script.  Many of the figures in the Supplement_Results document are actually generated by the Results_first_look.Rmd script.
+**NOTE: If there are any changes to the scores, it is important to run the Results_first_look.Rmd file prior to running this script.  Many of the figures in the Supplement_Results document are actually generated by the Results_first_look.Rmd script.**
 
 
 ***

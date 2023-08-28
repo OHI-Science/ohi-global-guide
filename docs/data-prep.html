@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Data Prep | OHI Global Assessment Guide</title>
   <meta name="description" content="A guide for conducting the OHI Global Assessment" />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Data Prep | OHI Global Assessment Guide" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="OHI Team" />
 
 
-<meta name="date" content="2022-08-16" />
+<meta name="date" content="2023-08-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -119,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="lib/css/bootstrap.min.css" type="text/css" />
 <link rel="stylesheet" href="lib/css/style.css" type="text/css" />
@@ -650,12 +654,20 @@ Reported at country scale.</p>
 ##  * UNgeorgn = function to load dataframe of UN geopolitical designations used to gapfill missing data</code></pre>
 <pre><code>## Warning in eval(ei, envir): The Mazu directory dir_M set in src/R/common.R does
 ## not exist. Do you need to mount Mazu: /Volumes/ohi?</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="data-prep.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># call the function to load the data, the message describes the available data: </span></span>
-<span id="cb5-2"><a href="data-prep.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">region_data</span>()</span></code></pre></div>
+<pre><code>## The legacy packages maptools, rgdal, and rgeos, underpinning the sp package,
+## which was just loaded, will retire in October 2023.
+## Please refer to R-spatial evolution reports for details, especially
+## https://r-spatial.org/r/2023/05/15/evolution4.html.
+## It may be desirable to make the sf package available;
+## package maintainers should consider adding sf to Suggests:.
+## The sp package is now running under evolution status 2
+##      (status 2 uses the sf package in place of rgdal)</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="data-prep.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># call the function to load the data, the message describes the available data: </span></span>
+<span id="cb6-2"><a href="data-prep.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">region_data</span>()</span></code></pre></div>
 <pre><code>## loads 2 dataframes: rgns_all and rgns_eez 
 ##  rgns_all = includes eez/high seas/antarctica regions, IDs correspond with region shapefile and raster
 ##  rgns_eez = includes only eez regions</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="data-prep.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rgns_all)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="data-prep.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rgns_all)</span></code></pre></div>
 <pre><code>##   rgn_type type_w_ant rgn_id rgn_ant_id              rgn_name
 ## 1      eez        eez      1          1         Cocos Islands
 ## 2      eez        eez     10         10                 Nauru
@@ -663,7 +675,7 @@ Reported at country scale.</p>
 ## 4      eez        eez    101        101               Namibia
 ## 5      eez        eez    102        102          South Africa
 ## 6      eez        eez    103        103 Sao Tome and Principe</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="data-prep.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rgns_eez)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data-prep.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rgns_eez)</span></code></pre></div>
 <pre><code>##   rgn_id         rgn_name eez_iso3 territory admin_rgn_id admin_country_name
 ## 1      1    Cocos Islands      CCK       yes           16          Australia
 ## 2      2 Christmas Island      CXR       yes           16          Australia
@@ -682,14 +694,13 @@ Reported at country scale.</p>
 <h4><span class="header-section-number">3.7.2.1</span> metadata for common.R<a href="data-prep.html#metadata-for-common.r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>dir_M and mollCRS</strong></p>
 <p>The following are the dir_M and mollCRS objects:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data-prep.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## dir_M describes the path to our internal server based on your computer&#39;s operating system</span></span>
-<span id="cb11-2"><a href="data-prep.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do">: The following may be different on your operating system</span></span>
-<span id="cb11-3"><a href="data-prep.html#cb11-3" aria-hidden="true" tabindex="-1"></a>dir_M</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="data-prep.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## dir_M describes the path to our internal server based on your computer&#39;s operating system</span></span>
+<span id="cb12-2"><a href="data-prep.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do">: The following may be different on your operating system</span></span>
+<span id="cb12-3"><a href="data-prep.html#cb12-3" aria-hidden="true" tabindex="-1"></a>dir_M</span></code></pre></div>
 <pre><code>## [1] &quot;/Volumes/ohi&quot;</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data-prep.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## mollCRS is the code for the Mollweide coordinate reference system</span></span>
-<span id="cb13-2"><a href="data-prep.html#cb13-2" aria-hidden="true" tabindex="-1"></a>mollCRS</span></code></pre></div>
-<pre><code>## CRS arguments:
-##  +proj=moll +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +units=m +no_defs</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="data-prep.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## mollCRS is the code for the Mollweide coordinate reference system</span></span>
+<span id="cb14-2"><a href="data-prep.html#cb14-2" aria-hidden="true" tabindex="-1"></a>mollCRS</span></code></pre></div>
+<pre><code>## [1] &quot;PROJCRS[\&quot;unknown\&quot;,\n    BASEGEOGCRS[\&quot;unknown\&quot;,\n        DATUM[\&quot;Unknown based on WGS84 ellipsoid\&quot;,\n            ELLIPSOID[\&quot;WGS 84\&quot;,6378137,298.257223563,\n                LENGTHUNIT[\&quot;metre\&quot;,1],\n                ID[\&quot;EPSG\&quot;,7030]]],\n        PRIMEM[\&quot;Greenwich\&quot;,0,\n            ANGLEUNIT[\&quot;degree\&quot;,0.0174532925199433],\n            ID[\&quot;EPSG\&quot;,8901]]],\n    CONVERSION[\&quot;unknown\&quot;,\n        METHOD[\&quot;Mollweide\&quot;],\n        PARAMETER[\&quot;Longitude of natural origin\&quot;,0,\n            ANGLEUNIT[\&quot;degree\&quot;,0.0174532925199433],\n            ID[\&quot;EPSG\&quot;,8802]],\n        PARAMETER[\&quot;False easting\&quot;,0,\n            LENGTHUNIT[\&quot;metre\&quot;,1],\n            ID[\&quot;EPSG\&quot;,8806]],\n        PARAMETER[\&quot;False northing\&quot;,0,\n            LENGTHUNIT[\&quot;metre\&quot;,1],\n            ID[\&quot;EPSG\&quot;,8807]]],\n    CS[Cartesian,2],\n        AXIS[\&quot;(E)\&quot;,east,\n            ORDER[1],\n            LENGTHUNIT[\&quot;metre\&quot;,1,\n                ID[\&quot;EPSG\&quot;,9001]]],\n        AXIS[\&quot;(N)\&quot;,north,\n            ORDER[2],\n            LENGTHUNIT[\&quot;metre\&quot;,1,\n                ID[\&quot;EPSG\&quot;,9001]]]]&quot;</code></pre>
 <p><strong>regions_shape</strong></p>
 <p>The regions_shape function returns a simple feature object called “regions.” Regions is the master global shapefile that includes polygons for land, eez, high seas, and antarctica regions in the Mollweide coordinate reference system.</p>
 <p>Sometimes it is necessary to convert from a simple feature object to a shapefile object because some functions still do not work with simple feature objects, or, if the spatial file is modified, a saved shapefile may be desired. This is accomplished like this:</p>
@@ -1062,32 +1073,32 @@ Reported at country scale.</p>
 <div id="ohi-data-idiosyncracies-low-populationuninhabited-regions-and-grouped-regions" class="section level3 hasAnchor" number="3.8.1">
 <h3><span class="header-section-number">3.8.1</span> OHI data idiosyncracies: Low population/uninhabited regions and grouped regions<a href="data-prep.html#ohi-data-idiosyncracies-low-populationuninhabited-regions-and-grouped-regions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Recently we have standardized how we identify low population regions, using the low_pop() function in the common.R file. These regions are assigned NAs for some goals (e.g. GDP values used in AO) and perfect scores for others (e.g. sanitation access). Use the following code to establish a vector of low pop regions that can be compared against the final dataset.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-prep.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After sourcing common.R and gapfilling data: </span></span>
-<span id="cb15-2"><a href="data-prep.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">low_pop</span>()</span>
-<span id="cb15-3"><a href="data-prep.html#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="data-prep.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out regions that have populations &gt; 3000 and keep NA values </span></span>
-<span id="cb15-5"><a href="data-prep.html#cb15-5" aria-hidden="true" tabindex="-1"></a>low_pop <span class="ot">&lt;-</span> low_pop <span class="sc">%&gt;%</span></span>
-<span id="cb15-6"><a href="data-prep.html#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(est_population <span class="sc">&lt;</span> <span class="dv">3000</span> <span class="sc">|</span> <span class="fu">is.na</span>(est_population)) </span>
-<span id="cb15-7"><a href="data-prep.html#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-8"><a href="data-prep.html#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a vector of low population region IDs:</span></span>
-<span id="cb15-9"><a href="data-prep.html#cb15-9" aria-hidden="true" tabindex="-1"></a>low_pop_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(low_pop<span class="sc">$</span>rgn_id)  </span>
-<span id="cb15-10"><a href="data-prep.html#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a href="data-prep.html#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign NA values in score column for low popuation areas:</span></span>
-<span id="cb15-12"><a href="data-prep.html#cb15-12" aria-hidden="true" tabindex="-1"></a>gapfilled_dataset<span class="sc">$</span>score[gapfilled_dataset<span class="sc">$</span>rgn_id <span class="sc">%in%</span> low_pop_vector] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="data-prep.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After sourcing common.R and gapfilling data: </span></span>
+<span id="cb16-2"><a href="data-prep.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">low_pop</span>()</span>
+<span id="cb16-3"><a href="data-prep.html#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="data-prep.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out regions that have populations &gt; 3000 and keep NA values </span></span>
+<span id="cb16-5"><a href="data-prep.html#cb16-5" aria-hidden="true" tabindex="-1"></a>low_pop <span class="ot">&lt;-</span> low_pop <span class="sc">%&gt;%</span></span>
+<span id="cb16-6"><a href="data-prep.html#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(est_population <span class="sc">&lt;</span> <span class="dv">3000</span> <span class="sc">|</span> <span class="fu">is.na</span>(est_population)) </span>
+<span id="cb16-7"><a href="data-prep.html#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="data-prep.html#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a vector of low population region IDs:</span></span>
+<span id="cb16-9"><a href="data-prep.html#cb16-9" aria-hidden="true" tabindex="-1"></a>low_pop_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(low_pop<span class="sc">$</span>rgn_id)  </span>
+<span id="cb16-10"><a href="data-prep.html#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="data-prep.html#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign NA values in score column for low popuation areas:</span></span>
+<span id="cb16-12"><a href="data-prep.html#cb16-12" aria-hidden="true" tabindex="-1"></a>gapfilled_dataset<span class="sc">$</span>score[gapfilled_dataset<span class="sc">$</span>rgn_id <span class="sc">%in%</span> low_pop_vector] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
 <p>Several of the datasets we use also report OHI regions as a group, and we want to report them all at the same scale/resolution used in OHI. For instance, Bonaire, Sint Eustatius and Saba are often reported together as “Caribbean Netherlands” or combined as “Bonaire, Sint Eustatius and Saba.” Use the following code to apply the data to all three regions:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="data-prep.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming &quot;tidy_dataset&quot; has been wrangled, cleaned, and has column &quot;country&quot;</span></span>
-<span id="cb16-2"><a href="data-prep.html#cb16-2" aria-hidden="true" tabindex="-1"></a>CN <span class="ot">&lt;-</span> <span class="fu">filter</span>(tidy_dataset, country<span class="sc">==</span><span class="st">&quot;Caribbean Netherlands&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-3"><a href="data-prep.html#cb16-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">rename</span>(<span class="at">country_old =</span> country) <span class="co"># country could also be rgn_name </span></span>
-<span id="cb16-4"><a href="data-prep.html#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="data-prep.html#cb16-5" aria-hidden="true" tabindex="-1"></a>CN_subregions <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">country_old =</span> <span class="st">&quot;Caribbean Netherlands&quot;</span>,</span>
-<span id="cb16-6"><a href="data-prep.html#cb16-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">country =</span> <span class="fu">c</span>(<span class="st">&quot;Bonaire&quot;</span>, <span class="st">&quot;Sint Eustatius&quot;</span>, <span class="st">&quot;Saba&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb16-7"><a href="data-prep.html#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(CN) <span class="sc">%&gt;%</span></span>
-<span id="cb16-8"><a href="data-prep.html#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>country_old)</span>
-<span id="cb16-9"><a href="data-prep.html#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="data-prep.html#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove lines of data for Caribbean Netherlands and replace with individual region-level data for the three subregions:</span></span>
-<span id="cb16-11"><a href="data-prep.html#cb16-11" aria-hidden="true" tabindex="-1"></a>tidy_dataset <span class="ot">&lt;-</span> tidy_dataset <span class="sc">%&gt;%</span></span>
-<span id="cb16-12"><a href="data-prep.html#cb16-12" aria-hidden="true" tabindex="-1"></a>   <span class="fu">filter</span>(country <span class="sc">!=</span> <span class="st">&quot;Caribbean Netherlands&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-13"><a href="data-prep.html#cb16-13" aria-hidden="true" tabindex="-1"></a>   <span class="fu">rbind</span>(CN_subregions)  </span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-prep.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming &quot;tidy_dataset&quot; has been wrangled, cleaned, and has column &quot;country&quot;</span></span>
+<span id="cb17-2"><a href="data-prep.html#cb17-2" aria-hidden="true" tabindex="-1"></a>CN <span class="ot">&lt;-</span> <span class="fu">filter</span>(tidy_dataset, country<span class="sc">==</span><span class="st">&quot;Caribbean Netherlands&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="data-prep.html#cb17-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">rename</span>(<span class="at">country_old =</span> country) <span class="co"># country could also be rgn_name </span></span>
+<span id="cb17-4"><a href="data-prep.html#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="data-prep.html#cb17-5" aria-hidden="true" tabindex="-1"></a>CN_subregions <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">country_old =</span> <span class="st">&quot;Caribbean Netherlands&quot;</span>,</span>
+<span id="cb17-6"><a href="data-prep.html#cb17-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">country =</span> <span class="fu">c</span>(<span class="st">&quot;Bonaire&quot;</span>, <span class="st">&quot;Sint Eustatius&quot;</span>, <span class="st">&quot;Saba&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-7"><a href="data-prep.html#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(CN) <span class="sc">%&gt;%</span></span>
+<span id="cb17-8"><a href="data-prep.html#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>country_old)</span>
+<span id="cb17-9"><a href="data-prep.html#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="data-prep.html#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove lines of data for Caribbean Netherlands and replace with individual region-level data for the three subregions:</span></span>
+<span id="cb17-11"><a href="data-prep.html#cb17-11" aria-hidden="true" tabindex="-1"></a>tidy_dataset <span class="ot">&lt;-</span> tidy_dataset <span class="sc">%&gt;%</span></span>
+<span id="cb17-12"><a href="data-prep.html#cb17-12" aria-hidden="true" tabindex="-1"></a>   <span class="fu">filter</span>(country <span class="sc">!=</span> <span class="st">&quot;Caribbean Netherlands&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-13"><a href="data-prep.html#cb17-13" aria-hidden="true" tabindex="-1"></a>   <span class="fu">rbind</span>(CN_subregions)  </span></code></pre></div>
 </div>
 </div>
 <div id="prep-rmd-6.-gapfilling" class="section level2 hasAnchor" number="3.9">
@@ -1114,24 +1125,24 @@ Use alternative datasets to predict data points for a dataset you have limited d
 <li>Look at correlation between alternative data sets cor.test() and pairs.panels()</li>
 <li>Create initial model:</li>
 </ol>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-prep.html#cb17-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(dep_variable <span class="sc">~</span> ind_variable, <span class="at">data=</span>df_name)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="data-prep.html#cb18-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(dep_variable <span class="sc">~</span> ind_variable, <span class="at">data=</span>df_name)</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Look at <code>summary(mod1)</code> to check for R-squared and p-value</li>
 <li>Create an array of predicted values:</li>
 </ol>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="data-prep.html#cb18-1" aria-hidden="true" tabindex="-1"></a>df_predicted <span class="ot">&lt;-</span> df_name <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="data-prep.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(rgn_id) <span class="sc">%&gt;%</span></span>
-<span id="cb18-3"><a href="data-prep.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">do</span>({</span>
-<span id="cb18-4"><a href="data-prep.html#cb18-4" aria-hidden="true" tabindex="-1"></a>    pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(mod1, <span class="at">newdata =</span>.[<span class="fu">c</span>(<span class="st">&#39;ind_variable&#39;</span>)]) <span class="co"># creates a new column for predicted values</span></span>
-<span id="cb18-5"><a href="data-prep.html#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">data.frame</span>(., fmi_pred) <span class="co"># do loop applies the model fitting and prediction to each country group</span></span>
-<span id="cb18-6"><a href="data-prep.html#cb18-6" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">%&gt;%</span></span>
-<span id="cb18-7"><a href="data-prep.html#cb18-7" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data-prep.html#cb19-1" aria-hidden="true" tabindex="-1"></a>df_predicted <span class="ot">&lt;-</span> df_name <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="data-prep.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(rgn_id) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="data-prep.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">do</span>({</span>
+<span id="cb19-4"><a href="data-prep.html#cb19-4" aria-hidden="true" tabindex="-1"></a>    pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(mod1, <span class="at">newdata =</span>.[<span class="fu">c</span>(<span class="st">&#39;ind_variable&#39;</span>)]) <span class="co"># creates a new column for predicted values</span></span>
+<span id="cb19-5"><a href="data-prep.html#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">data.frame</span>(., fmi_pred) <span class="co"># do loop applies the model fitting and prediction to each country group</span></span>
+<span id="cb19-6"><a href="data-prep.html#cb19-6" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">%&gt;%</span></span>
+<span id="cb19-7"><a href="data-prep.html#cb19-7" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">ungroup</span>()</span></code></pre></div>
 <ol start="6" style="list-style-type: decimal">
 <li>Plot predicted vs actual values:</li>
 </ol>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data-prep.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(<span class="fu">ggplot</span>(df_predicted, <span class="fu">aes</span>(<span class="at">x =</span> dep_variable, <span class="at">y =</span> pred, <span class="at">labels =</span> rgn_id)) <span class="sc">+</span></span>
-<span id="cb19-2"><a href="data-prep.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb19-3"><a href="data-prep.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="data-prep.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(<span class="fu">ggplot</span>(df_predicted, <span class="fu">aes</span>(<span class="at">x =</span> dep_variable, <span class="at">y =</span> pred, <span class="at">labels =</span> rgn_id)) <span class="sc">+</span></span>
+<span id="cb20-2"><a href="data-prep.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb20-3"><a href="data-prep.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>))</span></code></pre></div>
 <p><em>Note: “rgn_id” is just an example of a column in the dataset with a unique value for each observation.</em></p>
 <p>lm() can also include multiple independent variables (must be merged into one data frame with one row for each observation):
 mod2 &lt;- lm(dep_variable ~ ind_variable + ind_variable2, data=df_name)</p>
@@ -1140,14 +1151,14 @@ mod2 &lt;- lm(dep_variable ~ ind_variable + ind_variable2, data=df_name)</p>
 <li><p>Use best-fit model to gapfill areas without data using do loop as shown in step 4.</p></li>
 </ol>
 <p>If using UN georegions to gapfill, you’ll want to use the most specific/granular label possible. Use separate models for regional and continental levels (r2_label vs r1_label as described in metadata above), and write code to tell R to grab the data from the most granular data available. Example from <a href="https://github.com/OHI-Science/ohiprep_v2019/blob/gh-pages/globalprep/res_fmi/v2019/fmi_model_compare.Rmd">FMI model comparison .Rmd</a>:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="data-prep.html#cb20-1" aria-hidden="true" tabindex="-1"></a>fmi_gf_all <span class="ot">&lt;-</span> fmi_gf1 <span class="sc">%&gt;%</span></span>
-<span id="cb20-2"><a href="data-prep.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(fmi_gf2, <span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;rgn_id&quot;</span>, <span class="st">&quot;r1_label&quot;</span>, <span class="st">&quot;r2_label&quot;</span>, <span class="st">&quot;rgn_label&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;spi&quot;</span>, <span class="st">&quot;fmi&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb20-3"><a href="data-prep.html#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gapfilled =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(fmi) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(fmi_pred_r2), <span class="st">&quot;1&quot;</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb20-4"><a href="data-prep.html#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">method =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(fmi) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(fmi_pred_r2), <span class="st">&quot;SPI + UN_geopolitical region r2&quot;</span>, <span class="cn">NA</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb20-5"><a href="data-prep.html#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fmi =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(fmi), fmi_pred_r2, fmi)) <span class="sc">%&gt;%</span> </span>
-<span id="cb20-6"><a href="data-prep.html#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gapfilled =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(fmi) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(fmi_pred_r1), <span class="st">&quot;1&quot;</span>, gapfilled)) <span class="sc">%&gt;%</span></span>
-<span id="cb20-7"><a href="data-prep.html#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">method =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(fmi) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(fmi_pred_r1), <span class="st">&quot;SPI + UN_geopolitical region r1&quot;</span>, method)) <span class="sc">%&gt;%</span></span>
-<span id="cb20-8"><a href="data-prep.html#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fmi =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(fmi), fmi_pred_r1, fmi))</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data-prep.html#cb21-1" aria-hidden="true" tabindex="-1"></a>fmi_gf_all <span class="ot">&lt;-</span> fmi_gf1 <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="data-prep.html#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(fmi_gf2, <span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;rgn_id&quot;</span>, <span class="st">&quot;r1_label&quot;</span>, <span class="st">&quot;r2_label&quot;</span>, <span class="st">&quot;rgn_label&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;spi&quot;</span>, <span class="st">&quot;fmi&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-3"><a href="data-prep.html#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gapfilled =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(fmi) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(fmi_pred_r2), <span class="st">&quot;1&quot;</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a href="data-prep.html#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">method =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(fmi) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(fmi_pred_r2), <span class="st">&quot;SPI + UN_geopolitical region r2&quot;</span>, <span class="cn">NA</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a href="data-prep.html#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fmi =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(fmi), fmi_pred_r2, fmi)) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-6"><a href="data-prep.html#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gapfilled =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(fmi) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(fmi_pred_r1), <span class="st">&quot;1&quot;</span>, gapfilled)) <span class="sc">%&gt;%</span></span>
+<span id="cb21-7"><a href="data-prep.html#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">method =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(fmi) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(fmi_pred_r1), <span class="st">&quot;SPI + UN_geopolitical region r1&quot;</span>, method)) <span class="sc">%&gt;%</span></span>
+<span id="cb21-8"><a href="data-prep.html#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fmi =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(fmi), fmi_pred_r1, fmi))</span></code></pre></div>
 </div>
 <div id="saving-gapfilling-report-files" class="section level3 hasAnchor" number="3.9.2">
 <h3><span class="header-section-number">3.9.2</span> Saving gapfilling report files<a href="data-prep.html#saving-gapfilling-report-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1178,40 +1189,40 @@ mod2 &lt;- lm(dep_variable ~ ind_variable + ind_variable2, data=df_name)</p>
 <code>hist()</code>, <code>summary()</code>, <code>dim()</code>, <code>table()</code></p>
 <p>Because we calculate the global index every year, the most powerful way of checking our data is to compare the current data with last year’s data. In most cases, source data will remain the same from year to year (although some agencies will update previous data). Consequently, any changes will often reflect changes to the model and/or mistakes.</p>
 <p>For this comparison we typically compare the most recent shared year of data between the two assessments. The following code walks through this process using data calculated for the lasting special places goal. In this case, we will pretend we have just completed preparing the data for the 2018 assessment and we want to compare the results to the 2017 assessment. Here we focus on the data for the 3nm offshore region.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data-prep.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb21-2"><a href="data-prep.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb21-3"><a href="data-prep.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb21-4"><a href="data-prep.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
-<span id="cb21-5"><a href="data-prep.html#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-6"><a href="data-prep.html#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># want the region data from here:</span></span>
-<span id="cb21-7"><a href="data-prep.html#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;http://ohi-science.org/ohiprep_v2019/workflow/R/common.R&#39;</span>)</span>
-<span id="cb21-8"><a href="data-prep.html#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-9"><a href="data-prep.html#cb21-9" aria-hidden="true" tabindex="-1"></a>new <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;globalprep/lsp/v2018/output/lsp_prot_area_offshore3nm.csv&quot;</span>))</span>
-<span id="cb21-10"><a href="data-prep.html#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(new)</span>
-<span id="cb21-11"><a href="data-prep.html#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-12"><a href="data-prep.html#cb21-12" aria-hidden="true" tabindex="-1"></a>old <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;globalprep/lsp/v2017/output/lsp_prot_area_offshore3nm.csv&quot;</span>))</span>
-<span id="cb21-13"><a href="data-prep.html#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(old)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="data-prep.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb22-2"><a href="data-prep.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb22-3"><a href="data-prep.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb22-4"><a href="data-prep.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb22-5"><a href="data-prep.html#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="data-prep.html#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># want the region data from here:</span></span>
+<span id="cb22-7"><a href="data-prep.html#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;http://ohi-science.org/ohiprep_v2019/workflow/R/common.R&#39;</span>)</span>
+<span id="cb22-8"><a href="data-prep.html#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="data-prep.html#cb22-9" aria-hidden="true" tabindex="-1"></a>new <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;globalprep/lsp/v2018/output/lsp_prot_area_offshore3nm.csv&quot;</span>))</span>
+<span id="cb22-10"><a href="data-prep.html#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(new)</span>
+<span id="cb22-11"><a href="data-prep.html#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-12"><a href="data-prep.html#cb22-12" aria-hidden="true" tabindex="-1"></a>old <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;globalprep/lsp/v2017/output/lsp_prot_area_offshore3nm.csv&quot;</span>))</span>
+<span id="cb22-13"><a href="data-prep.html#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(old)</span></code></pre></div>
 <p>The most recent shared year between the two datasets is 2017, so this is the year that will be compared. The old and new values are plotted as a scatterplot, with a point for each region. We create an interactive plot and add a one-to-one line to make it easier to determine which regions have changed. Any changes in values will reflect either changes to the source data or changes to the data prep script.</p>
 <p><em>It is important to explore the reasons for these changes because it could reflect errors!</em></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="data-prep.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get region names</span></span>
-<span id="cb22-2"><a href="data-prep.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">region_data</span>()</span>
-<span id="cb22-3"><a href="data-prep.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rgns_eez)</span>
-<span id="cb22-4"><a href="data-prep.html#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-5"><a href="data-prep.html#cb22-5" aria-hidden="true" tabindex="-1"></a>compare <span class="ot">&lt;-</span> new <span class="sc">%&gt;%</span></span>
-<span id="cb22-6"><a href="data-prep.html#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">a_prot_3nm_new =</span> a_prot_3nm) <span class="sc">%&gt;%</span></span>
-<span id="cb22-7"><a href="data-prep.html#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(old, <span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;rgn_id&quot;</span>, <span class="st">&quot;year&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb22-8"><a href="data-prep.html#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2017</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-9"><a href="data-prep.html#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(rgns_eez, <span class="at">by=</span><span class="st">&quot;rgn_id&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-10"><a href="data-prep.html#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rgn_id, rgn_name, year, a_prot_3nm, a_prot_3nm_new) <span class="sc">%&gt;%</span></span>
-<span id="cb22-11"><a href="data-prep.html#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">region=</span><span class="fu">paste</span>(rgn_id, rgn_name, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>))</span>
-<span id="cb22-12"><a href="data-prep.html#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-13"><a href="data-prep.html#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(compare)</span>
-<span id="cb22-14"><a href="data-prep.html#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-15"><a href="data-prep.html#cb22-15" aria-hidden="true" tabindex="-1"></a>compare_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(compare, <span class="fu">aes</span>(<span class="at">x=</span>a_prot_3nm, <span class="at">y=</span>a_prot_3nm_new, <span class="at">label=</span>region)) <span class="sc">+</span></span>
-<span id="cb22-16"><a href="data-prep.html#cb22-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb22-17"><a href="data-prep.html#cb22-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope=</span><span class="dv">1</span>, <span class="at">intercept=</span><span class="dv">0</span>, <span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span>
-<span id="cb22-18"><a href="data-prep.html#cb22-18" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-19"><a href="data-prep.html#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(compare_plot)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="data-prep.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get region names</span></span>
+<span id="cb23-2"><a href="data-prep.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">region_data</span>()</span>
+<span id="cb23-3"><a href="data-prep.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rgns_eez)</span>
+<span id="cb23-4"><a href="data-prep.html#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="data-prep.html#cb23-5" aria-hidden="true" tabindex="-1"></a>compare <span class="ot">&lt;-</span> new <span class="sc">%&gt;%</span></span>
+<span id="cb23-6"><a href="data-prep.html#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">a_prot_3nm_new =</span> a_prot_3nm) <span class="sc">%&gt;%</span></span>
+<span id="cb23-7"><a href="data-prep.html#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(old, <span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;rgn_id&quot;</span>, <span class="st">&quot;year&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb23-8"><a href="data-prep.html#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2017</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-9"><a href="data-prep.html#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(rgns_eez, <span class="at">by=</span><span class="st">&quot;rgn_id&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-10"><a href="data-prep.html#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rgn_id, rgn_name, year, a_prot_3nm, a_prot_3nm_new) <span class="sc">%&gt;%</span></span>
+<span id="cb23-11"><a href="data-prep.html#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">region=</span><span class="fu">paste</span>(rgn_id, rgn_name, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>))</span>
+<span id="cb23-12"><a href="data-prep.html#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="data-prep.html#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(compare)</span>
+<span id="cb23-14"><a href="data-prep.html#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-15"><a href="data-prep.html#cb23-15" aria-hidden="true" tabindex="-1"></a>compare_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(compare, <span class="fu">aes</span>(<span class="at">x=</span>a_prot_3nm, <span class="at">y=</span>a_prot_3nm_new, <span class="at">label=</span>region)) <span class="sc">+</span></span>
+<span id="cb23-16"><a href="data-prep.html#cb23-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb23-17"><a href="data-prep.html#cb23-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope=</span><span class="dv">1</span>, <span class="at">intercept=</span><span class="dv">0</span>, <span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb23-18"><a href="data-prep.html#cb23-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-19"><a href="data-prep.html#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(compare_plot)</span></code></pre></div>
 <p>In this case, the values for most regions remain the same from the 2017 to 2018 assessment, however, there are some changes. The biggest change was for Antarctica, which we can ignore because we do not calculate scores for Antarctica for the global assessment. However, there is also a fairly large change in the Greece data, and some smaller changes for some other regions.</p>
 <p>By carefully exploring the source data we found that these differences reflect updates to the source data. For example, a marine reserve may have been established in 2017, but weren’t yet incorporated into the World Database on Protected Areas.</p>
 </div>
@@ -1238,10 +1249,10 @@ mod2 &lt;- lm(dep_variable ~ ind_variable + ind_variable2, data=df_name)</p>
 <p><em>Method 1:</em> <code>registerDoParallel(4)</code></p>
 <p>OR</p>
 <p><em>Method 2:</em></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="data-prep.html#cb23-1" aria-hidden="true" tabindex="-1"></a>cl <span class="ot">&lt;-</span> <span class="fu">makeCluster</span>(<span class="dv">4</span>)</span>
-<span id="cb23-2"><a href="data-prep.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cl)</span>
-<span id="cb23-3"><a href="data-prep.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">foreach</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">%dopar%</span>{}</span>
-<span id="cb23-4"><a href="data-prep.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cl)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="data-prep.html#cb24-1" aria-hidden="true" tabindex="-1"></a>cl <span class="ot">&lt;-</span> <span class="fu">makeCluster</span>(<span class="dv">4</span>)</span>
+<span id="cb24-2"><a href="data-prep.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cl)</span>
+<span id="cb24-3"><a href="data-prep.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">foreach</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">%dopar%</span>{}</span>
+<span id="cb24-4"><a href="data-prep.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cl)</span></code></pre></div>
 <div id="stopcluster-makecluster" class="section level3 hasAnchor" number="3.12.1">
 <h3><span class="header-section-number">3.12.1</span> stopCluster &amp; makeCluster<a href="data-prep.html#stopcluster-makecluster" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Stopping your cluster:</strong></p>
